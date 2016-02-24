@@ -1,14 +1,13 @@
 package BE.Odisee.Oxyplast.Domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Lesuisse
  * @version 1.0
  * @created 31-Dec-2015 11:35:14
  */
-
-import org.springframework.stereotype.Component;
 
 @Component("persoon1")
 public class Klant implements IPersoon{
@@ -21,13 +20,17 @@ public class Klant implements IPersoon{
 	private String Naam;
 	//public Feedback m_Feedback;
 
+	public Klant(){
+		this.Naam = "jos";
+	}
+	
+	
 	public Klant(String achternaam, String bedrijfsnaam, String email2, String voornaam){
 			this.Achternaam = achternaam;
 			this.BedrijfNaam = bedrijfsnaam;
 			this.Email = email2;
 			this.Voornaam = voornaam;
 			this.ID = 1;
-			
 	}
 
 
@@ -66,8 +69,8 @@ public class Klant implements IPersoon{
 
 
 	@Autowired
-	public void setNaam(String naam) {
-		this.Naam = naam;
+	public void setNaam(String setNieuweNaam) {
+		this.Naam = setNieuweNaam;
 	}
 
 
