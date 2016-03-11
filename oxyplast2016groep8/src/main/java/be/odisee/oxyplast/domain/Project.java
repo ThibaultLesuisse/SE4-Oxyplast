@@ -21,13 +21,14 @@ public class Project implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name="Id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int ProjectID;
 	
 	@Column(name="TeamId")
 	private int ProjectTeamID;
 	
-	private String Rentabiliteit;
+	//private String Rentabiliteit;
 	
 	@Column
 	@Index(name="IProject_status",columnNames="Status")
@@ -64,6 +65,56 @@ public class Project implements Serializable{
 	}
 	public int getProjectTeamId(){
 		return this.ProjectTeamID;
+	}
+	public int getProjectId(){
+		return this.ProjectID;
+	}
+
+
+
+
+	public int getProjectID() {
+		return ProjectID;
+	}
+
+
+
+
+	public void setProjectID(int projectID) {
+		ProjectID = projectID;
+	}
+
+
+
+
+	public int getProjectTeamID() {
+		return ProjectTeamID;
+	}
+
+
+
+
+	public void setProjectTeamID(int projectTeamID) {
+		ProjectTeamID = projectTeamID;
+	}
+
+
+	public String getStatus() {
+		return Status;
+	}
+
+
+
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+
+
+
+	public void setProjectNaam(String projectNaam) {
+		ProjectNaam = projectNaam;
 	}
 
 	/**

@@ -39,7 +39,9 @@ public class Klant implements IPersoon{
 	public Klant(String Naam){
 		Achternaam = Naam;
 	}
-
+	public Klant(){
+		
+	}
 	/**
 	 * 
 	 * @param Naam

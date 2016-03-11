@@ -33,7 +33,7 @@ public class ProjectController {
     }
     // je zal naar persoon.jsp gaan
     
-    @RequestMapping(value={"/nieuweProject.html"},method=RequestMethod.GET)
+    @RequestMapping(value={"/nieuwProject.html"},method=RequestMethod.GET)
     public String projectFormulier(ModelMap model){
         Project project = new Project();
         model.addAttribute("hetproject", project);
