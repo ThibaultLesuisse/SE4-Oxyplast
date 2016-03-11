@@ -23,20 +23,20 @@ public class Project implements Serializable{
 	@Id
 	@Column(name="Id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int ProjectID;
+	private int id;
 	
 	@Column(name="TeamId")
-	private int ProjectTeamID;
+	private int teamId;
 	
 	//private String Rentabiliteit;
 	
-	@Column
+	@Column(name="Status")
 	@Index(name="IProject_status",columnNames="Status")
-	private String Status;
+	private String status;
 	
 	@Column(name="Naam")
 	@Index(name="IProject_naam",columnNames="Naam")
-	private String ProjectNaam;
+	private String naam;
 	//public Prototype m_Prototype;
 	//public Team m_Team;
 
@@ -52,70 +52,74 @@ public class Project implements Serializable{
 	 * @param TeamID
 	 * @param Status
 	 */
-	public Project(int TeamID, String Status, String naam){
-		this.ProjectTeamID = TeamID;
-		this.Status = Status;
-		this.ProjectNaam = naam;
-	}
-	public String getProjectNaam(){
-		return this.ProjectNaam;
-	}
-	public String getProjectStatus(){
-		return this.Status;
-	}
-	public int getProjectTeamId(){
-		return this.ProjectTeamID;
-	}
-	public int getProjectId(){
-		return this.ProjectID;
+	public Project(int id, int teamId, String status, String naam){
+		this.teamId = teamId;
+		this.status = status;
+		this.naam = naam;
+		this.id = id;
 	}
 
 
 
 
-	public int getProjectID() {
-		return ProjectID;
+	public int getId() {
+		return id;
 	}
 
 
 
 
-	public void setProjectID(int projectID) {
-		ProjectID = projectID;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
 
 
-	public int getProjectTeamID() {
-		return ProjectTeamID;
+	public int getTeamId() {
+		return teamId;
 	}
 
 
 
 
-	public void setProjectTeamID(int projectTeamID) {
-		ProjectTeamID = projectTeamID;
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
 	}
+
+
 
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 
 
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 
 
 
-	public void setProjectNaam(String projectNaam) {
-		ProjectNaam = projectNaam;
+	public String getNaam() {
+		return naam;
 	}
+
+
+
+
+	public void setNaam(String naam) {
+		this.naam = naam;
+	}
+	
+
+
+
+
+	
 
 	/**
 	 * 

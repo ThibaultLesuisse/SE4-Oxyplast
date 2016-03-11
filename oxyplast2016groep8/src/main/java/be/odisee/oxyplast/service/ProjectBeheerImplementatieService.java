@@ -110,8 +110,8 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 * @param Naam
 	 */
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
-	public Project StartProject(int Team, String Status, String Naam){
-		project = new Project(Team, Status, Naam);
+	public Project StartProject(int id, int teamId, String status, String naam){
+		project = new Project(id, teamId , status, naam);
 		projecten.add(project);
 		return project;
 	}
@@ -144,10 +144,10 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		return projecten.size();
 	}
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
-	public Project zoekProject(String naam) {
+	public Project zoekProject(int id) {
 		// TODO Auto-generated method stub
 		for (Project p : projecten) {
-			if(p.getProjectNaam().equals(naam))return p;
+			if(p.getId() == id) return p;
 			
 		}
 		return null;

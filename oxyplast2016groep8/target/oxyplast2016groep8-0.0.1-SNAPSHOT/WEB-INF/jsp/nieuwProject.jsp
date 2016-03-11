@@ -13,8 +13,8 @@
         <form:form action="${url}" commandName="hetproject">   <%-- Spring form tags --%>
             <fieldset>
                 <div><label>Naam:</label><form:input path="naam"/></div>
-                <div><label>Status:</label><form:input path="Status"/></div>
-                <div><label>TeamId:</label><form:input path="TeamId"/></div>
+                <div><label>Status:</label><form:input path="status"/></div>
+                <div><label>TeamId:</label><form:input path="teamId"/></div>
                 <div><input name="submit" type="submit" value="save"/></div>
             </fieldset>
         </form:form>

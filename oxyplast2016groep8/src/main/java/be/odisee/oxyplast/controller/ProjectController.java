@@ -26,8 +26,8 @@ public class ProjectController {
     // je zal naar index.jsp gaan
 
     @RequestMapping(value={"/project.html"},method=RequestMethod.GET)
-    public String persoonDetail(@RequestParam("naam") String naam, ModelMap model){
-        Project project = pjs.zoekProject(naam);
+    public String projectDetail(@RequestParam("id") int id, ModelMap model){
+        Project project = pjs.zoekProject(id);
         model.addAttribute("project", project);
         return "/project";
     }
@@ -43,9 +43,9 @@ public class ProjectController {
 
     @RequestMapping(value={"/nieuwProject.html"},method=RequestMethod.POST)
     public String projectToevoegen(@ModelAttribute("hetproject") Project project, ModelMap model){
-        Project nieuwProject = pjs.StartProject(project.getProjectTeamId(), project.getProjectStatus(), project.getProjectNaam());
-        System.out.println("DEBUG Projectgegevens naam: "+project.getProjectNaam());
-        return "redirect:project.html?id="+nieuwProject.getProjectNaam();
+        Project nieuwProject = pjs.StartProject(project.getId(), project.getTeamId(), project.getStatus(), project.getNaam());
+        System.out.println("DEBUG Projectgegevens naam: "+project.getNaam());
+        return "redirect:project.html?id="+nieuwProject.getId();
     }
     // je zal naar de detailpagina van de toegevoegde persoon gaan
 

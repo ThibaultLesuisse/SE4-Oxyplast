@@ -13,9 +13,9 @@ import be.odisee.oxyplast.domain.Project;
 public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 
 	//@Override
-	public Project saveProject(String TeamID, String Status, String naam) {
+	public Project saveProject(int id, int teamId , String status, String naam) {
 		// TODO Auto-generated method stub
-		Project project = new Project(Integer.parseInt(TeamID), Status, naam);
+		Project project = new Project(id , teamId , status, naam);
 		sessionSaveObject(project);
 		return project;
 	}

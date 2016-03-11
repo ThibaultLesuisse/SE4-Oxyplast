@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ProjectDao {
 
-    public Project saveProject(String TeamID, String Status, String naam);
+    public Project saveProject(int id ,int teamId, String status, String naam);
 
     public Project getProjectById(int projectId);
 

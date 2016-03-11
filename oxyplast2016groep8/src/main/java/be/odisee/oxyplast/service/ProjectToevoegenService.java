@@ -59,7 +59,7 @@ public interface ProjectToevoegenService {
 	 * @param Status
 	 * @param Naam
 	 */
-	public Project StartProject(int Team, String Status, String Naam);
+	public Project StartProject(int id, int teamId , String status, String naam);
 	
 	public int getAantalKlanten();
 	
@@ -71,7 +71,7 @@ public interface ProjectToevoegenService {
 	
 	public List<Project> geefAlleProjectenTerug();
 	
-	public Project zoekProject(String naam);
+	public Project zoekProject(int id);
 	}
 	
 
