@@ -7,6 +7,14 @@ import be.odisee.oxyplast.dao.ProjectDao;
 import be.odisee.oxyplast.dao.ProjectHibernateDao;
 import be.odisee.oxyplast.domain.*;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.*;
+
+@Service("ProjectToevoegenService")
+@Transactional(propagation = Propagation.SUPPORTS, readOnly=true)
+
 /**
  * @author Lesuisse
  * @version 1.0
@@ -101,6 +109,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 * @param Status
 	 * @param Naam
 	 */
+	
 	public Project StartProject(int Team, String Status, String Naam){
 		project = new Project(Team, Status, Naam);
 		projecten.add(project);

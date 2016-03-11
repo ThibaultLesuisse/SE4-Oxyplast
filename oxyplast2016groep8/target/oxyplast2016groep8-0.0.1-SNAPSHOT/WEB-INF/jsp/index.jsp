@@ -15,9 +15,9 @@
                 </c:url>
                 <li>
                     <a href='<c:out value="${projectUrl}"/>'>
-                        <c:out value="${persoon.TeamID}" />
-                        <c:out value="${persoon.Status}" />
-                        <c:out value="${persoon.naam}" />
+                        <c:out value="${project.TeamID}" />
+                        <c:out value="${project.Status}" />
+                        <c:out value="${project.naam}" />
                     </a>
                 </li>
             </c:forEach>
