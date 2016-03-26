@@ -1,7 +1,7 @@
 package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.Project;
-import be.odisee.oxyplast.service.*;
+import be.odisee.oxyplast.service.ProjectToevoegenService;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
+
+
 public class ProjectController {
 
     @Autowired
@@ -26,7 +28,7 @@ public class ProjectController {
     // je zal naar index.jsp gaan
 
     @RequestMapping(value={"/project.html"},method=RequestMethod.GET)
-    public String projectDetail(@RequestParam("id") int id, ModelMap model){
+    public String projectDetail(@RequestParam("id") Integer id, ModelMap model){
         Project project = pjs.zoekProject(id);
         model.addAttribute("project", project);
         return "/project";
