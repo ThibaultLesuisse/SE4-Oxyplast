@@ -161,6 +161,18 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		// TODO Auto-generated method stub
 		return projectDao.getAllProjects();
 	}
+
+	@Override
+	public void verwijderProject(Project p) {
+		this.projectDao.deleteProject(p);
+		
+	}
+
+	@Override
+	public void aanpassenProject(Project p) {
+		this.projectDao.updateProject(p);
+		
+	}
 	
 
 	}

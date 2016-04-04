@@ -61,6 +61,8 @@ public interface ProjectToevoegenService {
 	 * @param Naam
 	 */
 	public Project StartProject(int id, int teamId , String status, String naam);
+	public void verwijderProject(Project p);
+	public void aanpassenProject(Project p);
 	
 	public int getAantalKlanten();
 	

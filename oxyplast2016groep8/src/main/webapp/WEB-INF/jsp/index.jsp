@@ -19,7 +19,15 @@
                         <c:out value="${project.status}" />
                         <c:out value="${project.naam}" />
                     </a>
+                    
+                    <c:url var="editProject" value="/editProject.html">
+                <c:param name="id" value="${project.id}" />
+                </c:url>
+        		<a href='<c:out value="${editProject}"/>'>Project aanpassen</a>
                 </li>
+                
+                
+                
             </c:forEach>
         </ul>
         <c:url var="nieuwProjectUrl" value="/nieuwProject.html" />

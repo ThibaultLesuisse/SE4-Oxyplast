@@ -108,5 +108,14 @@ class HibernateDao {
         }
 
     }
+    protected void sessionDeleteObject(Object o){
+    	try{
+            sessionFactory.getCurrentSession().delete(o);;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    	
+    }
 
 }

@@ -49,6 +49,27 @@ public class ProjectController {
         System.out.println("DEBUG Projectgegevens naam: "+project.getNaam());
         return "redirect:project.html?id="+nieuwProject.getId();
     }
+    
+    
+    @RequestMapping(value = { "/delete-project" }, method = RequestMethod.GET)
+    public String deleteUser(@RequestParam("id") Integer id) {
+    	Project p = pjs.zoekProject(id);
+        pjs.verwijderProject(p);
+        return "/index";
+    }
+    @RequestMapping(value={"/editProject.html"},method=RequestMethod.GET)
+    public String projectDetailEdit(@RequestParam("id") Integer id, ModelMap model){
+        Project project = pjs.zoekProject(id);
+        model.addAttribute("project", project);
+        return "/project";
+    }
+    @RequestMapping(value={"/editProject.html"},method=RequestMethod.POST)
+    public String projectAanpassen(@ModelAttribute("hetproject") Project project, ModelMap model){
+    	pjs.aanpassenProject(project);
+        System.out.println("DEBUG Projectgegevens naam: "+project.getNaam());
+        return "redirect:project.html?id="+project.getId();
+    }
+    
     // je zal naar de detailpagina van de toegevoegde persoon gaan
 
 }

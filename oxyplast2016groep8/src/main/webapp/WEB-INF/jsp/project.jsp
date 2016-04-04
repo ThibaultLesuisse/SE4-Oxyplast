@@ -19,5 +19,10 @@
         <br/>
         <c:url var="home" value="/home.html" />
         <a href='<c:out value="${home}"/>'>Home</a>
+        
+        <a href="<c:url value='/delete-project'><c:param name="id" value="${project.id}" /></c:url>">Delete project</a>
+        
+        
+        
     </body>
 </html>

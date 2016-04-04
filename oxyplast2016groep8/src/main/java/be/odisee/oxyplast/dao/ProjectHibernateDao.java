@@ -39,5 +39,11 @@ public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 		sessionUpdateObject(project);
 	}
 
+	@Override
+	public void deleteProject(Project project) {
+		sessionDeleteObject(project);
+		
+	}
+
     
 }
