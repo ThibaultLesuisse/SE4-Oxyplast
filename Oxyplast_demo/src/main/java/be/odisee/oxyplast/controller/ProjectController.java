@@ -70,7 +70,7 @@ public class ProjectController {
     }
     @RequestMapping(value={"/editProject.html"},method=RequestMethod.POST)
     public String projectAanpassen(@ModelAttribute("projectAanpassen") Project project, ModelMap model){
-    	pjs.updateProject(project);
+    	pjs.aanpassenProject(project);
         System.out.println("DEBUG Projectgegevens naam: "+project.getNaam()+ project.getId());
         return "redirect:project.html?id="+project.getId();
     }

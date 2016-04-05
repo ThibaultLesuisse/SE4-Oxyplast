@@ -143,7 +143,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
 	public Project zoekProject(int id) {
 		// TODO Auto-generated method stub
-		System.out.println("DEBUG PJS: "+projectDao.getProjectById(id).getNaam());
+		System.out.println("DEBUG PJS (zoek): "+projectDao.getProjectById(id));
 		return projectDao.getProjectById(id);
 		
 	}
@@ -158,9 +158,9 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	}
 
 	@Override
-	public boolean verwijderProject(Project p) {
+	public void verwijderProject(Project p) {
 		System.out.println("DEBUG PJS: "+p.getNaam());
-		return this.projectDao.deleteProject(p);	
+		this.projectDao.deleteProject(p);	
 	}
 
 	@Override

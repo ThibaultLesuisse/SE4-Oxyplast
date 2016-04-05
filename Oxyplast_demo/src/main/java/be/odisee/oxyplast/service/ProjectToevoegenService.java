@@ -61,6 +61,8 @@ public interface ProjectToevoegenService {
 	 * @param Naam
 	 */
 	public Project StartProject(int id, int teamId , String status, String naam);
+	public boolean verwijderProject(Project p);
+	public void aanpassenProject(Project p);
 	
 	public int getAantalKlanten();
 	
@@ -73,7 +75,6 @@ public interface ProjectToevoegenService {
 	public List<Project> geefAlleProjectenTerug();
 	
 	public Project zoekProject(int id);
-	public void updateProject(Project p);
 	}
 	
 

@@ -37,11 +37,12 @@ public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 	//@Override
 	public void updateProject(Project project) {
 		sessionUpdateObject(project);
+		System.out.println("DEBUG DAO update + naam: "+project.getNaam());
 	}
 
-	@Override
-	public boolean deleteProject(Project project) {
-		return sessionDeleteById(Project.class, project.getId());
+	//@Override
+	public void deleteProject(Project project) {
+		sessionDeleteObject(project);
 		
 	}
 

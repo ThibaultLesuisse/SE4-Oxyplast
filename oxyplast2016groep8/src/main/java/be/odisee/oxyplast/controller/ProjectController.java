@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
-
-
 public class ProjectController {
 
     @Autowired
@@ -54,9 +52,10 @@ public class ProjectController {
     @RequestMapping(value = { "/deleteProject.html" }, method = RequestMethod.GET)
     public String deleteUser(@RequestParam("id") Integer id, ModelMap m) {
     	Project p = pjs.zoekProject(id);
-        boolean deleted = pjs.verwijderProject(p);
+        //boolean deleted = pjs.verwijderProject(p);
+    	pjs.verwijderProject(p);
         System.out.println("DEBUG Projectgegevens naam van verwijderd: "+p.getNaam());
-        String boodschap= "Project Verwijderd" + deleted;
+        String boodschap= "Project Verwijderd";
         m.addAttribute("SuccesOrNot", boodschap);
         return "/deleteProject";
     }

@@ -3,6 +3,7 @@ package be.odisee.oxyplast.dao;
 
 import org.hibernate.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,8 +106,29 @@ class HibernateDao {
         }
         catch (Exception e){
             e.printStackTrace();
+            
         }
 
     }
+    protected void sessionDeleteObject(Object o){
+    	try{
+            sessionFactory.getCurrentSession().delete(o);
+           
+            System.out.println("DEBUG DAO delete: "+o.toString());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    	
+    }
+    protected boolean sessionDeleteById(Class<?> type, Serializable id) {
+        Object persistentInstance = sessionFactory.getCurrentSession().load(type, id);
+        if (persistentInstance != null) {
+        	sessionFactory.getCurrentSession().delete(persistentInstance);
+            return true;
+        }
+        return false;
+    }
+    
 
 }

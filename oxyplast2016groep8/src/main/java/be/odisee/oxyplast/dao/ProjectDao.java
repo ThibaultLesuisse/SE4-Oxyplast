@@ -9,7 +9,7 @@ public interface ProjectDao {
     public Project getProjectById(int projectId);
     public List<Project> getAllProjects();
     public void updateProject(Project project);    
-    public boolean deleteProject(Project project);
+    public void deleteProject(Project project);
 
     
     

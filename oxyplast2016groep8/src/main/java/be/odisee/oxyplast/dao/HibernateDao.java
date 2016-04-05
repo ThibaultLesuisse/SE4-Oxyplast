@@ -7,6 +7,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.Criteria;
+
+import be.odisee.oxyplast.domain.Project;
 
 class HibernateDao {
 
@@ -99,10 +103,14 @@ class HibernateDao {
         }
         return result;
     }
-
+    @Transactional
     protected void sessionUpdateObject(Object o){
         try{
-            sessionFactory.getCurrentSession().update(o);
+        Transaction tx = sessionFactory.getCurrentSession().beginTransaction();
+       	sessionFactory.getCurrentSession().saveOrUpdate(o);
+        sessionFactory.getCurrentSession().flush();
+       	tx.commit();
+       	System.out.println("DEBUG DAO update: "+o.toString());
         }
         catch (Exception e){
             e.printStackTrace();
@@ -110,11 +118,17 @@ class HibernateDao {
         }
 
     }
+    @Transactional
     protected void sessionDeleteObject(Object o){
     	try{
-            sessionFactory.getCurrentSession().delete(o);
-           
+    		
+    		Transaction tx = sessionFactory.getCurrentSession().beginTransaction();
+    		sessionFactory.getCurrentSession().delete(o);
+            sessionFactory.getCurrentSession().flush();
+    		tx.commit();
+            
             System.out.println("DEBUG DAO delete: "+o.toString());
+           
         }
         catch (Exception e){
             e.printStackTrace();

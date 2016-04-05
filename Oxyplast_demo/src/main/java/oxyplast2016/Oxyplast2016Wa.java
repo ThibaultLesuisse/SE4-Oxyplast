@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("be.odisee.oxyplast")
-@EntityScan("be.odisee.oxyplast.domain")
+@EntityScan("be.odisee.oxyplast.domain.Project")
 public class Oxyplast2016Wa {
 
 	public static void main(String[] args) {

@@ -28,11 +28,16 @@
         
        <c:url var="url" value="/editProject.html" />
         <form:form action="${url}" commandName="projectAanpassen" class="form-horizontal" method="POST">   <%-- Spring form tags --%>
-            
+            <div class="form-group">
+				    <label for="id" class="col-sm-2 control-label">ID</label>
+				    <div class="col-sm-10">
+				      <form:input type="number" class="form-control" id="id" path="id" placeholder="id"/>
+				    </div>
+				  </div>
 			<div class="form-group">
 				    <label for="naam" class="col-sm-2 control-label">Naam</label>
 				    <div class="col-sm-10">
-				      <form:input type="email" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
+				      <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
 				    </div>
 				  </div>
 				  

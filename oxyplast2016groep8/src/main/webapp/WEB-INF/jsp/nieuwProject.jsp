@@ -53,7 +53,7 @@
 			<div class="form-group">
 				    <label for="naam" class="col-sm-2 control-label">Naam</label>
 				    <div class="col-sm-10">
-				      <form:input type="email" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
+				      <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
 				    </div>
 				  </div>
 				  

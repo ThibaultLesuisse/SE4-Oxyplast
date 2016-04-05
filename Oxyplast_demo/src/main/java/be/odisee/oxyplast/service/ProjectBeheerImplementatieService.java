@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.odisee.oxyplast.dao.ProjectDao;
-import be.odisee.oxyplast.dao.ProjectHibernateDao;
 import be.odisee.oxyplast.domain.*;
 
 
@@ -111,7 +110,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 */
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
 	public Project StartProject(int id, int teamId, String status, String naam){
-	return projectDao.saveProject(id, teamId, status, naam);
+		return this.projectDao.saveProject(id, teamId, status, naam);
 	}
 
 	public int getAantalKlanten() {
@@ -144,7 +143,9 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
 	public Project zoekProject(int id) {
 		// TODO Auto-generated method stub
+		System.out.println("DEBUG PJS: "+projectDao.getProjectById(id).getNaam());
 		return projectDao.getProjectById(id);
+		
 	}
 	@Autowired
     public void setProjectDao(ProjectDao projectDao) {
@@ -155,8 +156,17 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		// TODO Auto-generated method stub
 		return projectDao.getAllProjects();
 	}
-	public void updateProject(Project project){
-	projectDao.updateProject(project);
+
+	@Override
+	public boolean verwijderProject(Project p) {
+		System.out.println("DEBUG PJS: "+p.getNaam());
+		return this.projectDao.deleteProject(p);	
+	}
+
+	@Override
+	public void aanpassenProject(Project p) {
+		this.projectDao.updateProject(p);
+		
 	}
 	
 

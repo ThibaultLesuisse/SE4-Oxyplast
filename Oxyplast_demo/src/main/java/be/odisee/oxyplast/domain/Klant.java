@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
 
-@Component("persoon1")
 public class Klant implements IPersoon{
 
 	private String Achternaam;
@@ -67,7 +66,7 @@ public class Klant implements IPersoon{
 	}
 
 
-	@Autowired
+
 	public void setNaam(String naam) {
 		this.Naam = naam;
 	}
