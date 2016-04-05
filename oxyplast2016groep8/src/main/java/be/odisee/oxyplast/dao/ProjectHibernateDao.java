@@ -21,9 +21,9 @@ public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 	}
 
 	//@Override
-	public Project getProjectById(int projectId) {
+	public Project getProjectById(int id) {
 		// TODO Auto-generated method stub
-		return (Project) sessionGetObjectById("Project", projectId);
+		return (Project) sessionGetObjectById("Project", id);
 	}
 	
 	
@@ -40,8 +40,8 @@ public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 	}
 
 	@Override
-	public void deleteProject(Project project) {
-		sessionDeleteObject(project);
+	public boolean deleteProject(Project project) {
+		return sessionDeleteById(Project.class, project.getId());
 		
 	}
 

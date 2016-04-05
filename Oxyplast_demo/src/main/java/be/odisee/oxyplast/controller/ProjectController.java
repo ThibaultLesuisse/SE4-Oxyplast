@@ -19,11 +19,11 @@ public class ProjectController {
     @Autowired
     protected ProjectToevoegenService pjs =null; // ready for dependency injection
 
-    @RequestMapping(value={"/home.html","/index.html","lijst.html"},method=RequestMethod.GET)
+    @RequestMapping(value={"/home.html","/index.html", "/"},method=RequestMethod.GET)
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
         model.addAttribute("project", deLijst);
-        return "/home";
+        return "/index";
     }
     // je zal naar index.jsp gaan
 
@@ -49,11 +49,32 @@ public class ProjectController {
         System.out.println("DEBUG Projectgegevens naam: "+project.getNaam());
         return "redirect:project.html?id="+nieuwProject.getId();
     }
-    @RequestMapping(value={"/aanpassenProject.html"},method=RequestMethod.POST)
-    public String projectAanpassen(@ModelAttribute("hetproject") Project project, ModelMap model){
-    	pjs.updateProject(project);
-    	return "redirect:project.html?id="+project.getId();
+    
+    
+    @RequestMapping(value = { "/deleteProject.html" }, method = RequestMethod.GET)
+    public String deleteUser(@RequestParam("id") Integer id, ModelMap m) {
+    	Project p = pjs.zoekProject(id);
+        boolean deleted = pjs.verwijderProject(p);
+        System.out.println("DEBUG Projectgegevens naam van verwijderd: "+p.getNaam());
+        String boodschap= "Project Verwijderd" + deleted;
+        m.addAttribute("SuccesOrNot", boodschap);
+        return "/deleteProject";
     }
+    @RequestMapping(value={"/editProject.html"},method=RequestMethod.GET)
+    public String projectDetailEdit(@RequestParam("id") Integer id, ModelMap model){
+        Project project = pjs.zoekProject(id);
+        model.addAttribute("project", project);
+        model.addAttribute("projectAanpassen", project);
+        System.out.println("DEBUG Opening Edit project naam: "+project.getNaam());
+        return "/editProject";
+    }
+    @RequestMapping(value={"/editProject.html"},method=RequestMethod.POST)
+    public String projectAanpassen(@ModelAttribute("projectAanpassen") Project project, ModelMap model){
+    	pjs.updateProject(project);
+        System.out.println("DEBUG Projectgegevens naam: "+project.getNaam()+ project.getId());
+        return "redirect:project.html?id="+project.getId();
+    }
+    
     // je zal naar de detailpagina van de toegevoegde persoon gaan
 
 }

@@ -21,20 +21,19 @@ public class Project implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="Id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="TeamId")
+	@Column
 	private int teamId;
 	
 	//private String Rentabiliteit;
 	
-	@Column(name="Status")
+	@Column
 	@Index(name="IProject_status",columnNames="Status")
 	private String status;
 	
-	@Column(name="Naam")
+	@Column
 	@Index(name="IProject_naam",columnNames="Naam")
 	private String naam;
 	//public Prototype m_Prototype;
