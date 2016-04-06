@@ -1,0 +1,18 @@
+spring:
+
+    mvc:
+      view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+
+    datasource:
+        url: jdbc:mysql://localhost:3306/oxyplast
+        username: oxyplastuser
+        password: oxyplastuserpw
+
+    jpa:
+      properties:
+        hibernate:
+          current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext 
+          namingStrategy: org.hibernate.cfg.EJB3NamingStrategy
+          
