@@ -46,7 +46,7 @@
     </nav>
     <div class="container">
     
-        <h1>Project toevoegen</h1>
+        <h1>Welkom bij oxyplast</h1>
         <c:url var="url" value="/nieuwProject.html" />
         <form:form action="${url}" commandName="hetproject" class="form-horizontal">   <%-- Spring form tags --%>
             
@@ -73,8 +73,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>
     </div>
-  </div>                
-                       
+  </div>                                  
         </form:form>
         
         </div>

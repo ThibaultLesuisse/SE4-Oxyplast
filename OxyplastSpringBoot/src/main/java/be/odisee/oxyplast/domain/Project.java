@@ -24,17 +24,17 @@ public class Project implements Serializable{
 	@Column(name="id")
 	private int id;
 	
-	@Column
+	@Column(name="teamid")
 	private int teamId;
 	
 	//private String Rentabiliteit;
 	
 	@Column
-	@Index(name="IProject_status",columnNames="Status")
+	//@Index(name="IProject_status",columnNames="Status")
 	private String status;
 	
 	@Column
-	@Index(name="IProject_naam",columnNames="Naam")
+	//@Index(name="IProject_naam",columnNames="Naam")
 	private String naam;
 	//public Prototype m_Prototype;
 	//public Team m_Team;

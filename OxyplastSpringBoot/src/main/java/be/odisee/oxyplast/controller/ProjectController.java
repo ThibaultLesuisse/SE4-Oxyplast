@@ -17,11 +17,11 @@ public class ProjectController {
     @Autowired
     protected ProjectToevoegenService pjs =null; // ready for dependency injection
 
-    @RequestMapping(value={"/home.html","/index.html", "/"},method=RequestMethod.GET)
+    @RequestMapping(value={"/home.html", "/"},method=RequestMethod.GET)
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
         model.addAttribute("project", deLijst);
-        return "/index";
+        return "/home";
     }
     // je zal naar index.jsp gaan
 
