@@ -27,10 +27,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
-  `Id` int(11) NOT NULL,
-  `TeamId` int(11) DEFAULT NULL,
-  `Status` varchar(255) DEFAULT NULL,
-  `Naam` varchar(255) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `teamid` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `naam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --

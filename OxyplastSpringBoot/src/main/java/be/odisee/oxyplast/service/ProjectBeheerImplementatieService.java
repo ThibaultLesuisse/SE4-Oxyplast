@@ -13,12 +13,6 @@ import org.springframework.transaction.annotation.*;
 
 @Service("ProjectToevoegenService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly=true)
-
-/**
- * @author Lesuisse
- * @version 1.0
- * @created 31-Dec-2015 11:34:39
- */
 public class ProjectBeheerImplementatieService implements ProjectToevoegenService {
 	public Klant klant;
 	public Aanvraag aanvraag;
@@ -157,13 +151,13 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		return projectDao.getAllProjects();
 	}
 
-	@Override
+    @Transactional(propagation= Propagation.REQUIRED,readOnly=false)
 	public void verwijderProject(Project p) {
 		System.out.println("DEBUG PJS: "+p.getNaam());
 		this.projectDao.deleteProject(p);	
 	}
 
-	@Override
+    @Transactional(propagation= Propagation.REQUIRED,readOnly=false)
 	public void aanpassenProject(Project p) {
 		this.projectDao.updateProject(p);
 		

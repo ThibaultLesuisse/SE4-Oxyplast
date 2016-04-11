@@ -103,13 +103,10 @@ class HibernateDao {
         }
         return result;
     }
-    @Transactional
     protected void sessionUpdateObject(Object o){
         try{
-        Transaction tx = sessionFactory.getCurrentSession().beginTransaction();
        	sessionFactory.getCurrentSession().saveOrUpdate(o);
         sessionFactory.getCurrentSession().flush();
-       	tx.commit();
        	System.out.println("DEBUG DAO update: "+o.toString());
         }
         catch (Exception e){
@@ -118,15 +115,13 @@ class HibernateDao {
         }
 
     }
-    @Transactional
+
     protected void sessionDeleteObject(Object o){
     	try{
+    		sessionFactory.getCurrentSession().evict(o);
+    		sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().contains(o) ? o : sessionFactory.getCurrentSession().merge(o));
+    		sessionFactory.getCurrentSession().flush();
     		
-    		Transaction tx = sessionFactory.getCurrentSession().beginTransaction();
-    		sessionFactory.getCurrentSession().delete(o);
-            sessionFactory.getCurrentSession().flush();
-    		tx.commit();
-            
             System.out.println("DEBUG DAO delete: "+o.toString());
            
         }

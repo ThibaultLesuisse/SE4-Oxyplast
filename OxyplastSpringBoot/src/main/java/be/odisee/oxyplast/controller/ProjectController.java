@@ -21,7 +21,7 @@ public class ProjectController {
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
         model.addAttribute("project", deLijst);
-        return "/home";
+        return "/index";
     }
     // je zal naar index.jsp gaan
 
