@@ -5,7 +5,7 @@ import java.util.List;
 
 import be.odisee.oxyplast.dao.ProjectDao;
 import be.odisee.oxyplast.domain.*;
-
+import utilities.RolNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,13 +18,8 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public Aanvraag aanvraag;
 	public Project project;
 	public Accountverantwoordelijke accountverantwoordelijke;
-	public Feedback feedback;
-	public Grondstof grondstof;
-	public Kost kost;
-	public Leverancier leverancier;
 	public Onderzoeker onderzoeker;
 	public Opbrengst opbrengst;
-	public Team team;
 	public Prototype prototype;
 	public Werknemer werknemer;
 	
@@ -72,11 +67,6 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 * @param Email
 	 * @param Voornaam
 	 */
-	public Klant KlantToevoegen(String Achternaam, String Bedrijfsnaam, String Email, String Voornaam){
-			klant = new Klant(Achternaam, Bedrijfsnaam, Email, Voornaam);
-			klanten.add(klant);
-			return klant;
-	}
 
 	/**
 	 * 
@@ -107,21 +97,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		return this.projectDao.saveProject(id, teamId, status, naam);
 	}
 
-	public int getAantalKlanten() {
-		// TODO Auto-generated method stub
-		return klanten.size();
-	}
 	
-	public Klant zoekKlant(String naam){
-		for (Klant k : this.klanten) {
-			if(k.getKlantNaam().equals(naam))return k;
-				
-			}
-		return null;
-
-		
-
-	}
 
 	public Boolean getAanvraagAanvaard() {
 		// TODO Auto-generated method stub
@@ -161,6 +137,132 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public void aanpassenProject(Project p) {
 		this.projectDao.updateProject(p);
 		
+	}
+
+	@Override
+	public Sessie voegSessieToe(int id, String titel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sessie voegSessieToe(String titel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sessie zoekSessieMetId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Persoon voegPersoonToe(int id, String voornaam, String familienaam, String emailadres, String paswoord) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Persoon voegPersoonToe(String voornaam, String familienaam, String emailadres, String paswoord) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Persoon zoekPersoonMetId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Persoon zoekPersoonMetEmailadres(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Persoon> geefAllePersonen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rol voegRolToe(String type, int sessieId, int persoonId, String usernaam) throws RolNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rol zoekRolMetId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rol zoekRolMetUserid(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Prototype voegPrototypeToe(int prototypeId, int sessieId, int OnderzoekerId, String formule) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Prototype voegPrototypeToe(int sessieId, int OnderzoekerId, String formule) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Prototype zoekPrototypeMetId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Aanvraag voegAanvraagToe(int id, int AanvraagId, int klantId, String type, String aanvraag) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Aanvraag voegAanvraagToe(int AanvraagId, int klantId, String type, String aanvraag) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Aanvraag zoekAanvraagMetId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean verwijderAanvraag(Aanvraag aanvraag) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void toonSessieResultaten(Sessie sessie) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getAantalKlanten() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Klant zoekKlant(String Naam) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
