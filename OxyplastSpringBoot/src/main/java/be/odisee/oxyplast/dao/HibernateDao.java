@@ -120,8 +120,7 @@ class HibernateDao {
     	try{
     		sessionFactory.getCurrentSession().evict(o);
     		sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().contains(o) ? o : sessionFactory.getCurrentSession().merge(o));
-    		sessionFactory.getCurrentSession().flush();
-    		
+    		sessionFactory.getCurrentSession().flush();   		
             System.out.println("DEBUG DAO delete: "+o.toString());
            
         }
