@@ -3,6 +3,12 @@ package be.odisee.oxyplast.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.odisee.oxyplast.dao.SessieDao;
+import be.odisee.oxyplast.domain.Sessie;
+import be.odisee.oxyplast.dao.RolDao;
+import be.odisee.oxyplast.domain.Rol;
+import be.odisee.oxyplast.dao.PersoonDao;
+import be.odisee.oxyplast.domain.Persoon;
 import be.odisee.oxyplast.dao.ProjectDao;
 import be.odisee.oxyplast.domain.*;
 import utilities.RolNotFoundException;
@@ -24,6 +30,9 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public Werknemer werknemer;
 	
 	private ProjectDao projectDao;
+	private SessieDao sessieDao;
+    private RolDao rolDao;
+    private PersoonDao persoonDao;
 	
 	public ArrayList<Klant> klanten = new ArrayList<Klant>();
 	public ArrayList<Project> projecten = new ArrayList<Project>();
@@ -40,7 +49,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 * @param Aanvraag
 	 */
 	public Aanvraag AanvraagIndienen(String Aanvraag){
-			aanvraag = new Aanvraag(Aanvraag, 1);	
+			//aanvraag = new Aanvraag(Aanvraag, 1);	
 			return aanvraag;
 	}
 
@@ -102,8 +111,9 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public Boolean getAanvraagAanvaard() {
 		// TODO Auto-generated method stub
 		// We gaan wat vals spelen
-		aanvraag.setAanvaard();
-		return aanvraag.getAanvaard();
+		//aanvraag.setAanvaard();
+		//return aanvraag.getAanvaard();
+		return null;
 	}
 
 	public int getAantalProjecten() {
@@ -139,71 +149,57 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		
 	}
 
-	@Override
-	public Sessie voegSessieToe(int id, String titel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Autowired
+    public void setSessieDao(SessieDao sessieDao) {
+        this.sessieDao = sessieDao;
+    }
+    public Sessie voegSessieToe(int id, String titel) {
+        return sessieDao.saveSessie(id, "actief", titel);
+    }
+    public Sessie voegSessieToe(String titel) {
+        return sessieDao.saveSessie("actief", titel);
+    }
 
-	@Override
-	public Sessie voegSessieToe(String titel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Sessie zoekSessieMetId(int id){
+        return sessieDao.getSessieById(id);
+    }
+    public Persoon voegPersoonToe(int id, String voornaam, String familienaam, String emailadres, String paswoord) {
+        return persoonDao.savePersoon(id,"actief",voornaam,familienaam,emailadres,paswoord);
+    }
 
-	@Override
-	public Sessie zoekSessieMetId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Persoon voegPersoonToe(String voornaam, String familienaam, String emailadres, String paswoord) {
+        return persoonDao.savePersoon("aktief",voornaam,familienaam,emailadres,paswoord);
+    }
 
-	@Override
-	public Persoon voegPersoonToe(int id, String voornaam, String familienaam, String emailadres, String paswoord) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Persoon zoekPersoonMetId(int id){
+        return persoonDao.getPersoonById(id);
+    }
 
-	@Override
-	public Persoon voegPersoonToe(String voornaam, String familienaam, String emailadres, String paswoord) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Persoon zoekPersoonMetEmailadres(String emailadres){
+        return persoonDao.getPersoonByEmailadres(emailadres);
+    }
 
-	@Override
-	public Persoon zoekPersoonMetId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<Persoon> geefAllePersonen() {
+        return persoonDao.getAllPersons();
+    }
 
-	@Override
-	public Persoon zoekPersoonMetEmailadres(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Rol voegRolToe(String type, int sessieId, int persoonId, String usernaam) throws RolNotFoundException {
+        Sessie deSessie = zoekSessieMetId(sessieId);
+        Persoon dePersoon = zoekPersoonMetId(persoonId);
+        Rol deRol = dePersoon.voegRolToe(type, "actief", usernaam, deSessie);
+        deRol = rolDao.saveRol(deRol);
+        return deRol;
+    }
 
-	@Override
-	public List<Persoon> geefAllePersonen() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Rol zoekRolMetId(int id) {
+        return rolDao.getRolById(id);
+    }
 
-	@Override
-	public Rol voegRolToe(String type, int sessieId, int persoonId, String usernaam) throws RolNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Rol zoekRolMetId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Rol zoekRolMetUserid(String userid) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Rol zoekRolMetUserid(String userid) {
+        return rolDao.getRolByUserid(userid);
+    }
 
 	@Override
 	public Prototype voegPrototypeToe(int prototypeId, int sessieId, int OnderzoekerId, String formule) {

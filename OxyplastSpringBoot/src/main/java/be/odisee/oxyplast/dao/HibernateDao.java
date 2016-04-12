@@ -115,6 +115,16 @@ class HibernateDao {
         }
 
     }
+    protected Object sessionGetObjectByStringParameterValue(String classname, String parameter, String value){
+        Object result = null;
+        try{
+            result = sessionFactory.getCurrentSession().createQuery("from "+classname+" where "+parameter+"='"+value+"'").uniqueResult();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }  
 
     protected void sessionDeleteObject(Object o){
     	try{

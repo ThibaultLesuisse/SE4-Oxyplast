@@ -1,4 +1,4 @@
-package be.odisee.oxyplast;
+package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.Persoon;
 import be.odisee.oxyplast.domain.Rol;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MenuController {
 
     @Autowired
-    protected ProjectToevoegenService PTS =null; // ready for dependency injection
+    protected ProjectBeheerImplementatieService PJS=null; // ready for dependency injection
     
     @Autowired
     protected UserContextService userContextService=null;
@@ -57,7 +57,7 @@ public class MenuController {
     @RequestMapping(value={"/rol.html"},method=RequestMethod.GET)
     @PostAuthorize("#model.get('rol').persoon.emailadres == authentication.principal.username")
     public String indexVoorRol(@RequestParam("id") Integer id, ModelMap model){
-        Rol deRol = PTS.zoekRolMetId(id);
+        Rol deRol = PJS.zoekRolMetId(id);
         model.addAttribute("rol",deRol);
         if (deRol.getType().equals("Administrator")) return "redirect:/admin/index.html?rolid="+deRol.getId();
         if (deRol.getType().equals("Organisator")) return "redirect:/organisator/index.html?rolid="+deRol.getId();
