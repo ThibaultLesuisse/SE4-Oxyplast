@@ -32,7 +32,8 @@ public class PersoonHibernateDao extends HibernateDao implements PersoonDao {
         return (Persoon) sessionGetObjectByStringParameterValue("Persoon", "emailadres", emailadres);
     }
 
-    public List<Persoon> getAllPersons() {
+    @SuppressWarnings("unchecked")
+	public List<Persoon> getAllPersons() {
         return (List<Persoon>) sessionGetAllObjects("Persoon");
     }
 

@@ -17,7 +17,7 @@ public class ProjectController {
     @Autowired
     protected ProjectToevoegenService pjs =null; // ready for dependency injection
 
-    @RequestMapping(value={"/home.html", "/"},method=RequestMethod.GET)
+    @RequestMapping(value={"/index"},method=RequestMethod.GET)
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
         model.addAttribute("project", deLijst);

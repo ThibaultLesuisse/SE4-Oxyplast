@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/logout*").permitAll()
 			.antMatchers("/logoutSuccess*").permitAll()
 			.antMatchers("/accessDenied*").permitAll()
-			.antMatchers("/project/**").hasAuthority("Accountverantwoordelijke")
+			.antMatchers("/project/**").hasAuthority("Administrator")
 			.antMatchers("/prototype/**").hasAnyAuthority("Onderzoeker", "Accountverantwoordelijke")
 			.antMatchers("/aanvraag/**").hasAnyAuthority("Accountverantwoordelijke","Deelnemer")
 			.antMatchers("/**").authenticated()

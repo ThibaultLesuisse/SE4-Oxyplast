@@ -50,7 +50,7 @@ public class MenuController {
         Persoon dePersoon=null;
         dePersoon = userContextService.getAuthenticatedPersoon();
         model.addAttribute("persoon",dePersoon);
-        return "/menu";
+        return "/index";
     }
     // je zal naar menu.jsp gaan
 
