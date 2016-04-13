@@ -1,20 +1,34 @@
 package be.odisee.oxyplast.domain;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.*;
+import org.hibernate.annotations.Index;
 /**
  * @author Lesuisse
  * @version 1.0
  * @created 31-Dec-2015 11:35:23
  */
+@Entity
+@Table(name="aanvraag")
 public class Aanvraag {
 
-	private String Aanvraag;
-	private int AanvraagID;
-	private int AanvragerID;
-	private String Status;
-	private Boolean aanvaard = false;
-	public Klant m_Klant;
-	public Project m_Project;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="klantid")
+	private int klantid;
+	
+	@Column
+	//@Index(name="IProject_naam",columnNames="Naam")
+	private String aanvraag;
+	//public Prototype m_Prototype;
+	//public Team m_Team;
+
 
 	public Aanvraag(){
 
@@ -26,9 +40,40 @@ public class Aanvraag {
 	 * @param Aanvraag
 	 * @param AanvragerID
 	 */
-	public Aanvraag(String Aanvraag, int AanvragerID){
-		this.Aanvraag = Aanvraag;
-		this.AanvragerID = AanvragerID;
+	public Aanvraag(int id, int klantid , String aanvraag){
+		this.id = id;
+		this.klantid = klantid;
+		this.aanvraag = aanvraag;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getKlantid() {
+		return klantid;
+	}
+
+
+	public void setKlantid(int klantid) {
+		this.klantid = klantid;
+	}
+
+
+	public String getAanvraag() {
+		return aanvraag;
+	}
+
+
+	public void setAanvraag(String aanvraag) {
+		this.aanvraag = aanvraag;
 	}
 
 	/**
@@ -36,47 +81,5 @@ public class Aanvraag {
 	 * @param ID
 	 * @return 
 	 */
-	public void AanvraagAanvaarden(int ID){
-
-	}
-
-	public void annuleer(){
-
-	}
-	public void setAanvaard(){
-		aanvaard = true;
-	}
-	public Boolean getAanvaard(){
-		return aanvaard;
-	}
-
-	public void setGegegvens(){
-
-	}
-
-	public void VerwijderVanGeweigerd(){
-
-	}
-
-	public void Weiger(){
-
-	}
-
-	/**
-	 * 
-	 * @param ID
-	 * @return 
-	 */
-	public void Weigeren(int ID){
-
-	}
-
-	public void ZetInWacht(){
-
-	}
-
-	public void ZetUitWachtrij(){
-
-	}
 
 }

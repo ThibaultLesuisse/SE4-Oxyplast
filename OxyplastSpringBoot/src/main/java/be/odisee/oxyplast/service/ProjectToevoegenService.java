@@ -3,6 +3,7 @@ package be.odisee.oxyplast.service;
 import java.util.List;
 
 import be.odisee.oxyplast.domain.*;
+import utilities.*;
 import be.odisee.oxyplast.controller.ProjectController;
 
 /**
@@ -12,69 +13,38 @@ import be.odisee.oxyplast.controller.ProjectController;
  */
 public interface ProjectToevoegenService {
 
-	/**
-	 * 
-	 * @param Aanvraag
-	 */
-	public Aanvraag AanvraagIndienen(String Aanvraag);
-
-	/**
-	 * 
-	 * @param Formule
-	 */
-	public void BepaalFormule(String Formule);
-
-	/**
-	 * 
-	 * @param feedback
-	 */
-	public void FeedbackToevoegen(String feedback);
-
-	/**
-	 * 
-	 * @param Achternaam
-	 * @param Bedrijfsnaam
-	 * @param Email
-	 * @param Voornaam
-	 * @return 
-	 */
-	public Klant KlantToevoegen(String Achternaam, String Bedrijfsnaam, String Email, String Voornaam);
-
-	/**
-	 * 
-	 * @param Formule
-	 * @param ProjectID
-	 */
 	public void PrototypeToevoegen(String Formule, int ProjectID);
-
-	/**
-	 * 
-	 * @param Kosten
-	 * @param Opbrengsten
-	 */
 	public void RendementBerekenen(double Kosten, double Opbrengsten);
-
-	/**
-	 * 
-	 * @param Team
-	 * @param Status
-	 * @param Naam
-	 */
 	public Project StartProject(int id, int teamId , String status, String naam);
 	public void verwijderProject(Project p);
 	public void aanpassenProject(Project p);
-	
 	public int getAantalKlanten();
-	
 	public Klant zoekKlant(String Naam);
-	
 	public Boolean getAanvraagAanvaard();
-	
 	public int getAantalProjecten();
-	
 	public List<Project> geefAlleProjectenTerug();
-	
 	public Project zoekProject(int id);
+	public Sessie voegSessieToe(int id, String titel);
+	public Sessie voegSessieToe(String titel);
+    public Sessie zoekSessieMetId(int id);
+	public Persoon voegPersoonToe(int id, String voornaam, String familienaam, String emailadres, String paswoord);
+	public Persoon voegPersoonToe(String voornaam, String familienaam, String emailadres, String paswoord);
+	public Persoon zoekPersoonMetId(int id);
+	public Persoon zoekPersoonMetEmailadres(String username);
+	public List<Persoon> geefAllePersonen();
+	public Rol voegRolToe(String type, int sessieId, int persoonId, String usernaam) throws RolNotFoundException;
+	public Rol zoekRolMetId(int id);
+	public Rol zoekRolMetUserid(String userid);
+	public Prototype voegPrototypeToe(int prototypeId, int sessieId, int OnderzoekerId, String formule);
+	public Prototype voegPrototypeToe(int sessieId, int OnderzoekerId, String formule);
+	public Prototype zoekPrototypeMetId(int id);
+	public Aanvraag voegAanvraagToe
+	            (int id, int AanvraagId, int klantId, String type, String aanvraag);
+	public Aanvraag voegAanvraagToe
+	            ( int AanvraagId, int klantId, String type, String aanvraag);
+	    public Aanvraag zoekAanvraagMetId(int id);
+	    public boolean verwijderAanvraag(Aanvraag aanvraag);
+	    public void toonSessieResultaten(Sessie sessie);
 	}
 	
 

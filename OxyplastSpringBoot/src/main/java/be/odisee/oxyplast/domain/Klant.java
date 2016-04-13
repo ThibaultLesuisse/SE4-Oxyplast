@@ -1,5 +1,8 @@
 package be.odisee.oxyplast.domain;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -9,73 +12,27 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 
 import org.springframework.stereotype.Component;
+import be.odisee.oxyplast.domain.Persoon;
+import be.odisee.oxyplast.domain.Sessie;
+import be.odisee.oxyplast.domain.Rol;
 
+@Entity
+@DiscriminatorValue("Klant")
+public class Klant extends Rol {
 
-public class Klant implements IPersoon{
+	 public Klant(){}
 
-	private String Achternaam;
-	private String BedrijfNaam;
-	private String Email;
-	private int ID;
-	private String Voornaam;
-	private String Naam;
-	//public Feedback m_Feedback;
+	    public Klant(String status, String usernaam, Sessie sessie, Persoon persoon){
+	        super(status,usernaam,sessie,persoon);
+	    }
 
-	public Klant(String achternaam, String bedrijfsnaam, String email2, String voornaam){
-			this.Achternaam = achternaam;
-			this.BedrijfNaam = bedrijfsnaam;
-			this.Email = email2;
-			this.Voornaam = voornaam;
-			this.ID = 1;
-			
-	}
+	    public Klant(int id, String status, String usernaam, Sessie sessie, Persoon persoon){
+	        super(id,status,usernaam,sessie,persoon);
+	    }
 
-
-
-	/**
-	 * 
-	 * @param Naam
-	 */
-	public Klant(String Naam){
-		Achternaam = Naam;
-	}
-	public Klant(){
-		
-	}
-	/**
-	 * 
-	 * @param Naam
-	 * @param ID
-	 * @return 
-	 */
-	public void KlantVerwijderen(String Naam, int ID){
-
-	}
-	public String getKlantNaam(){
-		
-		return Achternaam;
-	}
-	public int getKlantID(){
-		return ID;
-	}
-
-
-
-	public int getID(String naam) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Autowired
-	public void setNaam(String naam) {
-		this.Naam = naam;
-	}
-
-
-
-	public String getNaam() {
-		return this.Naam;
-	}
+	    @Override
+	    public String getType() {
+	        return "Klant";
+	    }
 
 }
