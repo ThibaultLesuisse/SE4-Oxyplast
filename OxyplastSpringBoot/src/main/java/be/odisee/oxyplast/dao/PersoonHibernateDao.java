@@ -27,9 +27,10 @@ public class PersoonHibernateDao extends HibernateDao implements PersoonDao {
         return (Persoon) sessionGetObjectById("Persoon", persoonId);
     }
 
-    @Override
     public Persoon getPersoonByEmailadres(String emailadres) {
-        return (Persoon) sessionGetObjectByStringParameterValue("Persoon", "emailadres", emailadres);
+    	 System.out.println("DEBUG PersoonHibernate Dao email weergegven");
+    	return (Persoon) sessionGetObjectByStringParameterValue("Persoon", "emailadres", emailadres);
+       
     }
 
     @SuppressWarnings("unchecked")

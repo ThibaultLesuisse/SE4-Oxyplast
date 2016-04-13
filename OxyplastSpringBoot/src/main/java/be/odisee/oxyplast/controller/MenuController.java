@@ -45,12 +45,12 @@ public class MenuController {
     }
     // je zal naar accessDenied.jsp gaan
 
-    @RequestMapping(value={"/","/menu.html","/index.html"},method=RequestMethod.GET)
+    @RequestMapping(value={"/menu.html"},method=RequestMethod.GET)
     public String menu(ModelMap model){
         Persoon dePersoon=null;
         dePersoon = userContextService.getAuthenticatedPersoon();
         model.addAttribute("persoon",dePersoon);
-        return "/index";
+        return "/menu";
     }
     // je zal naar menu.jsp gaan
 

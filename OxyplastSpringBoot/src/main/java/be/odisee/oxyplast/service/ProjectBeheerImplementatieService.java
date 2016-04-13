@@ -60,6 +60,15 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public void BepaalFormule(String Formule){
 
 	}
+    @Autowired
+    public void setPersoonDao(PersoonDao persoonDao) {
+        this.persoonDao = persoonDao;
+    }
+
+    @Autowired
+    public void setRolDao(RolDao rolDao) {
+        this.rolDao = rolDao;
+    }
 
 	/**
 	 * 
@@ -174,9 +183,10 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
     public Persoon zoekPersoonMetId(int id){
         return persoonDao.getPersoonById(id);
     }
-
+    @Transactional(propagation= Propagation.REQUIRED,readOnly=false)
     public Persoon zoekPersoonMetEmailadres(String emailadres){
-        return persoonDao.getPersoonByEmailadres(emailadres);
+    	System.out.println("DEBUG PJS: "+ emailadres);
+    	return (Persoon) persoonDao.getPersoonByEmailadres(emailadres);
     }
 
     @Override

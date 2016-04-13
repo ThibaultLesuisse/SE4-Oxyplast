@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 import org.hibernate.annotations.Index;
-
+@org.hibernate.annotations.DiscriminatorOptions(force=true)
 @Entity
 @Table(name="rollen")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)

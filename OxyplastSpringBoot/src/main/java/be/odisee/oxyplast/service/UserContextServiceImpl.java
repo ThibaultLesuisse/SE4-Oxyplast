@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserContextServiceImpl implements UserContextService {
 
     @Autowired
-    protected ProjectBeheerImplementatieService PJS=null; // ready for dependency injection
+    protected ProjectToevoegenService PJS=null; // ready for dependency injection
 
     @Override
     public Persoon getAuthenticatedPersoon() {

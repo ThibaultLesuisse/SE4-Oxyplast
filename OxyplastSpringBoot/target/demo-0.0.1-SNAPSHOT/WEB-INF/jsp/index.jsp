@@ -68,7 +68,7 @@
         <h1>Lijst van de projecten</h1>
         
             <c:forEach items="${project}" var="project">
-                <c:url var="projectUrl" value="/project.html">
+                <c:url var="projectUrl" value="project/project.html">
                     <c:param name="id" value="${project.id}" />
                 </c:url>
                 
@@ -79,14 +79,14 @@
                   <td>   <c:out value="${project.teamId}" /></td>
                 
                  <td>   
-                <c:url var="editProject" value="/editProject.html">
+                <c:url var="editProject" value="project/editProject.html">
                 <c:param name="id" value="${project.id}" />
                 </c:url>
         		<a href='<c:out value="${editProject}"/>'>Project Aanpassen</a>
                 </td>
                 
                 <td>   
-                <c:url var="deleteProject" value="/deleteProject.html">
+                <c:url var="deleteProject" value="project/deleteProject.html">
                 <c:param name="id" value="${project.id}" />
                 </c:url>
         		<a href='<c:out value="${deleteProject}"/>'>Project Verwijderen</a>
@@ -97,7 +97,7 @@
             </c:forEach>
         </tbody>
         </table>
-        <c:url var="nieuwProjectUrl" value="/nieuwProject.html" />
+        <c:url var="nieuwProjectUrl" value="/project/nieuwProject.html" />
         <a href='<c:out value="${nieuwProjectUrl}"/>'>Project Toevoegen</a>
         </div>
         </div>
