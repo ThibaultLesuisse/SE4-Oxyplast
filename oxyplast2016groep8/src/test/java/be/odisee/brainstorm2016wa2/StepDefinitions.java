@@ -15,14 +15,24 @@ public class StepDefinitions {
 	
 	WebDriver driver = new FirefoxDriver();
 	
-	@Given("^I am on the page where I can introduce a new person$")
-	public void i_am_on_the_page_where_I_can_introduce_a_new_person() throws Throwable {
-		driver.navigate().to("http://localhost:8080/brainstorm2016WA2/nieuwePersoon.html");
+	@Given("^I am on the page where I can introduce add a project$")
+	public void i_am_on_the_page_where_I_can_introduce_add_a_project() throws Throwable {
+	    driver.navigate().to("http://localhost:8080/oxyplast2016groep8/nieuwProject.html");
 	}
 
-	@When("^I enter \"([^\"]*)\" in the ([^\"]*) field$")
-	public void i_enter_in_the_firstname_field(String enteredText, String fieldName) throws Throwable {
-		driver.findElement(By.id(fieldName)).sendKeys(enteredText);
+	@When("^I enter \"([^\"]*)\" in the Naam field$")
+	public void i_enter_in_the_Naam_field(String myNaam) throws Throwable {
+		driver.findElement(By.id("naam")).sendKeys(myNaam);
+	}
+
+	@When("^I enter \"([^\"]*)\" in the Status field$")
+	public void i_enter_in_the_Status_field(String myStatus) throws Throwable {
+		driver.findElement(By.id("status")).sendKeys(myStatus);
+	}
+
+	@When("^I enter \"([^\"]*)\" in the TeamID field$")
+	public void i_enter_in_the_TeamID_field(String myTeamId) throws Throwable {
+		driver.findElement(By.id("teamId")).sendKeys(myTeamId);
 	}
 
 	@When("^I press on the Submit button$")
@@ -30,24 +40,24 @@ public class StepDefinitions {
 		driver.findElement(By.name("submit")).click();
 	}
 
-	class LabelData {
-		String label;
-		String data;
+	@Then("^I should see \"([^\"]*)\" as Naam$")
+	public void i_should_see_as_Naam(String dataNaam) throws Throwable {
+		driver.findElement(By.name("dbDataNaam")).equals(dataNaam);
+	}
+
+	@Then("^I should see \"([^\"]*)\" as Status$")
+	public void i_should_see_as_Status(String dataStatus) throws Throwable {
+		driver.findElement(By.name("dbDataStatus")).equals(dataStatus);
+	}
+
+	@Then("^I should see \"([^\"]*)\" as TeamID$")
+	public void i_should_see_as_TeamID(String dataTeamID) throws Throwable {
+		driver.findElement(By.name("dbDataTeamID")).equals(dataTeamID);
 	}
 	
-	@Then("^I should see the following on the screen$")
-	public void i_should_see_the_following_on_the_screen(List<LabelData> checklist) throws Throwable {
-		String bodyText = driver.findElement(By.tagName("body")).getText();
-		for (LabelData ld: checklist){
-			String text2bFound = ld.label + " " + ld.data;
-			Assert.assertTrue("Did not find this text: "+text2bFound+"\n",bodyText.contains(text2bFound));
-		}
-
-	}
-
-	@When("^I click the Home Link$")
-	public void i_click_the_Home_Link() throws Throwable {
-		driver.findElement(By.linkText("Home")).click();
+	@When("^I click the Terug Link$")
+	public void i_click_the_Terug_Link() throws Throwable {
+		driver.findElement(By.name("terugButton")).click();
 	}
 
 	@Then("^I should see a list containing \"([^\"]*)\"$")
