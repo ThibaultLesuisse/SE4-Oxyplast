@@ -13,12 +13,9 @@
 		<c:url value="/resources/js/jquery-2.2.2.min.js" var="jq" />
 		
 		<script src="${jq}"></script>
-		
 		<link href="${bootstrapcss}" rel="stylesheet">
 		<link href="${bootstraptheme}" rel="stylesheet">
 		<script src="${bootstrapjs}"></script>
-
-
 </head>
 <body style="padding-top: 50px;">
     <nav class="navbar navbar-inverse navbar-fixed-top">
