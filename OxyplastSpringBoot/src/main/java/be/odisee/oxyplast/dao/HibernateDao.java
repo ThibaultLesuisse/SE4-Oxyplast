@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.hibernate.Criteria;
 
 
 class HibernateDao {
@@ -35,7 +34,7 @@ class HibernateDao {
     protected Object sessionGetObjectById(String classname, int id){
         Object result = null;
         try{
-            result = sessionFactory.getCurrentSession().createQuery("from "+classname+" where id="+id).uniqueResult();
+            result = sessionFactory.getCurrentSession().createQuery("from "+classname + " where id="+id).uniqueResult();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -103,6 +102,21 @@ class HibernateDao {
         }
         return result;
     }
+    @SuppressWarnings("rawtypes")
+   	protected List sessionGetAllObjectsById(String classname, String parameter, int value) {
+           Query query = null;
+    		List result = null;
+           try{
+           	System.out.println("DEBUG DAO update: "+classname);
+               query =  sessionFactory.getCurrentSession().createQuery("from "+classname+" where "+parameter+" = "+value);
+               result = query.list();
+           }
+           catch (Exception e){
+               e.printStackTrace();
+           }
+           return result;
+       }
+    
     protected void sessionUpdateObject(Object o){
         try{
        	sessionFactory.getCurrentSession().saveOrUpdate(o);

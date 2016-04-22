@@ -4,6 +4,7 @@ C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\service\UserContextServiceImpl.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\dao\HibernateDao.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\OxyplastSpringBootApplication.java
+C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\service\PrototypeBeheerImplementatie.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\domain\Rol.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\controller\MenuController.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\domain\Onderzoeker.java
@@ -11,6 +12,7 @@ C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\dao\PrototypeHibernateDao.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\domain\Opbrengst.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\domain\Sessie.java
+C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\service\PrototypeBeheerService.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\service\ProjectBeheerImplementatieService.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\domain\Feedback.java
 C:\Users\Lesuisse\Dropbox\Documenten\TI\2e Jaar\Semester 2\Software Engineering 4\SE4-Oxyplast\SE4-Oxyplast\OxyplastSpringBoot\src\main\java\be\odisee\oxyplast\dao\RolHibernateDao.java

@@ -140,7 +140,6 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
     public void setProjectDao(ProjectDao projectDao) {
         this.projectDao = projectDao;
     }
-	@Override
 	public List<Project> geefAlleProjectenTerug() {
 		// TODO Auto-generated method stub
 		return projectDao.getAllProjects();

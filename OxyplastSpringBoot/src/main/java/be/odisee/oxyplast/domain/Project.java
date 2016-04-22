@@ -1,7 +1,9 @@
 package be.odisee.oxyplast.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -38,6 +40,8 @@ public class Project implements Serializable{
 	private String naam;
 	//public Prototype m_Prototype;
 	//public Team m_Team;
+   // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+   // private List<Prototype> prototypes = new ArrayList<>();
 
 	public Project(){
 

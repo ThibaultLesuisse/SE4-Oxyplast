@@ -2,10 +2,16 @@ package be.odisee.oxyplast.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import be.odisee.oxyplast.domain.Aanvraag;
 import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Prototype;
 
+@Repository("prototypeDao")
+@Transactional(propagation= Propagation.SUPPORTS, readOnly=true)
 public class PrototypeHibernateDao extends HibernateDao implements PrototypeDao {
 	@Override
 	public Prototype savePrototype(int id, int projectid, String formule) {
@@ -20,15 +26,14 @@ public class PrototypeHibernateDao extends HibernateDao implements PrototypeDao 
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public List<Prototype> getAllPrototypes() {
-		return (List<Prototype>) sessionGetAllObjects("Prototype");
+	public List<Prototype> getAllPrototypes(int projectId) {
+		return (List<Prototype>) sessionGetAllObjectsById("Prototype", "projectid", projectId);
 	}
 
 	@Override
 	public void updatePrototype(Prototype p) {
 		sessionUpdateObject(p);
-		System.out.println("DEBUG DAO update + naam: "+p.getFormule());
+		System.out.println("DEBUG DAO update + naam:" + p.getFormule());
 		
 	}
 

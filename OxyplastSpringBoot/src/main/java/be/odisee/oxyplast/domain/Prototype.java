@@ -20,13 +20,17 @@ public class Prototype {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="projectid")
+	@Column
 	private int projectid;
 	
 	@Column
 	private String formule;
+	
+	//@ManyToOne
+	//private Project project;
+	public Prototype(){
 
-
+	}
 
 	public int getId() {
 		return id;
@@ -58,9 +62,7 @@ public class Prototype {
 	}
 
 
-	public Prototype(){
 
-	}
 
 
 	/**

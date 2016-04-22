@@ -64,7 +64,40 @@
               </tr>              
       </tbody>
       </table>
-      
+       <h2>Prototypes van het gekozen project</h2>
+                
+                <table class="table table-striped">
+                </tbody>
+                <c:forEach items="${prototype}" var="prototype">
+                <c:url var="prototypetUrl" value="prototype/prototype.html">
+                    <c:param name="id" value="${prototype.id}" />
+                </c:url>
+                <tr>
+                  <td> 
+                 <a href='<c:out value="${prototypetUrl}"/>'> <c:out value="${prototype.id}" /></a>
+                </td>
+                  <td>    <c:out value="${prototype.formule}" /></td>
+                
+                 <td>   
+                <c:url var="editPrototype" value="project/editProject.html">
+                <c:param name="id" value="${prototype.id}" />
+                </c:url>
+        		<a href='<c:out value="${editPrototype}"/>'>Prototype Aanpassen</a>
+                </td>
+                
+                <td>   
+                <c:url var="deleteProject" value="project/deleteProject.html">
+                <c:param name="id" value="${prototype.id}" />
+                </c:url>
+        		<a href='<c:out value="${deletePrototype}"/>'>Prototype Verwijderen</a>
+                </td>
+                </tr>
+                  </c:forEach>
+                
+                </tbody>
+                </table>
+                
+          
         
         
         <c:url var="home" value="/index.html" />

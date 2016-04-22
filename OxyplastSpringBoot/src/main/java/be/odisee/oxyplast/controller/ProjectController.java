@@ -1,7 +1,9 @@
 package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.Project;
+import be.odisee.oxyplast.domain.Prototype;
 import be.odisee.oxyplast.service.ProjectToevoegenService;
+import be.odisee.oxyplast.service.PrototypeBeheerService;
 
 import java.util.List;
 
@@ -15,8 +17,11 @@ import org.springframework.web.bind.annotation.*;
 public class ProjectController {
 
     @Autowired
-    protected ProjectToevoegenService pjs =null; // ready for dependency injection
-
+    protected ProjectToevoegenService pjs =null;
+    
+    @Autowired// ready for dependency injection
+    protected PrototypeBeheerService phs = null;
+    
     @RequestMapping(value={"/index", "/"},method=RequestMethod.GET)
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
@@ -28,7 +33,9 @@ public class ProjectController {
     @RequestMapping(value={"project/project.html"},method=RequestMethod.GET)
     public String projectDetail(@RequestParam("id") Integer id, ModelMap model){
         Project project = pjs.zoekProject(id);
+        List<Prototype> dePrototypes = phs.geefAllePrototypesTerug(id);
         model.addAttribute("project", project);
+        model.addAttribute("prototype", dePrototypes);
         return "project/project";
     }
     // je zal naar persoon.jsp gaan
