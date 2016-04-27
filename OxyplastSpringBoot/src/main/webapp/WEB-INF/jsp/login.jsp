@@ -90,7 +90,7 @@
                     <div class="form-buttons">
                         <div class="button">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-default"/>
+                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-primary"/>
                             </div>
                         </div>
                     </div>
