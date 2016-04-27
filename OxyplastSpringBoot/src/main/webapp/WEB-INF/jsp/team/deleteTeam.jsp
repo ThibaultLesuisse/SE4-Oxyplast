@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Project Deleted</title>
+<title>Team Deleted</title>
  <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
 		<c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
 		<c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
