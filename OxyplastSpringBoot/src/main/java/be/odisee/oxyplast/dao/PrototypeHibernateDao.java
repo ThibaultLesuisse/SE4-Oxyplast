@@ -5,9 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import be.odisee.oxyplast.domain.Aanvraag;
-import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Prototype;
 
 @Repository("prototypeDao")

@@ -47,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/logoutSuccess*").permitAll()
 			.antMatchers("/accessDenied*").permitAll()
 			.antMatchers("/project/**").hasAuthority("Administrator")
+			.antMatchers("/team/**").hasAnyAuthority("Administrator", "Accountverantwoordelijke")
 			.antMatchers("/prototype/**").hasAnyAuthority("Onderzoeker", "Accountverantwoordelijke")
 			.antMatchers("/aanvraag/**").hasAnyAuthority("Accountverantwoordelijke","Deelnemer")
 			.antMatchers("/**").authenticated()

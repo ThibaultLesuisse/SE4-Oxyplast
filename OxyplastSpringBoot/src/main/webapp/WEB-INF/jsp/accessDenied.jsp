@@ -21,7 +21,7 @@
 		
     </head>
     <body>
-        <h1>Oeps! Dit mag je niet doen</h1>
+        <h1>Oeps! Dit mag je niet doen klootzak</h1>
         <c:url var="menu" value="/menu.html" />
         <a href='<c:out value="${menu}"/>'>Menu</a><br/><br/>
     </body>

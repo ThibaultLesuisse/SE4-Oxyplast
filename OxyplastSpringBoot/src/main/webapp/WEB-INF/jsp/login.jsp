@@ -55,7 +55,7 @@
                 <c:if test="${not empty param.login_error}">
                     <div class="errors">
                         Er was een probleem om aan te loggen<br />Boodschap:
-                        <%= ((AuthenticationException) 
+                        <%= ((AuthenticationException)
                         session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION)).getMessage() %>
                         <br /> <br />
                     </div>
@@ -68,6 +68,7 @@
                     <div class="panel-heading">Inloggen</div>
                     <div class="panel-body">
                         <form name="f" action="<c:url value='/login' />" method="POST" class="form-horizontal">
+                           
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             <fieldset>
                                 <div class="form-group">
@@ -80,6 +81,7 @@
                                         </div>
                                     </div>
                                 </div>
+                              </fieldset>
                                 <div class="form-group">
                                     <div class="field">
                                         <label for="password" class="col-sm-2 control-label">Paswoord:</label>
@@ -89,20 +91,22 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-buttons">
-                                    <div class="button">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-default" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
+                            </div>
+                          
+                    </div>
+                    </div>
+                    <div class="form-buttons">
+                        <div class="button">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-primary"/>
+                            </div>
+                        </div>
+ 
                     </div>
                 </div>
+            </form>
             </div>
-        </div>
+
     </body>
 
 </html>
