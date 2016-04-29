@@ -36,6 +36,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	
 	public ArrayList<Klant> klanten = new ArrayList<Klant>();
 	public ArrayList<Project> projecten = new ArrayList<Project>();
+	
 	public ProjectBeheerImplementatieService(){
 
 	}

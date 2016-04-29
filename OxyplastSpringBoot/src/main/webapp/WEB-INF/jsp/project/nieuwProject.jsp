@@ -50,41 +50,43 @@
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
           </form>
+	</div>
         </div>
-      </div>
     </nav>
     <div class="container">
-    
+
         <h1>Welkom bij oxyplast</h1>
         <c:url var="url" value="/nieuwProject.html" />
-        <form:form action="${url}" commandName="hetproject" class="form-horizontal">   <%-- Spring form tags --%>
-            
-			<div class="form-group">
-				    <label for="naam" class="col-sm-2 control-label">Naam</label>
-				    <div class="col-sm-10">
-				      <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
-				    </div>
-				  </div>
-				  
-				  <div class="form-group">
-				    <label for="status" class="col-sm-2 control-label">Status</label>
-				    <div class="col-sm-10">
-				      <form:input type="text" class="form-control" id="status" path="status" placeholder="De status"/>
-				    </div>
-				  </div>
+        <form:form action="${url}" commandName="hetproject" class="form-horizontal">
+            <%-- Spring form tags --%>
+
                 <div class="form-group">
-				    <label for="teamId" class="col-sm-2 control-label">TeamId</label>
-				    <div class="col-sm-10">
-				      <form:input type="teamId" class="form-control" id="teamId" path="teamId" placeholder="Team ID"/>
-				    </div>
-				  </div>
-				  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>                                  
+                    <label for="naam" class="col-sm-2 control-label">Naam</label>
+                    <div class="col-sm-10">
+                        <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="status" class="col-sm-2 control-label">Status</label>
+                    <div class="col-sm-10">
+                        <form:input type="text" class="form-control" id="status" path="status" placeholder="De status" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="teamId" class="col-sm-2 control-label">TeamId</label>
+                    <div class="col-sm-10">
+                        <form:input type="teamId" class="form-control" id="teamId" path="teamId" placeholder="Team ID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
         </form:form>
-        
-        </div>
-    </body>
+
+    </div>
+</body>
+
 </html>
