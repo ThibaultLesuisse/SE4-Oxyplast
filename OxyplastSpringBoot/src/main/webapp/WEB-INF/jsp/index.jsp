@@ -47,9 +47,9 @@
            <ul class="dropdown-menu">
             <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
             <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
-            <li><a href="<c:url value="/prototypeOverzicht" />"">Overzicht Prototypes</a></li>
-            <li><a href="<c:url value="/leverancierOverzicht" />"">Overzicht Leveranciers</a></li>
-            <li><a href="<c:url value="/teamoverzicht" />"">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/prototypeOverzicht" />">Overzicht Prototypes</a></li>
+            <li><a href="<c:url value="/leverancierOverzicht" />">Overzicht Leveranciers</a></li>
+            <li><a href="<c:url value="/teamoverzicht" />">Overzicht Teams</a></li>
           </ul>    
            </li>
             <li><a href="<c:url value="/profiel" />">Profiel</a></li>

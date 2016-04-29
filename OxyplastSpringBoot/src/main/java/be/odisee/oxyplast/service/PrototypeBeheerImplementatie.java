@@ -24,7 +24,11 @@ public class PrototypeBeheerImplementatie implements PrototypeBeheerService {
 	public List<Prototype> geefAllePrototypesTerug(int projectId) {
 		System.out.println(projectId);
 		List<Prototype> p = prototypeDao.getAllPrototypes(projectId);
-		System.out.println(p.get(0).getId());
+		if (p.isEmpty()){
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(p.get(0).getId());
+		}
 		return p;
 	}
 	

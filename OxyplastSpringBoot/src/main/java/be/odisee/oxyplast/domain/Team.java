@@ -11,11 +11,13 @@ import javax.persistence.*;
 @Table(name="team")
 public class Team {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="teamid")
 	public int teamid;
 	
-	@OneToOne
-    @PrimaryKeyJoinColumn
+	//@OneToOne
+    //@PrimaryKeyJoinColumn
 	@Column(name="projectid")
 	public int projectid;
 

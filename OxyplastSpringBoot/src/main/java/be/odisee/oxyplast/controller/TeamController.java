@@ -1,6 +1,5 @@
 package be.odisee.oxyplast.controller;
 
-import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Team;
 import be.odisee.oxyplast.service.TeamBeheerService;
 
@@ -19,11 +18,11 @@ public class TeamController {
 	@Autowired
     protected TeamBeheerService tbs =null;
 	
-	   @RequestMapping(value={"/team/overzicht.html"},method=RequestMethod.GET)
+	   @RequestMapping(value={"/team/teamOverzicht.html"},method=RequestMethod.GET)
 	    public String index(ModelMap model){
 	        List<Team> lijst = tbs.geefAlleTeamsTerug();
 	        model.addAttribute("team", lijst);
-	        return "/overzicht";
+	        return "team/teamOverzicht";
 	    }
 
 }

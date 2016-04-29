@@ -10,7 +10,7 @@ import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Prototype;
 
 
-@Repository("prototypeDao")
+@Repository("TeamDao")
 @Transactional(propagation= Propagation.SUPPORTS, readOnly=true)
 public class TeamDaoHibernate extends HibernateDao implements TeamDao{
 

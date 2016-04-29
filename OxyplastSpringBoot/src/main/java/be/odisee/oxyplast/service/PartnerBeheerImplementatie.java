@@ -37,7 +37,11 @@ public class PartnerBeheerImplementatie implements PartnerBeheerService {
 	// geef lijst van alle partners terug
 	public List<Partner> geefAllePartnersTerug() {
 		List<Partner> Partnerlist = this.partnerDao.getAllPartners();
-		System.out.println(Partnerlist.get(0).getId());
+		if (Partnerlist.isEmpty()){
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(Partnerlist.get(0).getId());
+		}
 		return Partnerlist;
 	}
 

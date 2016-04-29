@@ -27,7 +27,11 @@ public class FeedbackBeheerImplementatie implements FeedbackBeheerService {
 	// geeft lijst van alle feedback terug 
 	public List<Feedback> geefAlleFeedbackTerug() {
 		List<Feedback> f = feedbackDao.getAllFeedback();
-		System.out.println(f.get(0).getId());
+		if (f.isEmpty()){
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(f.get(0).getId());
+		}
 		return f;
 	}
 
@@ -36,7 +40,11 @@ public class FeedbackBeheerImplementatie implements FeedbackBeheerService {
 	public List<Feedback> geefAlleFeedbackVoorProjectTerug(int prototypeID) {
 		System.out.println(prototypeID);
 		List<Feedback> f = feedbackDao.getAllFeedbackByPrototype(prototypeID);
-		System.out.println(f.get(0).getId());
+		if (f.isEmpty()){
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(f.get(0).getId());
+		}
 		return f;
 	}
 
