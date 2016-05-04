@@ -68,10 +68,10 @@ CREATE TABLE `klanten` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `onderzoekers`
+-- Tabelstructuur voor tabel `onderzoeker`
 --
 
-CREATE TABLE `onderzoekers` (
+CREATE TABLE `onderzoeker` (
   `id` int(11) NOT NULL,
   `naam` varchar(255) DEFAULT NULL,
   `voornaam` varchar(255) DEFAULT NULL,
@@ -202,19 +202,19 @@ CREATE TABLE `sessies` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `teams`
+-- Tabelstructuur voor tabel `team`
 --
 
-CREATE TABLE `teams` (
+CREATE TABLE `team` (
   `id` int(11) NOT NULL,
   `naam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `teams`
+-- Gegevens worden geëxporteerd voor tabel `team`
 --
 
-INSERT INTO `teams` (`id`, `naam`) VALUES
+INSERT INTO `team` (`id`, `naam`) VALUES
 (5, 'testTeam');
 
 -- --------------------------------------------------------
@@ -253,9 +253,9 @@ ALTER TABLE `klanten`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `onderzoekers`
+-- Indexen voor tabel `onderzoeker`
 --
-ALTER TABLE `onderzoekers`
+ALTER TABLE `onderzoeker`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -303,9 +303,9 @@ ALTER TABLE `sessies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `teams`
+-- Indexen voor tabel `team`
 --
-ALTER TABLE `teams`
+ALTER TABLE `team`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -334,9 +334,9 @@ ALTER TABLE `feedback`
 ALTER TABLE `klanten`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT voor een tabel `onderzoekers`
+-- AUTO_INCREMENT voor een tabel `onderzoeker`
 --
-ALTER TABLE `onderzoekers`
+ALTER TABLE `onderzoeker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT voor een tabel `partners`
@@ -369,9 +369,9 @@ ALTER TABLE `rollen`
 ALTER TABLE `sessies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT voor een tabel `teams`
+-- AUTO_INCREMENT voor een tabel `team`
 --
-ALTER TABLE `teams`
+ALTER TABLE `team`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT voor een tabel `user`
