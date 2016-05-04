@@ -24,7 +24,7 @@ import be.odisee.oxyplast.domain.Rol;;
 @DiscriminatorValue("Onderzoeker")
 public class Onderzoeker extends Rol {
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
 	private int id;
@@ -36,7 +36,7 @@ public class Onderzoeker extends Rol {
 	private String voornaam;
 	
 	@Column
-	private int teamid;
+	private int teamid;*/
 
 	 public Onderzoeker(){}
 
@@ -54,7 +54,7 @@ public class Onderzoeker extends Rol {
 	    }
 	    
 	    //tabel? team?
-	    public int getId() {
+	    /*public int getId() {
 			return id;
 		}
 
@@ -89,14 +89,14 @@ public class Onderzoeker extends Rol {
 
 		public void setTeamid(int teamid) {
 			this.teamid = teamid;
-		}
+		}*/
 
 
-		public Onderzoeker(int id, String naam, String voornaam, int teamid){
+		/*public Onderzoeker(int id, String naam, String voornaam, int teamid){
 			this.id = id;
 			this.naam = naam;
 			this.voornaam = voornaam;
 			this.teamid = teamid;
-		}
+		}*/
 
 }
