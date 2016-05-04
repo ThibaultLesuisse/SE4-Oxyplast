@@ -35,7 +35,7 @@
            <ul class="dropdown-menu">
             <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
             <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
-            <li><a href="<c:url value="/prototypeOverzicht" />"">Overzicht Prototypes</a></li>
+            <li><a href="<c:url value="/prototypeOverzicht" />"">Overzicht Onderzoekers</a></li>
             <li><a href="<c:url value="/leverancierOverzicht" />"">Overzicht Leveranciers</a></li>
             <li><a href="<c:url value="/teamoverzicht" />"">Overzicht Teams</a></li>
           </ul>    
@@ -50,55 +50,48 @@
       </div>
     </nav>
 <div class="container">
-<h1>Details van project</h1>
+<h1>Details van team</h1>
     <div class="table-responsive">
      <table class="table table-striped">
               
               <tbody>
               <tr>
               <td>ID</td>
-              <td><c:out value="${project.id}" /></td>
+              <td><c:out value="${team.id}" /></td>
               </tr>
               <tr>
               <td>Naam</td>
-              <td><c:out value="${project.naam}" /></td>
+              <td><c:out value="${team.naam}" /></td>
               </tr>
-              <tr>
-              <td>Status</td>
-              <td><c:out value="${project.status}" /></td>
-              </tr>
-              <tr>
-              <td>TeamId</td>
-              <td><c:out value="${project.teamId}" /></td>
-              </tr>              
+              <tr>            
       </tbody>
       </table>
-       <h2>Prototypes van het gekozen project</h2>
+       <h2>Onderzoekers van het gekozen team</h2>
                 
                 <table class="table table-striped">
                 </tbody>
-                <c:forEach items="${prototype}" var="prototype">
-                <c:url var="prototypetUrl" value="prototype/prototype.html">
-                    <c:param name="id" value="${prototype.id}" />
+                <c:forEach items="${onderzoeker}" var="onderzoeker">
+                <c:url var="onderzoekerUrl" value="onderzoeker/onderzoeker.html">
+                    <c:param name="id" value="${onderzoeker.id}" />
                 </c:url>
                 <tr>
                   <td> 
-                 <a href='<c:out value="${prototypetUrl}"/>'> <c:out value="${prototype.id}" /></a>
+                 <a href='<c:out value="${onderzoekerUrl}"/>'> <c:out value="${prototype.id}" /></a>
                 </td>
                   <td>    <c:out value="${prototype.formule}" /></td>
                 
                  <td>   
-                <c:url var="editPrototype" value="project/editProject.html">
-                <c:param name="id" value="${prototype.id}" />
+                <c:url var="editOnderzoeker" value="onderzoeker/editOnderzoeker.html">
+                <c:param name="id" value="${onderzoeker.id}" />
                 </c:url>
-        		<a href='<c:out value="${editPrototype}"/>'>Prototype Aanpassen</a>
+        		<a href='<c:out value="${editOnderzoeker}"/>'>Onderzoeker aanpassen</a>
                 </td>
                 
                 <td>   
-                <c:url var="deleteProject" value="project/deleteProject.html">
-                <c:param name="id" value="${prototype.id}" />
+                <c:url var="deleteOnderzoeker" value="onderzoeker/deleteOnderzoeker.html">
+                <c:param name="id" value="${onderzoeker.id}" />
                 </c:url>
-        		<a href='<c:out value="${deletePrototype}"/>'>Prototype Verwijderen</a>
+        		<a href='<c:out value="${deleteOnderzoeker}"/>'>Onderzoeker ontslaan</a>
                 </td>
                 </tr>
                   </c:forEach>
@@ -109,8 +102,8 @@
           
         
         
-        <c:url var="home" value="/index.html" />
-        <a href='<c:out value="${home}"/>'>Terug</a>        
+        <c:url var="terug" value="teams/team.html" />
+        <a href='<c:out value="${terug}"/>'>Terug</a>        
        </div>
       </div>
     </body>

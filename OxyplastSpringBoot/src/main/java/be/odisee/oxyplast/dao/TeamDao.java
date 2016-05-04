@@ -5,9 +5,9 @@ public interface TeamDao {
 
 
 
-	    public Team saveTeam(int teamid ,int projectid, String omschrijving, Boolean actief);
-	    public Team getTeamById(int teamid);
-	    public List<Team> getAllTeams(int teamid);
+	    public Team saveTeam(int id, String naam);
+	    public Team getTeamById(int id);
+	    public List<Team> getAllTeams();
 	    public void updateTeam(Team t);    
 	    public void deleteTeam(Team t);
 }

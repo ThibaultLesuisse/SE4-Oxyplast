@@ -68,12 +68,11 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>ProjectID</th>
-                  <th>Omschrijving</th>
+                  <th>Naam</th>
                 </tr>
               </thead>
               <tbody>    
-        <h1>Lijst van de projecten</h1>
+        <h1>Lijst van de teams</h1>
         
             <c:forEach items="${team}" var="team">
                 <c:url var="teamUrl" value="teams/team.html">
@@ -81,22 +80,22 @@
                 </c:url>
                 
                 <tr>
-                  <td> <a href='<c:out value="${teamUrl}"/>'><c:out value="${team.teamid}" /> </a></td>
-                  <td>    <c:out value="${team.projectid}" /></td>
-                  <td>   <c:out value="${team.omschrijving}" /></td>
+                  <td> <a href='<c:out value="${teamUrl}"/>'><c:out value="${team.id}" /> </a></td>
+                  <td>    <c:out value="${team.id}" /></td>
+                  <td>   <c:out value="${team.naam}" /></td>
                 
                  <td>   
                 <c:url var="editTeam" value="team/editTeam.html">
                 <c:param name="id" value="${team.id}" />
                 </c:url>
-        		<a href='<c:out value="${editTeam}"/>'>Team Aanpassen</a>
+        		<a href='<c:out value="${editTeam}"/>'>Team aanpassen</a>
                 </td>
                 
                 <td>   
                 <c:url var="deleteTeam" value="team/deleteTeam.html">
                 <c:param name="id" value="${team.teamid}" />
                 </c:url>
-        		<a href='<c:out value="${deleteTeam}"/>'>Team verwijderen</a>
+        		<a href='<c:out value="${deleteTeam}"/>'>Team ontleden</a>
                 </td>
                 </tr>
                 
@@ -105,7 +104,7 @@
         </tbody>
         </table>
         <c:url var="nieuwTeamUrl" value="/team/nieuwTeam.html" />
-        <a href='<c:out value="${nieuwTeamUrl}"/>'>Team Toevoegen</a>
+        <a href='<c:out value="${nieuwTeamUrl}"/>'>Team samenstellen</a>
         </div>
         </div>
     </body>
