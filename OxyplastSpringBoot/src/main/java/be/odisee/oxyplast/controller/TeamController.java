@@ -24,7 +24,7 @@ public class TeamController {
 	@Autowired// ready for dependency injection
     protected OnderzoekerBeheerService ohs = null;
 	
-	   @RequestMapping(value={"/team/teamOverzicht", "/team/teamOverzicht.html", "/teamOverzicht", "/teamOverzicht.html"},method=RequestMethod.GET)
+	   @RequestMapping(value={"/team/teamOverzicht", "/team/teamOverzicht.html", "/team/teamoverzicht", "/team/teamoverzicht.html", "/teamOverzicht", "/teamOverzicht.html", "/teamoverzicht", "/teamoverzicht.html"},method=RequestMethod.GET)
 	    public String index(ModelMap model){
 	        List<Team> lijst = tbs.geefAlleTeamsTerug();
 	        model.addAttribute("team", lijst);

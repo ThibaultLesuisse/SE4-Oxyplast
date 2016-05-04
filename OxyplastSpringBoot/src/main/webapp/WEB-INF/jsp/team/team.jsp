@@ -76,9 +76,10 @@
                 </c:url>
                 <tr>
                   <td> 
-                 <a href='<c:out value="${onderzoekerUrl}"/>'> <c:out value="${prototype.id}" /></a>
+                 <a href='<c:out value="${onderzoekerUrl}"/>'> <c:out value="${onderzoeker.id}" /></a>
                 </td>
-                  <td>    <c:out value="${prototype.formule}" /></td>
+                  <td>    <c:out value="${onderzoeker.voornaam}" /></td>
+                  <td>    <c:out value="${onderzoeker.naam}" /></td>
                 
                  <td>   
                 <c:url var="editOnderzoeker" value="onderzoeker/editOnderzoeker.html">
@@ -102,7 +103,7 @@
           
         
         
-        <c:url var="terug" value="teams/team.html" />
+        <c:url var="terug" value="/team/teamOverzicht.html" />
         <a href='<c:out value="${terug}"/>'>Terug</a>        
        </div>
       </div>

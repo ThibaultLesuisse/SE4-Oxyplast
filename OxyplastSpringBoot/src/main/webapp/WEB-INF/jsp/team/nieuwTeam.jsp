@@ -57,7 +57,7 @@
     
         <h1>Welkom bij oxyplast</h1>
         <c:url var="url" value="/nieuwTeam.html" />
-        <form:form action="${url}" commandName="hetteam" class="form-horizontal">   <%-- Spring form tags --%>
+        <form:form action="${url}" commandName="hetTeam" class="form-horizontal">   <%-- Spring form tags --%>
             
 			<div class="form-group">
 				    <label for="naam" class="col-sm-2 control-label">Naam</label>

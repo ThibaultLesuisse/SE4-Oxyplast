@@ -75,8 +75,8 @@
         <h1>Lijst van de teams</h1>
         
             <c:forEach items="${team}" var="team">
-                <c:url var="teamUrl" value="teams/team.html">
-                    <c:param name="id" value="${team.teamid}" />
+                <c:url var="teamUrl" value="team/team.html">
+                    <c:param name="id" value="${team.id}" />
                 </c:url>
                 
                 <tr>
@@ -85,17 +85,17 @@
                   <td>   <c:out value="${team.naam}" /></td>
                 
                  <td>   
-                <c:url var="editTeam" value="team/editTeam.html">
+                <c:url var="editTeam" value="/team/editTeam.html">
                 <c:param name="id" value="${team.id}" />
                 </c:url>
         		<a href='<c:out value="${editTeam}"/>'>Team aanpassen</a>
                 </td>
                 
                 <td>   
-                <c:url var="deleteTeam" value="team/deleteTeam.html">
-                <c:param name="id" value="${team.teamid}" />
+                <c:url var="deleteTeam" value="/team/deleteTeam.html">
+                <c:param name="id" value="${team.id}" />
                 </c:url>
-        		<a href='<c:out value="${deleteTeam}"/>'>Team ontleden</a>
+        		<a href='<c:out value="${deleteTeam}"/>'>Team ontbinden</a>
                 </td>
                 </tr>
                 
