@@ -24,28 +24,28 @@ public class FeedbackRESTapiController {
 	@Autowired
 	protected FeedbackBeheerService Fserv = null;
 	
-	@RequestMapping("/getfeedback.html")
+	@RequestMapping("/rest/getfeedback.html")
 	public String getfeedbackhtml(){
 		return "getfeedback";
 	}
 	
 	
 	// REST GET - lijst van alle feedback in database
-	@RequestMapping(value={"/feedbacklijst"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/rest/feedbacklijst"}, method = RequestMethod.GET)
 	public @ResponseBody List<Feedback> getFeedbacklijst(){
 		List<Feedback> f = Fserv.geefAlleFeedbackTerug();
 		return f;
 	}
 	
 	// REST GET - feedback dat bij gegeven id hoort
-	@RequestMapping(value={"/feedback/{id}"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/rest/feedback/{id}"}, method = RequestMethod.GET)
 	public @ResponseBody Feedback getFeedback(@PathVariable("id") Integer id) {
 		Feedback f = Fserv.getFeedbackById(id);
 		return f;
 	}
 	
 	// REST PUT - update bestaande feedback volgens input client
-	@RequestMapping(value={"/feedback/{id}"}, method = RequestMethod.PUT)
+	@RequestMapping(value={"/rest/feedback/{id}"}, method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void putFeedback(@PathVariable("id") Integer id, @RequestBody Feedback feedback){
 		feedback.setId(id);
@@ -53,7 +53,7 @@ public class FeedbackRESTapiController {
 	}
 	
 	// REST DELETE - delete feedback van client
-	@RequestMapping(value={"/feedback/{id}"}, method = RequestMethod.DELETE)
+	@RequestMapping(value={"/rest/feedback/{id}"}, method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteFeedback(@PathVariable("id") Integer id){
 		Feedback f = Fserv.getFeedbackById(id);
@@ -61,11 +61,11 @@ public class FeedbackRESTapiController {
 	}
 	
 	// REST POST - create feedback door client
-	@RequestMapping(value={"/feedback/{id}"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/rest/feedback/{id}"}, method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public @ResponseBody Feedback createFeedback(@RequestBody Feedback f, HttpServletResponse response) throws BindException {
 		Fserv.CreateFeedback(f.getId(), f.getFeedback(), f.getPrototypeid(), f.getPartnerid());
-		response.setHeader("Location", "/feedback/"+f.getId());
+		response.setHeader("Location", "/rest/feedback/"+f.getId());
 		return f;
 	}
 }

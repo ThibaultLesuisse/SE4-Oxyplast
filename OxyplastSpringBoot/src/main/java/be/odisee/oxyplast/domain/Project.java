@@ -38,6 +38,10 @@ public class Project implements Serializable{
 	@Column
 	//@Index(name="IProject_naam",columnNames="Naam")
 	private String naam;
+	
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="project")
+    private Set<Project> m_Projecten= new HashSet<Project>();
+	
 	//public Prototype m_Prototype;
 	//public Team m_Team;
    // @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

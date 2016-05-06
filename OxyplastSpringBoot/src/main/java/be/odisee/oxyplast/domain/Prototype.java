@@ -26,6 +26,10 @@ public class Prototype {
 	@Column
 	private String formule;
 	
+   @ManyToOne
+   @JoinColumn(name="projectid")
+   protected Project project;
+
 	//@ManyToOne
 	//private Project project;
 	public Prototype(){
