@@ -15,18 +15,18 @@ import be.odisee.oxyplast.domain.Prototype;
 public class TeamDaoHibernate extends HibernateDao implements TeamDao{
 
 	@Override
-	public Team saveTeam(int teamid, int projectid, String omschrijving, Boolean actief) {
-		Team t = new Team(teamid ,projectid, omschrijving, actief );
+	public Team saveTeam(int id, String naam) {
+		Team t = new Team(id, naam);
 		sessionSaveObject(t);
 		return t;
 	}
-	public Team getTeamById(int teamid) {
-		return (Team) sessionGetObjectById("Team", teamid);
+	public Team getTeamById(int id) {
+		return (Team) sessionGetObjectById("Team", id);
 	}
 
 	@SuppressWarnings("unchecked")
 
-	public List<Team> getAllTeams(int teamid) {
+	public List<Team> getAllTeams() {
 		return (List<Team>) sessionGetAllObjects("Team");
 	}
 	public void updateTeam(Team t) {

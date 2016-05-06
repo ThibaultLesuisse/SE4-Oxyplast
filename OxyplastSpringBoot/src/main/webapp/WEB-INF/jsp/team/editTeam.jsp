@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Project Aanpassen</title>
+<title>Team Aanpassen</title>
  <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
 		<c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
 		<c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<c:url value="/" />">Home</a></li>
            <li>
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projecten <span class="caret"></span></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teamen <span class="caret"></span></a>
            <ul class="dropdown-menu">
             <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
             <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
@@ -56,11 +56,11 @@
       </div>
     </nav>
 <div class="container">
-<h1>Details van project</h1>
+<h1>Details van team</h1>
     
         
-       <c:url var="url" value="/editProject.html" />
-        <form:form action="${url}" commandName="projectAanpassen" class="form-horizontal" method="POST">   <%-- Spring form tags --%>
+       <c:url var="url" value="/editTeam.html" />
+        <form:form action="${url}" commandName="teamAanpassen" class="form-horizontal" method="POST">   <%-- Spring form tags --%>
             <div class="form-group">
 				    <label for="id" class="col-sm-2 control-label">ID</label>
 				    <div class="col-sm-10">
@@ -73,19 +73,7 @@
 				      <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
 				    </div>
 				  </div>
-				  
-				  <div class="form-group">
-				    <label for="status" class="col-sm-2 control-label">Status</label>
-				    <div class="col-sm-10">
-				      <form:input type="text" class="form-control" id="status" path="status" placeholder="De status"/>
-				    </div>
-				  </div>
-                <div class="form-group">
-				    <label for="teamId" class="col-sm-2 control-label">TeamId</label>
-				    <div class="col-sm-10">
-				      <form:input type="teamId" class="form-control" id="teamId" path="teamId" placeholder="Team ID"/>
-				    </div>
-				  </div>
+
 				  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>
@@ -100,20 +88,12 @@
               <tbody>
               <tr>
               <td>ID</td>
-              <td><c:out value="${project.id}" /></td>
+              <td><c:out value="${team.id}" /></td>
               </tr>
               <tr>
               <td>Naam</td>
-              <td><c:out value="${project.naam}" /></td>
-              </tr>
-              <tr>
-              <td>Status</td>
-              <td><c:out value="${project.status}" /></td>
-              </tr>
-              <tr>
-              <td>TeamId</td>
-              <td><c:out value="${project.teamId}" /></td>
-              </tr>              
+              <td><c:out value="${team.naam}" /></td>
+              </tr>             
       </tbody>
       </table>
 </body>

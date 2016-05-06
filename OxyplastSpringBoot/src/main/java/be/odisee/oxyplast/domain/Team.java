@@ -13,53 +13,35 @@ public class Team {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="teamid")
-	public int teamid;
+	@Column(name="id")
+	public int id;
 	
 	//@OneToOne
     //@PrimaryKeyJoinColumn
-	@Column(name="projectid")
-	public int projectid;
 
-	@Column(name="omschrijving")
-	public String omschrijving;
+	@Column(name="naam")
+	public String naam;
 	
-	@Column(name="actief")
-	public Boolean actief;
 	
-	public Boolean getActief() {
-		return actief;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setActief(Boolean actief) {
-		this.actief = actief;
+	public String getNaam() {
+		return naam;
 	}
-	public int getTeamid() {
-		return teamid;
-	}
-	public void setTeamid(int teamid) {
-		this.teamid = teamid;
-	}
-	public int getProjectid() {
-		return projectid;
-	}
-	public void setProjectid(int projectid) {
-		this.projectid = projectid;
-	}
-	public String getOmschrijving() {
-		return omschrijving;
-	}
-	public void setOmschrijving(String omschrijving) {
-		this.omschrijving = omschrijving;
+	public void setNaam(String naam) {
+		this.naam = naam;
 	}
 
 	public Team(){
 	}
 	
-	public Team(int teamid, int projectid, String omschrijving, Boolean actief){
-		this.teamid = teamid;
-		this.projectid = projectid;
-		this.omschrijving = omschrijving;
-		this.actief = actief;
+	public Team(int id, String naam){
+		this.id = id;
+		this.naam = naam;
 	}
 }
