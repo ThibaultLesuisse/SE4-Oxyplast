@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * @author Lesuisse
@@ -15,6 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="feedback")
+@XmlRootElement(name="feedback")
 public class Feedback {
 
 	@Id
@@ -42,6 +46,7 @@ public class Feedback {
 		this.partnerid = partnerid;
 	}
 
+	@XmlElement(name="id")
 	public int getId() {
 		return id;
 	}
@@ -50,6 +55,7 @@ public class Feedback {
 		this.id = id;
 	}
 
+	@XmlElement(name="feedack")
 	public String getFeedback() {
 		return feedback;
 	}
@@ -58,6 +64,7 @@ public class Feedback {
 		this.feedback = feedback;
 	}
 
+	@XmlElement(name="prototypeId")
 	public int getPrototypeid() {
 		return prototypeid;
 	}
@@ -66,6 +73,7 @@ public class Feedback {
 		this.prototypeid = prototypeid;
 	}
 
+	@XmlElement(name="partnerId")
 	public int getPartnerid() {
 		return partnerid;
 	}

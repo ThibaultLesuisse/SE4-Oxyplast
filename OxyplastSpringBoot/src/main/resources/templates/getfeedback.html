@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Feedbacklijst</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script>
+		$(function(){
+			$.getJSON("http://localhost:8080/feedback/1.json", function(data){
+				$("#feedbackdiv").html("We hebben als feedback: " + data.feedback);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="feedbackdiv"></div>
+</body>
+</html>
