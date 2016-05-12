@@ -9,11 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="partners")
-public class Partner /*extends Rol*/{
+public class Partner extends Rol{
 	
-	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="partnerid")
 	private int id;
 	
 	@Column
@@ -30,6 +29,10 @@ public class Partner /*extends Rol*/{
 		this.id = id;
 		this.naam = naam;
 		this.voornaam = voornaam;
+	}
+
+	public Partner(String status, String usernaam, Sessie sessie, Persoon persoon) {
+		 super(status,usernaam,sessie,persoon);
 	}
 
 	public int getId() {
@@ -56,8 +59,8 @@ public class Partner /*extends Rol*/{
 		this.voornaam = voornaam;
 	}
 
-	/*@Override
+	@Override
 	public String getType() {
 		return "Partner";
-	}*/
+	}
 }

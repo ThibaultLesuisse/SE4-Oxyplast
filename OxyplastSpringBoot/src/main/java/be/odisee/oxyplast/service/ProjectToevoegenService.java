@@ -38,6 +38,7 @@ public interface ProjectToevoegenService {
 	public Prototype voegPrototypeToe(int prototypeId, int sessieId, int OnderzoekerId, String formule);
 	public Prototype voegPrototypeToe(int sessieId, int OnderzoekerId, String formule);
 	public Prototype zoekPrototypeMetId(int id);
+	public List<Aanvraag> geefAlleAanvragenTerug();
 	public Aanvraag voegAanvraagToe
 	            (int id, int AanvraagId, int klantId, String type, String aanvraag);
 	public Aanvraag voegAanvraagToe

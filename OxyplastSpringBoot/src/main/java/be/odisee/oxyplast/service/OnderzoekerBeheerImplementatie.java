@@ -31,7 +31,18 @@ public class OnderzoekerBeheerImplementatie implements OnderzoekerBeheerService 
 		}
 		return o;
 	}
-	
-	
-
+	public List<Onderzoeker> geefAlleOnderzoekersTerugZonderId() {
+		List<Onderzoeker> o = onderzoekerDao.getAllOnderzoekers();
+		if (o.isEmpty()){
+			
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(o.get(0).getId());
+			
+		}
+		return o;
+	}
 }
+
+
+

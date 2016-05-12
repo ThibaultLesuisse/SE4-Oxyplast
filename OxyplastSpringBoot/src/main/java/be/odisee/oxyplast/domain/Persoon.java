@@ -121,9 +121,10 @@ public class Persoon implements Serializable {
 
     public Rol voegRolToe(String type, String status, String usernaam, Sessie sessie) throws RolNotFoundException{
         Rol newRol=null;
-        if (type.toLowerCase().equals("administrator")) newRol= new Accountverantwoordelijke(status, usernaam, sessie,this);
-        if (type.toLowerCase().equals("organisator")) newRol= new Onderzoeker(status, usernaam, sessie,this);
-        if (type.toLowerCase().equals("facilitator")) newRol= new Klant(status, usernaam, sessie,this);
+        if (type.toLowerCase().equals("Accountverantwoordelijke")) newRol= new Accountverantwoordelijke(status, usernaam, sessie,this);
+        if (type.toLowerCase().equals("Partner")) newRol= new Partner(status, usernaam, sessie,this);
+        if (type.toLowerCase().equals("Onderzoeker")) newRol= new Onderzoeker(status, usernaam, sessie,this);
+        if (type.toLowerCase().equals("Klant")) newRol= new Klant(status, usernaam, sessie,this);
         if (newRol==null) throw new RolNotFoundException("Type "+type+" is geen bekende Rol");
         m_Rollen.add(newRol);
         return newRol;

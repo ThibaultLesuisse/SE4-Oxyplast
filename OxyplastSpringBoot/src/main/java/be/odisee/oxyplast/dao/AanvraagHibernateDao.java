@@ -2,9 +2,14 @@ package be.odisee.oxyplast.dao;
 
 import java.util.List;
 
-import be.odisee.oxyplast.domain.Aanvraag;
-import be.odisee.oxyplast.domain.Project;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import be.odisee.oxyplast.domain.Aanvraag;
+
+@Repository("AanvraagDao")
+@Transactional(propagation= Propagation.SUPPORTS, readOnly=true)
 public class AanvraagHibernateDao extends HibernateDao implements AanvraagDao {
 
 
@@ -24,7 +29,6 @@ public class AanvraagHibernateDao extends HibernateDao implements AanvraagDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Aanvraag> getAllAanvragen() {
-		// TODO Auto-generated method stub
 		return (List<Aanvraag>) sessionGetAllObjects("Aanvraag");
 	}
 

@@ -14,21 +14,37 @@
 
     <script src="${jq}"></script>
 
-    <link href="${bootstrapcss}" rel="stylesheet">
+  
+   <!--  <link rel='stylesheet' href='/resources/Calendar/lib/cupertino/jquery-ui.min.css' /> -->
+    <link href="/resources/Calendar/fullcalendar.min.css" rel='stylesheet' type='text/css'>
+ <link href="/resources/Calendar/fullcalendar.print.css" rel='stylesheet' type='text/css'>
+     <script type="text/javascript" src="/resources/Calendar/moment.min.js"></script> 
+    <script type="text/javascript" src="/resources/Calendar/fullcalendar.min.js"></script>
+   
+    <link href="/resources/Calendar/jquery.mobile.flatui.min.css" rel='stylesheet' type='text/css'>
+   
+    
+      <link href="/resources/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/resources/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/resources/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="${bootstrapcss}" rel="stylesheet">
     <link href="${bootstraptheme}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
     <script src="${bootstrapjs}"></script>
-
-
-
-
-
-
-
-
+    
 </head>
 
-<body style="padding-top: 50px;">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body style="font-family:Lato;">
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,15 +71,10 @@
             <li><a href="<c:url value="/profiel" />">Profiel</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
-
     </nav>
-
-
+    <div class="col-sm-12 col-md-12 col-lg-12">
     <div class="container">
         <div class="table-responsive">
             <table class="table table-striped">
@@ -76,6 +87,97 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"> <c:out value="${aantalProjecten}" /></div>
+                                    <div>Actieve projecten</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${aantalPrototypes}" /></div>
+                                    <div>Prototypes</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${aantalAanvragen}" /></div>
+                                    <div>Aanvragen</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><c:out value="${aantalBestellingen}" /></div>
+                                    <div>Bestellingen</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div id='calendar'></div>
                     <h1>Lijst van de projecten</h1>
 
                     <c:forEach items="${project}" var="project">
@@ -112,8 +214,6 @@
                                 <a href='<c:out value="${deleteProject}"/>'>Project Verwijderen</a>
                             </td>
                         </tr>
-
-
                     </c:forEach>
                 </tbody>
             </table>
@@ -121,6 +221,24 @@
             <a href='<c:out value="${nieuwProjectUrl}"/>'>Project Toevoegen</a>
         </div>
     </div>
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+
+       
+
+        $('#calendar').fullCalendar({
+           theme: true
+        })
+
+    });
+    </script>
+    
+      <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="resources/dist/js/sb-admin-2.js"></script>
 </body>
 
 </html>

@@ -32,6 +32,7 @@ public class Klant extends Rol {
 
 	    @Override
 	    public String getType() {
+	    	
 	        return "Klant";
 	    }
 

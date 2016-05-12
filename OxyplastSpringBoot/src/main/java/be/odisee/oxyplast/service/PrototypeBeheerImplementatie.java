@@ -31,6 +31,16 @@ public class PrototypeBeheerImplementatie implements PrototypeBeheerService {
 		}
 		return p;
 	}
+	public List<Prototype> geefAllePrototypesTerugZonderId() {
+
+		List<Prototype> p = prototypeDao.getAllPrototypesWithoutId();
+		if (p.isEmpty()){
+			System.out.println("lijst is leeg");
+		} else {
+			System.out.println(p.get(0).getId());
+		}
+		return p;
+	}
 	
 	
 

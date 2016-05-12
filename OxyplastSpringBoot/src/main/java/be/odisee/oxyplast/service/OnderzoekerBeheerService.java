@@ -10,5 +10,6 @@ import be.odisee.oxyplast.controller.TeamController;
 public interface OnderzoekerBeheerService {
 	
 	public List<Onderzoeker> geefAlleOnderzoekersTerug(int teamid);
+	public List<Onderzoeker> geefAlleOnderzoekersTerugZonderId();
 
 }

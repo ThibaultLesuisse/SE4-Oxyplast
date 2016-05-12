@@ -62,10 +62,15 @@
                 </c:if>
             </div>
         </div>
-        <div class="container" class="col-md-6" style="margin-top:10%;">
-            <div class="section">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Inloggen</div>
+        <div class="container" style="margin-top:10%;">
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                     <h3 class="panel-title">
+                    Inloggen
+                    </h3>
+                    </div>
                     <div class="panel-body">
                         <form name="f" action="<c:url value='/login' />" method="POST" class="form-horizontal">
                            
@@ -92,21 +97,22 @@
                                         </div>
                                     </div>
                             </div>
-                          
-                    </div>
-                    </div>
-                    <div class="form-buttons">
+                          <div class="form-buttons">
                         <div class="button">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-primary"/>
+                      
+                            <input name="submit" id="submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block"/>
                             </div>
-                        </div>
+                       
  
                     </div>
+                    </div>
+                   
+                    
                 </div>
             </form>
             </div>
-
+ </div>
+ </div>
     </body>
 
 </html>

@@ -1,9 +1,8 @@
 package be.odisee.oxyplast.controller;
 
-import be.odisee.oxyplast.domain.Project;
-import be.odisee.oxyplast.domain.Prototype;
-import be.odisee.oxyplast.service.ProjectToevoegenService;
-import be.odisee.oxyplast.service.PrototypeBeheerService;
+
+import be.odisee.oxyplast.domain.*;
+import be.odisee.oxyplast.service.*;
 
 import java.util.List;
 
@@ -22,9 +21,27 @@ public class ProjectController {
     @Autowired// ready for dependency injection
     protected PrototypeBeheerService phs = null;
     
+    @Autowired// ready for dependency injection
+    protected OnderzoekerBeheerService obs = null;
+    
+    @Autowired// ready for dependency injection
+    protected BestellingBeheerService bhs = null;
+    
+    
+    
     @RequestMapping(value={"/index", "/"},method=RequestMethod.GET)
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
+        List<Prototype> dePrototypeLijst = phs.geefAllePrototypesTerugZonderId();
+        List<Aanvraag> deAanvragenLijst = pjs.geefAlleAanvragenTerug();
+        List<Bestelling> deBestellingenLijst = bhs.geefAlleBestllingenTerug();
+        
+        model.addAttribute("aantalProjecten", deLijst.size());
+        model.addAttribute("aantalPrototypes", dePrototypeLijst.size());
+        model.addAttribute("aantalAanvragen", deAanvragenLijst.size());
+        model.addAttribute("aantalBestellingen", deBestellingenLijst.size());
+        
+        
         model.addAttribute("project", deLijst);
         return "/index";
     }

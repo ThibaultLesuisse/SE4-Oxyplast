@@ -3,8 +3,11 @@ package be.odisee.oxyplast.domain;
 import java.io.Serializable;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.DiscriminatorOptions;
 import org.hibernate.annotations.Index;
-@org.hibernate.annotations.DiscriminatorOptions(force=true)
+
+@DiscriminatorOptions(force=true)
 @Entity
 @Table(name="rollen")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -13,6 +16,7 @@ import org.hibernate.annotations.Index;
 public abstract class Rol implements Serializable {
 
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy=GenerationType.AUTO)
     protected int id;
 

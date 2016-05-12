@@ -13,6 +13,7 @@ import org.hibernate.annotations.Index;
  */
 @Entity
 @Table(name="prototype")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Prototype {
 
 	@Id
@@ -21,15 +22,15 @@ public class Prototype {
 	private int id;
 	
 	@Column
-	private int projectid;
-	
-	@Column
 	private String formule;
 	
    @ManyToOne
    @JoinColumn(name="projectid")
    protected Project project;
 
+   
+   @OneToOne(mappedBy="prototype")
+   private Bestelling bestelling;
 	//@ManyToOne
 	//private Project project;
 	public Prototype(){
@@ -45,15 +46,6 @@ public class Prototype {
 		this.id = id;
 	}
 
-
-	public int getProjectid() {
-		return projectid;
-	}
-
-
-	public void setProjectid(int projectid) {
-		this.projectid = projectid;
-	}
 
 
 	public String getFormule() {
@@ -74,9 +66,9 @@ public class Prototype {
 	 * @param Aanvraag
 	 * @param AanvragerID
 	 */
-	public Prototype(int id, int projectid , String formule){
+	public Prototype(int id, Project project , String formule){
 		this.id = id;
-		this.projectid = projectid;
+		this.project = project;
 		this.formule = formule;
 	}
 

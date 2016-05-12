@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.odisee.oxyplast.dao.SessieDao;
-import be.odisee.oxyplast.domain.Sessie;
 import be.odisee.oxyplast.dao.RolDao;
-import be.odisee.oxyplast.domain.Rol;
+import be.odisee.oxyplast.dao.AanvraagDao;
 import be.odisee.oxyplast.dao.PersoonDao;
-import be.odisee.oxyplast.domain.Persoon;
 import be.odisee.oxyplast.dao.ProjectDao;
 import be.odisee.oxyplast.domain.*;
 import utilities.RolNotFoundException;
@@ -33,7 +31,8 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	private SessieDao sessieDao;
     private RolDao rolDao;
     private PersoonDao persoonDao;
-	
+	private AanvraagDao aanvraagDao;
+    
 	public ArrayList<Klant> klanten = new ArrayList<Klant>();
 	public ArrayList<Project> projecten = new ArrayList<Project>();
 	
@@ -45,19 +44,6 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 
 	}
 
-	/**
-	 * 
-	 * @param Aanvraag
-	 */
-	public Aanvraag AanvraagIndienen(String Aanvraag){
-			//aanvraag = new Aanvraag(Aanvraag, 1);	
-			return aanvraag;
-	}
-
-	/**
-	 * 
-	 * @param Formule
-	 */
 	public void BepaalFormule(String Formule){
 
 	}
@@ -65,6 +51,7 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
     public void setPersoonDao(PersoonDao persoonDao) {
         this.persoonDao = persoonDao;
     }
+    
 
     @Autowired
     public void setRolDao(RolDao rolDao) {
@@ -269,6 +256,15 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public Klant zoekKlant(String Naam) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Autowired
+    public void setAanvraagDao(AanvraagDao a) {
+        this.aanvraagDao = a;
+    }
+	public List<Aanvraag> geefAlleAanvragenTerug() {
+		// TODO Auto-generated method stub
+		return aanvraagDao.getAllAanvragen();
 	}
 	
 

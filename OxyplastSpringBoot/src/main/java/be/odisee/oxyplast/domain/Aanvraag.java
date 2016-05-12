@@ -24,7 +24,6 @@ public class Aanvraag {
 	private int klantid;
 	
 	@Column
-	//@Index(name="IProject_naam",columnNames="Naam")
 	private String aanvraag;
 	//public Prototype m_Prototype;
 	//public Team m_Team;

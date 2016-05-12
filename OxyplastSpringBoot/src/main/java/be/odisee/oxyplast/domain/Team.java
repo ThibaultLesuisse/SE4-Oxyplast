@@ -1,5 +1,8 @@
 package be.odisee.oxyplast.domain;
 import java.lang.reflect.Array;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 /**
@@ -21,6 +24,10 @@ public class Team {
 
 	@Column(name="naam")
 	public String naam;
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="team")
+    private Set<Onderzoeker> m_Onderzoekers= new HashSet<Onderzoeker>();
+	
 	
 	
 	public int getId() {

@@ -10,5 +10,6 @@ import be.odisee.oxyplast.controller.ProjectController;
 public interface PrototypeBeheerService {
 	
 	public List<Prototype> geefAllePrototypesTerug(int ProjectId);
+	public List<Prototype> geefAllePrototypesTerugZonderId();
 
 }

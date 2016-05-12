@@ -39,8 +39,12 @@ public class Project implements Serializable{
 	//@Index(name="IProject_naam",columnNames="Naam")
 	private String naam;
 	
-    @OneToMany(fetch=FetchType.EAGER,mappedBy="project")
-    private Set<Project> m_Projecten= new HashSet<Project>();
+	
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
+    private Set<Prototype> m_Prototype= new HashSet<Prototype>();
+    
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
+    private Set<Bestelling> m_bestelling= new HashSet<Bestelling>();
 	
 	//public Prototype m_Prototype;
 	//public Team m_Team;
