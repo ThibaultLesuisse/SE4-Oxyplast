@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/foreach/libs/common-spring/0.9/common-spring-0.9.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/foreach/libs/common-spring/0.9/common-spring-0.9-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/foreach/libs/common-spring/0.9/common-spring-0.9-sources.jar!/" />
     </SOURCES>
