@@ -15,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import be.odisee.oxyplast.domain.Persoon;
@@ -29,11 +30,11 @@ import be.odisee.oxyplast.domain.Rol;;
 
 @SuppressWarnings("serial")
 @Entity
-@DiscriminatorValue("Onderzoeker")
+@DiscriminatorValue(value = "Onderzoeker")
 public class Onderzoeker extends Rol {
 	
 	@Column(name="onderzoekerid")
-	protected int onderzoekerid;
+	private int onderzoekerid;
 	
 	@Column(name="onderzoekernaam")
 	protected String onderzoekernaam;
@@ -42,8 +43,10 @@ public class Onderzoeker extends Rol {
 	protected String onderzoekervoornaam;
 	
 	@ManyToOne
-	@JoinColumn(name="teamid")
+	@JoinColumn(name="onderzoekerteamid")
 	protected Team team;
+	
+
 
 	   
 		public int getOnderzoekerid() {

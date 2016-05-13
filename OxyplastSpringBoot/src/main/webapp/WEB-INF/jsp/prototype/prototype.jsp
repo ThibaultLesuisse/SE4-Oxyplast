@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Overzicht Feedback</title>
+    <title>Overzicht Partner</title>
     <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -22,39 +22,33 @@
 <body style="padding-top: 50px;">
     
     <div class="container">
-        <h1>Details van feedback</h1>
+        <h1>Details van partner</h1>
         <div class="table-responsive">
             <table class="table table-striped">
                 <tbody>
                     <tr>
                         <td>ID</td>
                         <td>
-                            <c:out value="${feedback.id}" />
+                            <c:out value="${partner.id}" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Feedback</td>
+                        <td>Naam</td>
                         <td>
-                            <c:out value="${feedback.feedback}" />
+                            <c:out value="${partner.naam}" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Prototype ID</td>
+                        <td>Voornaam</td>
                         <td>
-                            <c:out value="${feedback.prototypeid}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Partner ID</td>
-                        <td>
-                            <c:out value="${feedback.partnerid}" />
+                            <c:out value="${partner.voornaam}" />
                         </td>
                     </tr>
                 </tbody>
             </table>
             
-            <c:url var="homeFeedback" value="feedbackLijst.html" />
-            <a href='<c:out value="${homeFeedback}"/>'>Terug</a>
+            <c:url var="homePartner" value="partnersLijst.html" />
+            <a href='<c:out value="${homePartner}"/>'>Terug</a>
         </div>
     </div>
 </body>

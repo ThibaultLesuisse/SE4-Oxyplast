@@ -1,7 +1,11 @@
 package be.odisee.oxyplast.domain;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,9 +21,27 @@ import be.odisee.oxyplast.domain.Sessie;
 import be.odisee.oxyplast.domain.Rol;
 
 @Entity
+@Table(name="klanten")
 @DiscriminatorValue("Klant")
 public class Klant extends Rol {
 
+	
+
+	@Id
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="voornaam")
+	private String voornaam;
+	
+	@Column(name="naam")
+	private String naam;
+	
+	
+	@JoinColumn(name="id")
+	private Aanvraag aanvraag;
+	
+	
 	 public Klant(){}
 
 	    public Klant(String status, String usernaam, Sessie sessie, Persoon persoon){
@@ -35,5 +57,36 @@ public class Klant extends Rol {
 	    	
 	        return "Klant";
 	    }
+	    public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getVoornaam() {
+			return voornaam;
+		}
+
+		public void setVoornaam(String voornaam) {
+			this.voornaam = voornaam;
+		}
+
+		public String getNaam() {
+			return naam;
+		}
+
+		public void setNaam(String naam) {
+			this.naam = naam;
+		}
+
+		public Aanvraag getAanvraag() {
+			return aanvraag;
+		}
+
+		public void setAanvraag(Aanvraag aanvraag) {
+			this.aanvraag = aanvraag;
+		}
 
 }

@@ -21,6 +21,26 @@ public class Prototype {
 	@Column(name="id")
 	private int id;
 	
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public Bestelling getBestelling() {
+		return bestelling;
+	}
+
+	public void setBestelling(Bestelling bestelling) {
+		this.bestelling = bestelling;
+	}
+
+
+
+
+
 	@Column
 	private String formule;
 	
@@ -57,15 +77,6 @@ public class Prototype {
 		this.formule = formule;
 	}
 
-
-
-
-
-	/**
-	 * 
-	 * @param Aanvraag
-	 * @param AanvragerID
-	 */
 	public Prototype(int id, Project project , String formule){
 		this.id = id;
 		this.project = project;

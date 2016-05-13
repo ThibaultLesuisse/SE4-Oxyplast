@@ -58,15 +58,17 @@
            <li>
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projecten <span class="caret"></span></a>
            <ul class="dropdown-menu">
-            <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
-            <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
-            <li><a href="<c:url value="/prototypeOverzicht" />">Overzicht Prototypes</a></li>
-            <li><a href="<c:url value="/leverancierOverzicht" />">Overzicht Leveranciers</a></li>
-            <li><a href="<c:url value="/teamoverzicht" />">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/project/projectenLijst" />">Overzicht Projecten</a></li>
+            <li><a href="<c:url value="/aanvraag/aanvraagLijst.html" />">Overzicht Aanvragen</a></li>
+            <li><a href="<c:url value="/prototype/prototypeLijst.html" />">Overzicht Prototypes</a></li>
+            <li><a href="<c:url value="leverancier/leverancierOverzicht.html" />">Overzicht Leveranciers</a></li>
+            <li><a href="<c:url value="/team/teamoverzicht" />">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/feedback/feedbackLijst" />">Overzicht Feedback</a></li>
+            <li><a href="<c:url value="/partners/partnersLijst" />">Overzicht Partners</a></li>
           </ul>    
            </li>
-            <li><a href="<c:url value="/profiel" />">Profiel</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="<c:url value="/profiel" />"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </div>

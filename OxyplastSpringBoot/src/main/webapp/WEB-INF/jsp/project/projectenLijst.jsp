@@ -11,22 +11,16 @@
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
     <c:url value="/resources/js/jquery-2.2.2.min.js" var="jq" />
-
     <script src="${jq}"></script>
-
     <link href="${bootstrapcss}" rel="stylesheet">
     <link href="${bootstraptheme}" rel="stylesheet">
     <script src="${bootstrapjs}"></script>
-
 </head>
-<body>
-
-
 <body style="font-family:Lato;">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
     <span class="sr-only">Toggle navigation</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
@@ -73,7 +67,6 @@
                         <c:url var="projectUrl" value="project/project.html">
                             <c:param name="id" value="${project.id}" />
                         </c:url>
-
                         <tr>
                             <td>
                                 <a href='<c:out value="${projectUrl}"/>'>
@@ -111,9 +104,5 @@
         </div>
     </div>
     </div>
-
-
-
-
 </body>
 </html>

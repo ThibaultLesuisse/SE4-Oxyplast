@@ -7,7 +7,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Lijst van feedback</title>
+	<title>Lijst van Aanvragen</title>
 	<c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -28,46 +28,40 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Feedback</th>
-                        <th>Prototype ID</th>
-                        <th>Partner ID</th>
+                        <th>Klant ID</th>
+                        <th>Aanvraag</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <h1>Lijst van de Feedback</h1>
+                    <h1>Lijst van de aanvragen</h1>
 
-                    <c:forEach items="${feedbackItems}" var="feedback">
-                        <c:url var="feedbackUrl" value="feedback.html">
-                            <c:param name="id" value="${feedback.id}" />
+                    <c:forEach items="${aanvraagItems}" var="aanvraag">
+                        <c:url var="aanvraagUrl" value="/aanvraag/aanvraag.html">
+                            <c:param name="id" value="${aanvraag.id}" />
                         </c:url>
 
                         <tr>
                             <td>
-                                <a href='<c:out value="${feedbackUrl}"/>'>
-                                    <c:out value="${feedback.id}" /> </a>
+                                <a href='<c:out value="${aanvraagUrl}"/>'>
+                                    <c:out value="${aanvraag.klantid}" /> </a>
                             </td>
                             <td>
-                                <c:out value="${feedback.feedback}" />
+                                <c:out value="${aanvraag.aanvraag}" />
                             </td>
+  
+
                             <td>
-                                <c:out value="${feedback.prototypeid}" />
-                            </td>
-                            <td>
-                                <c:out value="${feedback.partnerid}" />
+                                <c:url var="editAanvraag" value="editAanvraag.html">
+                                    <c:param name="id" value="${aanvraag.id}" />
+                                </c:url>
+                                <a href='<c:out value="${editAanvraag}"/>'>Aanvraag Aanpassen</a>
                             </td>
 
                             <td>
-                                <c:url var="editFeedback" value="editFeedback.html">
-                                    <c:param name="id" value="${feedback.id}" />
+                                <c:url var="deleteAanvraag" value="/aanvraag/deleteAanvraag.html">
+                                    <c:param name="id" value="${aanvraag.id}" />
                                 </c:url>
-                                <a href='<c:out value="${editFeedback}"/>'>Feedback Aanpassen</a>
-                            </td>
-
-                            <td>
-                                <c:url var="deleteFeedback" value="/feedback/deleteFeedback.html">
-                                    <c:param name="id" value="${feedback.id}" />
-                                </c:url>
-                                <a href='<c:out value="${deleteFeedback}"/>'>Feedback Verwijderen</a>
+                                <a href='<c:out value="${deleteAanvraag}"/>'>Aanvraag Verwijderen</a>
                             </td>
                         </tr>
 
@@ -75,8 +69,6 @@
                     </c:forEach>
                 </tbody>
             </table>
-            <c:url var="nieuwFeedbackUrl" value="/feedback/nieuwFeedback.html" />
-            <a href='<c:out value="${nieuwFeedbackUrl}"/>'>Feedback Toevoegen</a>
         </div>
     </div>
 </body>

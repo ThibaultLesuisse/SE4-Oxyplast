@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Feedback aanpassen</title>
+    <title>Partner aanpassen</title>
     <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -22,11 +22,11 @@
 
 <body style="padding-top: 50px;">
     <div class="container">
-        <h1>Details van feedback</h1>
+        <h1>Details van partner</h1>
 
 
-        <c:url var="url" value="/editFeedback.html" />
-        <form:form action="${url}" commandName="feedbackAanpassen" class="form-horizontal" method="POST">
+        <c:url var="url" value="/editPartner.html" />
+        <form:form action="${url}" commandName="partnerAanpassen" class="form-horizontal" method="POST">
             <%-- Spring form tags --%>
                 <div class="form-group">
                     <label for="id" class="col-sm-2 control-label">ID</label>
@@ -35,22 +35,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="feedback" class="col-sm-2 control-label">Feedback</label>
+                    <label for="naam" class="col-sm-2 control-label">Naam</label>
                     <div class="col-sm-10">
-                        <form:input type="text" class="form-control" id="feedback" path="feedback" placeholder="De feedback" />
+                        <form:input type="text" class="form-control" id="naam" path="naam" placeholder="naam" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="prototypeid" class="col-sm-2 control-label">Prototype ID</label>
+                    <label for="voornaam" class="col-sm-2 control-label">Voornaam</label>
                     <div class="col-sm-10">
-                        <form:input type="prototypeid" class="form-control" id="prototypeid" path="prototypeid" placeholder="Prototype ID" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="partnerid" class="col-sm-2 control-label">Partner ID</label>
-                    <div class="col-sm-10">
-                        <form:input type="partnerid" class="form-control" id="partnerid" path="partnerid" placeholder="Partner ID" />
+                        <form:input type="text" class="form-control" id="voornaam" path="voornaam" placeholder="voornaam" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -68,25 +62,19 @@
                     <tr>
                         <td>ID</td>
                         <td>
-                            <c:out value="${feedback.id}" />
+                            <c:out value="${partner.id}" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Feedback</td>
+                        <td>Partner</td>
                         <td>
-                            <c:out value="${feedback.feedback}" />
+                            <c:out value="${partner.naam}" />
                         </td>
                     </tr>
                     <tr>
                         <td>Prototype ID</td>
                         <td>
-                            <c:out value="${feedback.prototypeid}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Partner ID</td>
-                        <td>
-                            <c:out value="${feedback.partnerid}" />
+                            <c:out value="${partner.voornaam}" />
                         </td>
                     </tr>
                 </tbody>

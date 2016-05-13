@@ -20,8 +20,9 @@ public class Aanvraag {
 	@Column(name="id")
 	private int id;
 	
+	@OneToOne(mappedBy = "aanvraag")
 	@Column(name="klantid")
-	private int klantid;
+	private Klant klant;
 	
 	@Column
 	private String aanvraag;
@@ -39,9 +40,9 @@ public class Aanvraag {
 	 * @param Aanvraag
 	 * @param AanvragerID
 	 */
-	public Aanvraag(int id, int klantid , String aanvraag){
+	public Aanvraag(int id, Klant klant , String aanvraag){
 		this.id = id;
-		this.klantid = klantid;
+		this.klant = klant;
 		this.aanvraag = aanvraag;
 	}
 
@@ -56,16 +57,13 @@ public class Aanvraag {
 	}
 
 
-	public int getKlantid() {
-		return klantid;
+	public Klant getKlant() {
+		return klant;
 	}
 
-
-	public void setKlantid(int klantid) {
-		this.klantid = klantid;
+	public void setKlantid(Klant klant) {
+		this.klant = klant;
 	}
-
-
 	public String getAanvraag() {
 		return aanvraag;
 	}

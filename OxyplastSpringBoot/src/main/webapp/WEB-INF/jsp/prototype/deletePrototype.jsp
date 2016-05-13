@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Feedback deleted</title>
+    <title>Partner deleted</title>
     <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -22,8 +22,8 @@
             <c:out value="${SuccesOrNot}" />
         </p>
         
-        <c:url var="homeFeedback" value="feedbackLijst.html" />
-            <a href='<c:out value="${homeFeedback}"/>'>Terug</a>
+        <c:url var="homePartner" value="partnersLijst.html" />
+            <a href='<c:out value="${homePartner}"/>'>Terug</a>
     </div>
 </body>
 </html>

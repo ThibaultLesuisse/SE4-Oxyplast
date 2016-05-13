@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Nieuwe Feedback</title>
+    <title>Nieuw Prototype</title>
     <c:url value="/resources/css/bootstrap.min.css" var="bootstrapcss" />
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
@@ -25,28 +25,22 @@
     
     <div class="container">
 
-        <h1>Nieuwe Feedback</h1>
-        <c:url var="NieuwFeedbackUrl" value="/nieuwFeedback.html" />
-        <form:form action="${NieuwFeedbackUrl}" commandName="defeedback" class="form-horizontal">
+        <h1>Nieuw Prototype</h1>
+        <c:url var="NieuwPrototypeUrl" value="/nieuwPrototype.html" />
+        <form:form action="${NieuwPrototypeUrl}" commandName="hetprototype" class="form-horizontal">
             <%-- Spring form tags --%>
 
                 <div class="form-group">
-                    <label for="feedback" class="col-sm-2 control-label">Feedback</label>
+                    <label for="projectid" class="col-sm-2 control-label">ProjectId</label>
                     <div class="col-sm-10">
-                        <form:input type="text" class="form-control" id="feedback" path="feedback" placeholder="Feedback" />
+                        <form:input type="text" class="form-control" id="projectid" path="projectid" placeholder="projectid" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="prototypeid" class="col-sm-2 control-label">Prototype ID</label>
+                    <label for="formule" class="col-sm-2 control-label">Formule</label>
                     <div class="col-sm-10">
-                        <form:input type="prototypeid" class="form-control" id="prototypeid" path="prototypeid" placeholder="Prototype ID" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="partnerid" class="col-sm-2 control-label">Partner ID</label>
-                    <div class="col-sm-10">
-                        <form:input type="partnerid" class="form-control" id="partnerid" path="partnerid" placeholder="Partner ID" />
+                        <form:input type="text" class="form-control" id="formule" path="formule" placeholder="formule" />
                     </div>
                 </div>
                 <div class="form-group">

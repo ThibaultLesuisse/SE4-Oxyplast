@@ -41,7 +41,33 @@ public class PrototypeBeheerImplementatie implements PrototypeBeheerService {
 		}
 		return p;
 	}
-	
+
+
+
+	public Prototype geefPrototypeById(int prototypeId) {
+		
+		return prototypeDao.getPrototypeById(prototypeId);
+	}
+
+
+	@Override
+	public Prototype voegPrototypeToe(int id, Project project, String Formule){
+		return prototypeDao.savePrototype(id, project, Formule);
+	}
+
+
+	@Override
+	public void updatePrototype(Prototype p) {
+		prototypeDao.updatePrototype(p);
+	}
+
+
+	@Override
+	public void deletePrototype(Prototype p) {
+		prototypeDao.deletePrototype(p);
+	}
+
+
 	
 
 }
