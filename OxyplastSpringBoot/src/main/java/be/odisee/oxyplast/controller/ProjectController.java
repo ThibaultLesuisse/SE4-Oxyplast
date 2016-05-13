@@ -122,7 +122,7 @@ public class ProjectController {
 		
 	}
 	
-	@RequestMapping(value={"/rest/projecten**"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/rest/projecten"}, method = RequestMethod.GET)
 	public @ResponseBody List<Project> getProctenLijstREST(@RequestBody(required=false) Date date, Date date2, String blamb) {
 		List<Project> project = pjs.geefAlleProjectenTerug();
 		System.out.println("DEBUG Projectgegevens REST ");

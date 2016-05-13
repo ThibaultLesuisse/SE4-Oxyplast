@@ -63,23 +63,13 @@ public class Project implements Serializable{
 		return einddatum;
 	}
 
-
-
-
 	public void setEinddatum(Date einddatum) {
 		this.einddatum = einddatum;
 	}
 
-
-
 	@JsonProperty("end")
 	@Column
 	private Date einddatum;
-	
-	
-	
-	
-	
 	
     @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
     private Set<Prototype> m_Prototype= new HashSet<Prototype>();

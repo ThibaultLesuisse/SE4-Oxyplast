@@ -174,7 +174,7 @@
     
     <script>
     $(document).ready(function() {
-	
+	var kleuren = ["Blue", "Yellow", "Orange", "Green", "Red", "Purple"];
 	var id = [];
 	var title = [];
 	var start = [];
@@ -185,25 +185,44 @@
     			center: 'title',
     			right: 'month,agendaWeek,agendaDay'
     		},
+    		/* events: {
+    			url: 'http://localhost:8080/rest/projecten',
+    			type: 'GET',
+    			data: function(){
+    	        	for(var i=0;i<data.length;i++ ){
+      	      		  delete data[i].teamid;
+      	        	delete data[i].status;
+      	        	data[i].start = new date(data[i].start);
+      	        	data[i].end = new date(data[i].end);
+      	        	data[i].color = kleuren[Math.floor((Math.random() * 4))]; 	
+      	        	}  
+      	        	console.log(data);
+      	        	//turn data;
+      	          }
+    		
+    		}*/
     		  eventSources: [
     		    {
-    		      url: 'localhost:8080/rest/projecten',
+    		      url: 'http://localhost:8080/rest/projecten',
     		      type: 'GET',
     	          dataType: "json",
+    	          
     	          succes: function(data){
     	        	for(var i=0;i<data.length;i++ ){
-    	        	delete data[i].teamid;
-    	        	delete data[i].status;
-    	        	data[i].start = new date(data[i].start);
-    	        	data[i].end = new date(data[i].end);
-    	        	}  
-    	          },
+        	      		  delete data[i].teamid;
+        	        	delete data[i].status;
+        	        	data[i].start = new date(data[i].start);
+        	        	data[i].end = new date(data[i].end);
+        	        	data[i].color = kleuren[Math.floor((Math.random() * 4))]; 	
+        	        	}  
+        	        	console.log(data);
+        	        	return data;
+        	          },
     		      error: function() {
     		        $('#error').html('Geen lopende projecten, er moet iets mis zijn');
-    		      }}
-    		      ]
-    		  
-          
+    		      }
+    		    }
+    		  ]
         })
 
     });

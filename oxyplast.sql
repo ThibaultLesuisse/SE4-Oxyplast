@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 28 apr 2016 om 03:34
--- Serverversie: 10.1.13-MariaDB
--- PHP-versie: 5.6.20
+-- Gegenereerd op: 13 mei 2016 om 12:28
+-- Serverversie: 5.6.26
+-- PHP-versie: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,11 +26,41 @@ SET time_zone = "+00:00";
 -- Tabelstructuur voor tabel `aanvraag`
 --
 
-CREATE TABLE `aanvraag` (
+CREATE TABLE IF NOT EXISTS `aanvraag` (
   `id` int(11) NOT NULL,
   `klantid` int(11) NOT NULL,
   `aanvraag` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `aanvraag`
+--
+
+INSERT INTO `aanvraag` (`id`, `klantid`, `aanvraag`) VALUES
+(1, 1, 'Een nieuwe soort verf voor buitengebruik in zeer koude landen'),
+(2, 2, 'Een nieuwe soort verf voor buitengebruik in zeer warme landen');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `bestelling`
+--
+
+CREATE TABLE IF NOT EXISTS `bestelling` (
+  `bestellingid` int(11) NOT NULL,
+  `aantal` int(11) NOT NULL,
+  `leverancierid` int(11) NOT NULL,
+  `projectid` int(11) NOT NULL,
+  `prototypeid` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `bestelling`
+--
+
+INSERT INTO `bestelling` (`bestellingid`, `aantal`, `leverancierid`, `projectid`, `prototypeid`) VALUES
+(1, 5, 1, 50, 3),
+(2, 5, 2, 51, 4);
 
 -- --------------------------------------------------------
 
@@ -38,7 +68,7 @@ CREATE TABLE `aanvraag` (
 -- Tabelstructuur voor tabel `feedback`
 --
 
-CREATE TABLE `feedback` (
+CREATE TABLE IF NOT EXISTS `feedback` (
   `id` int(11) NOT NULL,
   `feedback` varchar(255) DEFAULT NULL,
   `prototypeid` int(11) DEFAULT NULL,
@@ -50,8 +80,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `feedback`, `prototypeid`, `partnerid`) VALUES
-(1, 'feedback lijn 1', 1, 1),
-(2, 'feedback testje 2', 1, 2);
+(0, 'Fantastisch', 1, 1),
+(1, 'Fantastisch', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -59,11 +89,32 @@ INSERT INTO `feedback` (`id`, `feedback`, `prototypeid`, `partnerid`) VALUES
 -- Tabelstructuur voor tabel `klanten`
 --
 
-CREATE TABLE `klanten` (
+CREATE TABLE IF NOT EXISTS `klanten` (
   `id` int(11) NOT NULL,
   `naam` varchar(255) DEFAULT NULL,
   `voornaam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `leverancier`
+--
+
+CREATE TABLE IF NOT EXISTS `leverancier` (
+  `id` int(11) NOT NULL,
+  `adres` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `telefoonnummer` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `leverancier`
+--
+
+INSERT INTO `leverancier` (`id`, `adres`, `email`, `telefoonnummer`) VALUES
+(1, 'vrijheidslaan 23 1081 Koekelberg', ' thib@thib.com', 24146489),
+(2, 'vrijheidslaan 28 1081 Koekelberg', 'deman@deman.com', 241464897);
 
 -- --------------------------------------------------------
 
@@ -71,32 +122,32 @@ CREATE TABLE `klanten` (
 -- Tabelstructuur voor tabel `onderzoeker`
 --
 
-CREATE TABLE `onderzoeker` (
-  `id` int(11) NOT NULL,
-  `naam` varchar(255) DEFAULT NULL,
-  `voornaam` varchar(255) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `onderzoeker` (
+  `onderzoekerid` int(11) NOT NULL,
+  `onderzoekernaam` varchar(255) DEFAULT NULL,
+  `onderzoekervoornaam` varchar(255) DEFAULT NULL,
   `teamid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `onderzoeker`
+--
+
+INSERT INTO `onderzoeker` (`onderzoekerid`, `onderzoekernaam`, `onderzoekervoornaam`, `teamid`) VALUES
+(0, 'DeBrandere', 'Jacques', 1),
+(1, 'DeBrandere', 'Jacques', 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `partners`
+-- Tabelstructuur voor tabel `partner`
 --
 
-CREATE TABLE `partners` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `partner` (
+  `partnerid` int(11) NOT NULL,
   `naam` varchar(255) DEFAULT NULL,
   `voornaam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `partners`
---
-
-INSERT INTO `partners` (`id`, `naam`, `voornaam`) VALUES
-(1, 'Karel', 'Kerel'),
-(2, 'Annie', 'Anne');
 
 -- --------------------------------------------------------
 
@@ -104,14 +155,14 @@ INSERT INTO `partners` (`id`, `naam`, `voornaam`) VALUES
 -- Tabelstructuur voor tabel `personen`
 --
 
-CREATE TABLE `personen` (
+CREATE TABLE IF NOT EXISTS `personen` (
   `id` int(11) NOT NULL,
   `emailadres` varchar(255) DEFAULT NULL,
   `familienaam` varchar(255) DEFAULT NULL,
   `paswoord` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `voornaam` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `personen`
@@ -126,23 +177,27 @@ INSERT INTO `personen` (`id`, `emailadres`, `familienaam`, `paswoord`, `status`,
 -- Tabelstructuur voor tabel `project`
 --
 
-CREATE TABLE `project` (
+CREATE TABLE IF NOT EXISTS `project` (
   `id` int(11) NOT NULL,
   `teamid` int(11) DEFAULT NULL,
-  `naam` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `aanvraagid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `naam` varchar(255) DEFAULT NULL,
+  `formule` varchar(100) DEFAULT NULL,
+  `startdatum` date NOT NULL,
+  `einddatum` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `project`
 --
 
-INSERT INTO `project` (`id`, `teamid`, `naam`, `status`, `aanvraagid`) VALUES
-(46, 50, 'NIET', 'h', NULL),
-(47, 50, 'Alice@gjh.com', 'nieuw', NULL),
-(48, 10, 'Thib@gmail.com', 'DAO', NULL),
-(50, 4, 'Dubai', 'In werking', NULL);
+INSERT INTO `project` (`id`, `teamid`, `status`, `naam`, `formule`, `startdatum`, `einddatum`) VALUES
+(47, 1, 'nieuw', 'Fiona@gjh.com', NULL, '2016-05-02', '2016-05-25'),
+(48, 1, 'DAO', 'Thib@gmail.com', NULL, '2016-04-13', '2016-05-31'),
+(49, 1, 'nieuws', 'v@s.com', NULL, '2016-05-10', '2016-06-23'),
+(50, 1, 'In Actie', 'DubaiWorks', NULL, '2016-05-23', '2016-06-30'),
+(51, 1, 'Gebruikt', 'HANS', NULL, '2016-05-09', '2016-08-18'),
+(52, 1, 'Nieuw', 'Alex', NULL, '2016-05-11', '2016-06-22');
 
 -- --------------------------------------------------------
 
@@ -150,18 +205,19 @@ INSERT INTO `project` (`id`, `teamid`, `naam`, `status`, `aanvraagid`) VALUES
 -- Tabelstructuur voor tabel `prototype`
 --
 
-CREATE TABLE `prototype` (
+CREATE TABLE IF NOT EXISTS `prototype` (
   `id` int(11) NOT NULL,
-  `formule` varchar(500) NOT NULL,
-  `projectid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `projectid` int(11) NOT NULL,
+  `formule` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `prototype`
 --
 
-INSERT INTO `prototype` (`id`, `formule`, `projectid`) VALUES
-(1, 'test', 50);
+INSERT INTO `prototype` (`id`, `projectid`, `formule`) VALUES
+(3, 50, 'NatriumChloride'),
+(4, 51, 'NatriumBiChloride');
 
 -- --------------------------------------------------------
 
@@ -169,21 +225,22 @@ INSERT INTO `prototype` (`id`, `formule`, `projectid`) VALUES
 -- Tabelstructuur voor tabel `rollen`
 --
 
-CREATE TABLE `rollen` (
+CREATE TABLE IF NOT EXISTS `rollen` (
   `type` varchar(31) NOT NULL,
   `id` int(11) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `usernaam` varchar(255) DEFAULT NULL,
   `sessie_id` int(11) DEFAULT NULL,
   `persoon_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `rollen`
 --
 
 INSERT INTO `rollen` (`type`, `id`, `status`, `usernaam`, `sessie_id`, `persoon_id`) VALUES
-('Administrator', 1, 'aktief', 'thibault', NULL, 1);
+('Administrator', 1, 'aktief', 'thibault', NULL, 1),
+('Accountverantwoordelijke', 2, 'aktief', 'thibaultLesuisse', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +248,7 @@ INSERT INTO `rollen` (`type`, `id`, `status`, `usernaam`, `sessie_id`, `persoon_
 -- Tabelstructuur voor tabel `sessies`
 --
 
-CREATE TABLE `sessies` (
+CREATE TABLE IF NOT EXISTS `sessies` (
   `id` int(11) NOT NULL,
   `begin_tijdstip` datetime DEFAULT NULL,
   `eind_tijdstip` datetime DEFAULT NULL,
@@ -205,30 +262,19 @@ CREATE TABLE `sessies` (
 -- Tabelstructuur voor tabel `team`
 --
 
-CREATE TABLE `team` (
-  `id` int(11) NOT NULL,
-  `naam` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `team` (
+  `teamid` int(11) NOT NULL,
+  `projectid` int(11) NOT NULL,
+  `omschrijving` int(11) NOT NULL,
+  `actief` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `team`
 --
 
-INSERT INTO `team` (`id`, `naam`) VALUES
-(5, 'testTeam');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` enum('user','admin','','') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `team` (`teamid`, `projectid`, `omschrijving`, `actief`) VALUES
+(1, 50, 2, 1);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -238,30 +284,19 @@ CREATE TABLE `user` (
 -- Indexen voor tabel `aanvraag`
 --
 ALTER TABLE `aanvraag`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `klantid` (`klantid`);
 
 --
--- Indexen voor tabel `feedback`
+-- Indexen voor tabel `bestelling`
 --
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `bestelling`
+  ADD PRIMARY KEY (`bestellingid`);
 
 --
--- Indexen voor tabel `klanten`
+-- Indexen voor tabel `leverancier`
 --
-ALTER TABLE `klanten`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `onderzoeker`
---
-ALTER TABLE `onderzoeker`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `partners`
---
-ALTER TABLE `partners`
+ALTER TABLE `leverancier`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -306,13 +341,7 @@ ALTER TABLE `sessies`
 -- Indexen voor tabel `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`teamid`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -322,47 +351,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `aanvraag`
 --
 ALTER TABLE `aanvraag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT voor een tabel `feedback`
+-- AUTO_INCREMENT voor een tabel `bestelling`
 --
-ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `bestelling`
+  MODIFY `bestellingid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT voor een tabel `klanten`
+-- AUTO_INCREMENT voor een tabel `leverancier`
 --
-ALTER TABLE `klanten`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT voor een tabel `onderzoeker`
---
-ALTER TABLE `onderzoeker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT voor een tabel `partners`
---
-ALTER TABLE `partners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `leverancier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT voor een tabel `personen`
 --
 ALTER TABLE `personen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT voor een tabel `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT voor een tabel `prototype`
 --
 ALTER TABLE `prototype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `rollen`
 --
 ALTER TABLE `rollen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT voor een tabel `sessies`
 --
@@ -372,12 +391,7 @@ ALTER TABLE `sessies`
 -- AUTO_INCREMENT voor een tabel `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT voor een tabel `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `teamid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Beperkingen voor geëxporteerde tabellen
 --
