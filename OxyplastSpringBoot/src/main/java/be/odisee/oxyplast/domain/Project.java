@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.*;
 import org.hibernate.annotations.Index;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
@@ -20,7 +23,7 @@ import org.hibernate.annotations.Index;
 public class Project implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
+	@JsonProperty("id")
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
@@ -34,10 +37,48 @@ public class Project implements Serializable{
 	@Column
 	//@Index(name="IProject_status",columnNames="Status")
 	private String status;
-	
+	@JsonProperty("title")
 	@Column
 	//@Index(name="IProject_naam",columnNames="Naam")
 	private String naam;
+	@JsonProperty("start")
+	@Column
+	private Date startdatum;
+	
+	public Date getStartdatum() {
+		return startdatum;
+	}
+
+
+
+
+	public void setStartdatum(Date startdatum) {
+		this.startdatum = startdatum;
+	}
+
+
+
+
+	public Date getEinddatum() {
+		return einddatum;
+	}
+
+
+
+
+	public void setEinddatum(Date einddatum) {
+		this.einddatum = einddatum;
+	}
+
+
+
+	@JsonProperty("end")
+	@Column
+	private Date einddatum;
+	
+	
+	
+	
 	
 	
     @OneToMany(fetch=FetchType.EAGER, mappedBy="project")

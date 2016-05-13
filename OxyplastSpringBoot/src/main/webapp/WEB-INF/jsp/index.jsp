@@ -11,22 +11,19 @@
     <c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
     <c:url value="/resources/js/jquery-2.2.2.min.js" var="jq" />
-
-    <script src="${jq}"></script>
-
+	 <script src="${jq}"></script>
+	
+     <link href="${bootstrapcss}" rel="stylesheet">
+     <link href="${bootstraptheme}" rel="stylesheet">
+  	<link href="/resources/Calendar/fullcalendar.min.css" rel='stylesheet' type='text/css'>
+   
   
    <!--  <link rel='stylesheet' href='/resources/Calendar/lib/cupertino/jquery-ui.min.css' /> -->
-    <link href="/resources/Calendar/fullcalendar.min.css" rel='stylesheet' type='text/css'>
- <link href="/resources/Calendar/fullcalendar.print.css" rel='stylesheet' type='text/css'>
+  
+ <script type="text/javascript" src="/resources/jquery-ui/jquery-ui.min.js"></script>
      <script type="text/javascript" src="/resources/Calendar/moment.min.js"></script> 
     <script type="text/javascript" src="/resources/Calendar/fullcalendar.min.js"></script>
-   
     <link href="/resources/Calendar/jquery.mobile.flatui.min.css" rel='stylesheet' type='text/css'>
-   
-    
-      <link href="/resources/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-
     <!-- Custom CSS -->
     <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -35,8 +32,8 @@
 
     <!-- Custom Fonts -->
     <link href="/resources/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="${bootstrapcss}" rel="stylesheet">
-    <link href="${bootstraptheme}" rel="stylesheet">
+    
+
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
     <script src="${bootstrapjs}"></script>
@@ -74,21 +71,11 @@
         </div>
       </div>
     </nav>
-    <div class="col-sm-12 col-md-12 col-lg-12">
+
     <div class="container">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Status</th>
-                        <th>naam</th>
-                        <th>Team ID</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="col-sm-12 col-md-12 col-lg-12">
                   <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -177,68 +164,53 @@
                     </div>
                 </div>
             </div>
-                <div id='calendar'></div>
-                    <h1>Lijst van de projecten</h1>
-
-                    <c:forEach items="${project}" var="project">
-                        <c:url var="projectUrl" value="project/project.html">
-                            <c:param name="id" value="${project.id}" />
-                        </c:url>
-
-                        <tr>
-                            <td>
-                                <a href='<c:out value="${projectUrl}"/>'>
-                                    <c:out value="${project.id}" /> </a>
-                            </td>
-                            <td>
-                                <c:out value="${project.status}" />
-                            </td>
-                            <td>
-                                <c:out value="${project.naam}" />
-                            </td>
-                            <td>
-                                <c:out value="${project.teamId}" />
-                            </td>
-
-                            <td>
-                                <c:url var="editProject" value="project/editProject.html">
-                                    <c:param name="id" value="${project.id}" />
-                                </c:url>
-                                <a href='<c:out value="${editProject}"/>'>Project Aanpassen</a>
-                            </td>
-
-                            <td>
-                                <c:url var="deleteProject" value="project/deleteProject.html">
-                                    <c:param name="id" value="${project.id}" />
-                                </c:url>
-                                <a href='<c:out value="${deleteProject}"/>'>Project Verwijderen</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            <c:url var="nieuwProjectUrl" value="/project/nieuwProject.html" />
-            <a href='<c:out value="${nieuwProjectUrl}"/>'>Project Toevoegen</a>
+				<div id="error" class="alert alert-danger">
+  
+	</div>
+               <div id='calendar'></div> 
         </div>
     </div>
-    </div>
+ 
     
     <script>
     $(document).ready(function() {
-
-       
-
+	
+	var id = [];
+	var title = [];
+	var start = [];
+	var end = [];
         $('#calendar').fullCalendar({
-           theme: true
+        	header: {
+    			left: 'prev,next today',
+    			center: 'title',
+    			right: 'month,agendaWeek,agendaDay'
+    		},
+    		  eventSources: [
+    		    {
+    		      url: 'localhost:8080/rest/projecten',
+    		      type: 'GET',
+    	          dataType: "json",
+    	          succes: function(data){
+    	        	for(var i=0;i<data.length;i++ ){
+    	        	delete data[i].teamid;
+    	        	delete data[i].status;
+    	        	data[i].start = new date(data[i].start);
+    	        	data[i].end = new date(data[i].end);
+    	        	}  
+    	          },
+    		      error: function() {
+    		        $('#error').html('Geen lopende projecten, er moet iets mis zijn');
+    		      }}
+    		      ]
+    		  
+          
         })
 
     });
     </script>
     
-      <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="resources/dist/js/sb-admin-2.js"></script>
+
 </body>
 
 </html>

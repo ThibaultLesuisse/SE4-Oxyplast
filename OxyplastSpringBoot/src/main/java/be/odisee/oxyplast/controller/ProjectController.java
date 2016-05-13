@@ -3,8 +3,14 @@ package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.*;
 import be.odisee.oxyplast.service.*;
+import groovy.transform.ToString;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.tools.JavaFileObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -98,6 +104,31 @@ public class ProjectController {
         return "redirect:project/project.html?id="+project.getId();
     }
     
-    // je zal naar de detailpagina van de toegevoegde persoon gaan
+	@RequestMapping(value={"/rest/projectenLijst"}, method = RequestMethod.GET)
+	public @ResponseBody String[][] getFeedbacklijst(){
+		List<Project> project = pjs.geefAlleProjectenTerug();
+		String[][] terugTegevenProjecten = new String[project.size()][4];
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		for (int i=0;i<project.size();i++) {
+			terugTegevenProjecten[i][0] = Integer.toString(project.get(i).getId());
+			terugTegevenProjecten[i][1] = project.get(i).getNaam();
+			terugTegevenProjecten[i][2] = df.format(project.get(i).getStartdatum());
+			terugTegevenProjecten[i][3] = df.format(project.get(i).getEinddatum());		
+			
+			};
+		
+	
+		return terugTegevenProjecten;
+		
+	}
+	
+	@RequestMapping(value={"/rest/projecten**"}, method = RequestMethod.GET)
+	public @ResponseBody List<Project> getProctenLijstREST(@RequestBody(required=false) Date date, Date date2, String blamb) {
+		List<Project> project = pjs.geefAlleProjectenTerug();
+		System.out.println("DEBUG Projectgegevens REST ");
+		return project;
+		
+	}
+    
 
 }
