@@ -1,0 +1,18 @@
+<ion-view title="Project" id="page10" class=" ">
+    <ion-content padding="true" class="has-header">
+        <div id="project-markdown2" style="color:#000000;" class=" ">
+            <p>Naam: {{project.title}}</p>
+
+            <p>Team: {{project.teamId}}</p>
+
+            <p>Status: {{project.status}}</p>
+
+            <p>Aanvraag: {{project.start}}</p>
+          <p>Einde: {{project.end}}</p>
+        </div>
+        <div id="project-button-bar2" class=" button-bar ">
+            <a href="#/page11/{{project.id}}" id="project-button8" class=" button button-positive  button-block ">Wijzigen</a>
+            <button id="project-button9" class=" button button-assertive  button-block ">Verwijderen</button>
+        </div>
+    </ion-content>
+</ion-view>

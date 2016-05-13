@@ -104,6 +104,7 @@ public class ProjectController {
         return "redirect:project/project.html?id="+project.getId();
     }
     
+    @CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value={"/rest/projectenLijst"}, method = RequestMethod.GET)
 	public @ResponseBody String[][] getFeedbacklijst(){
 		List<Project> project = pjs.geefAlleProjectenTerug();
@@ -121,7 +122,7 @@ public class ProjectController {
 		return terugTegevenProjecten;
 		
 	}
-	
+    @CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value={"/rest/projecten"}, method = RequestMethod.GET)
 	public @ResponseBody List<Project> getProctenLijstREST(@RequestBody(required=false) Date date, Date date2, String blamb) {
 		List<Project> project = pjs.geefAlleProjectenTerug();
