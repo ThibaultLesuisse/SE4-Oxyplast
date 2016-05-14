@@ -20,38 +20,42 @@ public class Aanvraag {
 	@Column(name="id")
 	private int id;
 	
-	@OneToOne(mappedBy = "aanvraag")
+	
 	@Column(name="klantid")
+	private int klantid;
+	
+	public int getKlantid() {
+		return klantid;
+	}
+
+
+	public void setKlantid(int klantid) {
+		this.klantid = klantid;
+	}
+
+
+	public void setKlant(Klant klant) {
+		this.klant = klant;
+	}
+
+
+	@JoinColumn(name="id")
 	private Klant klant;
 	
 	@Column
 	private String aanvraag;
-	//public Prototype m_Prototype;
-	//public Team m_Team;
-
-
 	public Aanvraag(){
 
 	}
 
-
-	/**
-	 * 
-	 * @param Aanvraag
-	 * @param AanvragerID
-	 */
 	public Aanvraag(int id, Klant klant , String aanvraag){
 		this.id = id;
 		this.klant = klant;
 		this.aanvraag = aanvraag;
 	}
-
-
 	public int getId() {
 		return id;
 	}
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -60,23 +64,14 @@ public class Aanvraag {
 	public Klant getKlant() {
 		return klant;
 	}
-
 	public void setKlantid(Klant klant) {
 		this.klant = klant;
 	}
 	public String getAanvraag() {
 		return aanvraag;
 	}
-
-
 	public void setAanvraag(String aanvraag) {
 		this.aanvraag = aanvraag;
 	}
-
-	/**
-	 * 
-	 * @param ID
-	 * @return 
-	 */
 
 }

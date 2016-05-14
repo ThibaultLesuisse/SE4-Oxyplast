@@ -40,9 +40,8 @@ public interface ProjectToevoegenService {
 	public Prototype zoekPrototypeMetId(int id);
 	public List<Aanvraag> geefAlleAanvragenTerug();
 	public Aanvraag voegAanvraagToe
-	            (int id, int AanvraagId, int klantId, String type, String aanvraag);
-	public Aanvraag voegAanvraagToe
-	            ( int AanvraagId, int klantId, String type, String aanvraag);
+	            (int id, int AanvraagId, Klant klant, String type, String aanvraag);
+	public Aanvraag voegAanvraagToe( int AanvraagId, Klant klant, String type, String aanvraag);
 	    public Aanvraag zoekAanvraagMetId(int id);
 	    public boolean verwijderAanvraag(Aanvraag aanvraag);
 	    public void toonSessieResultaten(Sessie sessie);

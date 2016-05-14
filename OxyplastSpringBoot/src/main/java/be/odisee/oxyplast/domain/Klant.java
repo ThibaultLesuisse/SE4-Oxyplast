@@ -5,6 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,7 @@ public class Klant extends Rol {
 	@Column(name="naam")
 	private String naam;
 	
-	
-	@JoinColumn(name="id")
+	@OneToOne(mappedBy="klant")
 	private Aanvraag aanvraag;
 	
 	
@@ -88,5 +88,4 @@ public class Klant extends Rol {
 		public void setAanvraag(Aanvraag aanvraag) {
 			this.aanvraag = aanvraag;
 		}
-
 }

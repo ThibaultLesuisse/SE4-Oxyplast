@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import be.odisee.oxyplast.domain.Aanvraag;
+import be.odisee.oxyplast.domain.Klant;
 
 @Repository("AanvraagDao")
 @Transactional(propagation= Propagation.SUPPORTS, readOnly=true)
@@ -14,8 +15,8 @@ public class AanvraagHibernateDao extends HibernateDao implements AanvraagDao {
 
 
 	@Override
-	public Aanvraag saveAanvraag(int id, int klantid, String aanvraag) {
-		Aanvraag a = new Aanvraag(id , klantid , aanvraag);
+	public Aanvraag saveAanvraag(int id, Klant klant, String aanvraag) {
+		Aanvraag a = new Aanvraag(id , klant , aanvraag);
 		sessionSaveObject(a);
 		return a;
 	}

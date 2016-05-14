@@ -1,6 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <html>
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,16 +8,11 @@
 		<c:url value="/resources/css/bootstrap-theme.min.css" var="bootstraptheme" />
 		<c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
 		<c:url value="/resources/js/jquery-2.2.2.min.js" var="jq" />
-		
 		<script src="${jq}"></script>
-		
 		<link href="${bootstrapcss}" rel="stylesheet">
 		<link href="${bootstraptheme}" rel="stylesheet">
 		<script src="${bootstrapjs}"></script>
-        
-        
     </head>
-    
      <body style="padding-top: 50px;">
       <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -39,9 +33,9 @@
            <ul class="dropdown-menu">
             <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
             <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
-            <li><a href="<c:url value="/prototypeOverzicht" />"">Overzicht Prototypes</a></li>
-            <li><a href="<c:url value="/leverancierOverzicht" />"">Overzicht Leveranciers</a></li>
-            <li><a href="<c:url value="/teamoverzicht" />"">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/prototypeOverzicht" />">Overzicht Prototypes</a></li>
+            <li><a href="<c:url value="/leverancierOverzicht" />">Overzicht Leveranciers</a></li>
+            <li><a href="<c:url value="/teamoverzicht" />">Overzicht Teams</a></li>
           </ul>    
            </li>
             <li><a href="<c:url value="/profiel" />">Profiel</a></li>
@@ -65,7 +59,7 @@
 				      <form:input type="text" class="form-control" id="naam" path="naam" placeholder="De Naam"/>
 				    </div>
 				  </div>
-				  
+
 				  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>

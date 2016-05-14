@@ -24,15 +24,15 @@ public class Bestelling {
 	@Column
 	private int aantal;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="leverancierid")
 	private Leverancier leverancier;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="projectid")
 	protected Project project;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="prototypeid")
 	protected Prototype prototype;
    

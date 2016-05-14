@@ -216,14 +216,12 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 		return null;
 	}
 
-	@Override
-	public Aanvraag voegAanvraagToe(int id, int AanvraagId, int klantId, String type, String aanvraag) {
+	public Aanvraag voegAanvraagToe(int id, int AanvraagId, Klant klant, String type, String aanvraag) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Aanvraag voegAanvraagToe(int AanvraagId, int klantId, String type, String aanvraag) {
+	public Aanvraag voegAanvraagToe(int AanvraagId, int klantId, Klant klant, String aanvraag) {
 		// TODO Auto-generated method stub
 		return null;
 	}
