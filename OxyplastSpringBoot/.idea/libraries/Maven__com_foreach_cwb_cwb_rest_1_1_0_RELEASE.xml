@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/foreach/cwb/cwb-rest/1.1.0.RELEASE/cwb-rest-1.1.0.RELEASE.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/foreach/cwb/cwb-rest/1.1.0.RELEASE/cwb-rest-1.1.0.RELEASE-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/foreach/cwb/cwb-rest/1.1.0.RELEASE/cwb-rest-1.1.0.RELEASE-sources.jar!/" />
     </SOURCES>

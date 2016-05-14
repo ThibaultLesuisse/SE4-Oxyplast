@@ -1,0 +1,13 @@
+<ion-view title="Projecten" id="page3" class=" " can-swipe=true>
+    <ion-content padding="true" class="has-header">
+        <ion-list id="projecten-list4" class=" ">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="search" placeholder="">
+            </label>
+            <ion-item ng-repeat="project in projecten  | filter:search" id="projecten-list-item" class="  ">
+              <a href="#/page10/{{project.id}}" style="color:black; text-decoration: none">{{project.title}}</a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

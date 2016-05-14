@@ -12,16 +12,16 @@
     <c:url value="/resources/js/bootstrap.min.js" var="bootstrapjs" />
     <c:url value="/resources/js/jquery-2.2.2.min.js" var="jq" />
 	 <script src="${jq}"></script>
-	
+
      <link href="${bootstrapcss}" rel="stylesheet">
      <link href="${bootstraptheme}" rel="stylesheet">
   	<link href="/resources/Calendar/fullcalendar.min.css" rel='stylesheet' type='text/css'>
-   
-  
+
+
    <!--  <link rel='stylesheet' href='/resources/Calendar/lib/cupertino/jquery-ui.min.css' /> -->
-  
+
  <script type="text/javascript" src="/resources/jquery-ui/jquery-ui.min.js"></script>
-     <script type="text/javascript" src="/resources/Calendar/moment.min.js"></script> 
+     <script type="text/javascript" src="/resources/Calendar/moment.min.js"></script>
     <script type="text/javascript" src="/resources/Calendar/fullcalendar.min.js"></script>
     <link href="/resources/Calendar/jquery.mobile.flatui.min.css" rel='stylesheet' type='text/css'>
     <!-- Custom CSS -->
@@ -32,12 +32,12 @@
 
     <!-- Custom Fonts -->
     <link href="/resources/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
 
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
     <script src="${bootstrapjs}"></script>
-    
+
 </head>
 
 <body style="font-family:Lato;">
@@ -66,6 +66,7 @@
             <li><a href="<c:url value="/feedback/feedbackLijst" />">Overzicht Feedback</a></li>
             <li><a href="<c:url value="/partners/partnersLijst" />">Overzicht Partners</a></li>
           </ul>    
+
            </li>
             <li><a href="<c:url value="/profiel" />"><i class="fa fa-user" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
@@ -167,69 +168,13 @@
                 </div>
             </div>
 				<div id="error" class="alert alert-danger">
-  
+
 	</div>
-               <div id='calendar'></div> 
+               <div id='calendar'></div>
         </div>
     </div>
- 
-    
-    <script>
-    $(document).ready(function() {
-	var kleuren = ["Blue", "Yellow", "Orange", "Green", "Red", "Purple"];
-	var id = [];
-	var title = [];
-	var start = [];
-	var end = [];
-        $('#calendar').fullCalendar({
-        	header: {
-    			left: 'prev,next today',
-    			center: 'title',
-    			right: 'month,agendaWeek,agendaDay'
-    		},
-    		/* events: {
-    			url: 'http://localhost:8080/rest/projecten',
-    			type: 'GET',
-    			data: function(){
-    	        	for(var i=0;i<data.length;i++ ){
-      	      		  delete data[i].teamid;
-      	        	delete data[i].status;
-      	        	data[i].start = new date(data[i].start);
-      	        	data[i].end = new date(data[i].end);
-      	        	data[i].color = kleuren[Math.floor((Math.random() * 4))]; 	
-      	        	}  
-      	        	console.log(data);
-      	        	//turn data;
-      	          }
-    		
-    		}*/
-    		  eventSources: [
-    		    {
-    		      url: 'http://localhost:8080/rest/projecten',
-    		      type: 'GET',
-    	          dataType: "json",
-    	          
-    	          succes: function(data){
-    	        	for(var i=0;i<data.length;i++ ){
-        	      		  delete data[i].teamid;
-        	        	delete data[i].status;
-        	        	data[i].start = new date(data[i].start);
-        	        	data[i].end = new date(data[i].end);
-        	        	data[i].color = kleuren[Math.floor((Math.random() * 4))]; 	
-        	        	}  
-        	        	console.log(data);
-        	        	return data;
-        	          },
-    		      error: function() {
-    		        $('#error').html('Geen lopende projecten, er moet iets mis zijn');
-    		      }
-    		    }
-    		  ]
-        })
+   <script src="/resources/js/myscript.js"></script>
 
-    });
-    </script>
-    
 
 
 </body>

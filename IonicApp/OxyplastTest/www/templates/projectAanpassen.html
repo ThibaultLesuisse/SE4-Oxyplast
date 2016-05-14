@@ -1,0 +1,19 @@
+<ion-view title="Project aanpassen" id="page11" class=" ">
+    <ion-content padding="true" class="has-header">
+        <form id="projectAanpassen-form5" class="list ">
+            <label class="item item-input " id="projectAanpassen-input7">
+                <span class="input-label">Naam</span>
+                <input type="text" placeholder="{{project.title}}" value="{{project.title}}">
+            </label>
+            <label class="item item-select " id="projectAanpassen-select1">
+                <span class="input-label">Team</span>
+                <select value="{{project.teamId}}"></select>
+            </label>
+            <label class="item item-input " id="projectAanpassen-input8">
+                <span class="input-label">Status</span>
+                <input type="text" placeholder="{{project.status}}" value="{{project.status}}">
+            </label>
+            <a href="#/page10/{{project.id}}" id="projectAanpassen-button11" class=" button button-balanced  button-block ">Opslaan</a>
+        </form>
+    </ion-content>
+</ion-view>
