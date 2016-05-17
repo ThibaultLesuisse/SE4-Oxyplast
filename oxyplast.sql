@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 13 mei 2016 om 12:28
+-- Gegenereerd op: 17 mei 2016 om 17:25
 -- Serverversie: 5.6.26
 -- PHP-versie: 5.6.12
 
@@ -90,9 +90,9 @@ INSERT INTO `feedback` (`id`, `feedback`, `prototypeid`, `partnerid`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `klanten` (
-  `id` int(11) NOT NULL,
-  `naam` varchar(255) DEFAULT NULL,
-  `voornaam` varchar(255) DEFAULT NULL
+  `klantid` int(11) NOT NULL,
+  `klantnaam` varchar(255) DEFAULT NULL,
+  `klantvoornaam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -126,14 +126,14 @@ CREATE TABLE IF NOT EXISTS `onderzoeker` (
   `onderzoekerid` int(11) NOT NULL,
   `onderzoekernaam` varchar(255) DEFAULT NULL,
   `onderzoekervoornaam` varchar(255) DEFAULT NULL,
-  `teamid` int(11) DEFAULT NULL
+  `onderzoekerteamid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `onderzoeker`
 --
 
-INSERT INTO `onderzoeker` (`onderzoekerid`, `onderzoekernaam`, `onderzoekervoornaam`, `teamid`) VALUES
+INSERT INTO `onderzoeker` (`onderzoekerid`, `onderzoekernaam`, `onderzoekervoornaam`, `onderzoekerteamid`) VALUES
 (0, 'DeBrandere', 'Jacques', 1),
 (1, 'DeBrandere', 'Jacques', 1);
 
@@ -145,8 +145,8 @@ INSERT INTO `onderzoeker` (`onderzoekerid`, `onderzoekernaam`, `onderzoekervoorn
 
 CREATE TABLE IF NOT EXISTS `partner` (
   `partnerid` int(11) NOT NULL,
-  `naam` varchar(255) DEFAULT NULL,
-  `voornaam` varchar(255) DEFAULT NULL
+  `partnernaam` varchar(255) DEFAULT NULL,
+  `partnervoornaam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `rollen` (
   `usernaam` varchar(255) DEFAULT NULL,
   `sessie_id` int(11) DEFAULT NULL,
   `persoon_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `rollen`
@@ -240,7 +240,8 @@ CREATE TABLE IF NOT EXISTS `rollen` (
 
 INSERT INTO `rollen` (`type`, `id`, `status`, `usernaam`, `sessie_id`, `persoon_id`) VALUES
 ('Administrator', 1, 'aktief', 'thibault', NULL, 1),
-('Accountverantwoordelijke', 2, 'aktief', 'thibaultLesuisse', NULL, 1);
+('Accountverantwoordelijke', 2, 'aktief', 'thibaultLesuisse', NULL, 1),
+('Onderzoeker', 3, 'Aktief', 'DenieuweOnderozker', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -294,10 +295,23 @@ ALTER TABLE `bestelling`
   ADD PRIMARY KEY (`bestellingid`);
 
 --
+-- Indexen voor tabel `klanten`
+--
+ALTER TABLE `klanten`
+  ADD PRIMARY KEY (`klantid`),
+  ADD UNIQUE KEY `klantid` (`klantid`);
+
+--
 -- Indexen voor tabel `leverancier`
 --
 ALTER TABLE `leverancier`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `onderzoeker`
+--
+ALTER TABLE `onderzoeker`
+  ADD PRIMARY KEY (`onderzoekerid`);
 
 --
 -- Indexen voor tabel `personen`
@@ -381,7 +395,7 @@ ALTER TABLE `prototype`
 -- AUTO_INCREMENT voor een tabel `rollen`
 --
 ALTER TABLE `rollen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT voor een tabel `sessies`
 --
