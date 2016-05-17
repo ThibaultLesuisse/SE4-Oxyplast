@@ -51,6 +51,14 @@ public class ProjectController {
         model.addAttribute("project", deLijst);
         return "/index";
     }
+    @RequestMapping(value={"/project/projectenLijst.html"},method=RequestMethod.GET)
+    public String geefAlleProjectenWeer(ModelMap model){
+        List<Project> deLijst = pjs.geefAlleProjectenTerug();     
+        model.addAttribute("project", deLijst);
+        return "project/projectenLijst";
+    }
+    
+    
     // je zal naar index.jsp gaan
 
     @RequestMapping(value={"project/project.html"},method=RequestMethod.GET)
@@ -73,7 +81,7 @@ public class ProjectController {
 
     @RequestMapping(value={"/nieuwProject.html"},method=RequestMethod.POST)
     public String projectToevoegen(@ModelAttribute("hetproject") Project project, ModelMap model){
-        Project nieuwProject = pjs.StartProject(project.getId(), project.getTeamId(), project.getStatus(), project.getNaam());
+        Project nieuwProject = pjs.StartProject(project.getId(), project.getTeamId(), project.getStatus(), project.getNaam(), project.getStartdate(), project.getEnddate());
         System.out.println("DEBUG Projectgegevens naam: "+project.getNaam());
         return "redirect:project/project.html?id="+nieuwProject.getId();
     }
@@ -101,9 +109,48 @@ public class ProjectController {
     public String projectAanpassen(@ModelAttribute("projectAanpassen") Project project, ModelMap model){
     	pjs.aanpassenProject(project);
         System.out.println("DEBUG Projectgegevens naam: "+project.getNaam()+ project.getId());
-        return "redirect:project/project.html?id="+project.getId();
+        return "redirect:/project.html?id="+project.getId();
     }
     
+    
+    @RequestMapping(value={"/aanvraag/aanvraagLijst.html"},method=RequestMethod.GET)
+    public String geefLijstVanAanvragen(ModelMap model){
+        List<Aanvraag> deLijst = pjs.geefAlleAanvragenTerug();
+        model.addAttribute("aannvraag", deLijst);
+        return "/aanvraagLijst";
+    }
+    
+    @RequestMapping(value={"aanvraag/aanvraag.html"},method=RequestMethod.GET)
+    public String aanvraagDetail(@RequestParam("id") Integer id, ModelMap model){
+       Aanvraag aanvraag = new Aanvraag();
+       	aanvraag = pjs.zoekAanvraagMetId(id);
+        model.addAttribute("aanvraag", aanvraag);
+
+        return "/aanvraag";
+    }
+    @RequestMapping(value = { "aanvraag/deleteAanvraag.html" }, method = RequestMethod.GET)
+    public String deleteAanvraag(@RequestParam("id") Integer id, ModelMap m) {
+    	Aanvraag aanvraag = pjs.zoekAanvraagMetId(id);
+    	pjs.verwijderAanvraag(aanvraag);
+        System.out.println("DEBUG Aanvraag naam van verwijderd: "+aanvraag.getId());
+        String boodschap= "Project Verwijderd";
+        m.addAttribute("SuccesOrNot", boodschap);
+        return "/deleteAanvraag";
+    }
+    @RequestMapping(value={"aanvraag/editAanvraag.html"},method=RequestMethod.GET)
+    public String aanvraagDetailEdit(@RequestParam("id") Integer id, ModelMap model){
+        Aanvraag aanvraag = pjs.zoekAanvraagMetId(id);
+        model.addAttribute("aanvraag", aanvraag);
+        model.addAttribute("projectAanvraag", aanvraag);
+        return "aanvraag/editAanvraag";
+    }
+    @RequestMapping(value={"/editAanvraag.html"},method=RequestMethod.POST)
+    public String aanvraagAanpassen(@ModelAttribute("projectAanpassen") Aanvraag aanvraag, ModelMap model){
+    	pjs.updateAanvraag(aanvraag);
+     
+        return "redirect:aanvraag/aanvraag.html?id="+aanvraag.getId();
+    }
+
     @CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value={"/rest/projectenLijst"}, method = RequestMethod.GET)
 	public @ResponseBody String[][] getFeedbacklijst(){
@@ -113,14 +160,10 @@ public class ProjectController {
 		for (int i=0;i<project.size();i++) {
 			terugTegevenProjecten[i][0] = Integer.toString(project.get(i).getId());
 			terugTegevenProjecten[i][1] = project.get(i).getNaam();
-			terugTegevenProjecten[i][2] = df.format(project.get(i).getStartdatum());
-			terugTegevenProjecten[i][3] = df.format(project.get(i).getEinddatum());		
-			
+			terugTegevenProjecten[i][2] = df.format(project.get(i).getStartdate());
+			terugTegevenProjecten[i][3] = df.format(project.get(i).getEnddate());					
 			};
-		
-	
-		return terugTegevenProjecten;
-		
+		return terugTegevenProjecten;	
 	}
     @CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value={"/rest/projecten"}, method = RequestMethod.GET)

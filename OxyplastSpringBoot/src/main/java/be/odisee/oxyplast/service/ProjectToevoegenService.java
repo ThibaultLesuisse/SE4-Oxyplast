@@ -1,5 +1,6 @@
 package be.odisee.oxyplast.service;
 
+import java.util.Date;
 import java.util.List;
 
 import be.odisee.oxyplast.domain.*;
@@ -15,7 +16,7 @@ public interface ProjectToevoegenService {
 
 	public void PrototypeToevoegen(String Formule, int ProjectID);
 	public void RendementBerekenen(double Kosten, double Opbrengsten);
-	public Project StartProject(int id, int teamId , String status, String naam);
+	public Project StartProject(int id, int teamId , String status, String naam, Date startdate, Date enddate);
 	public void verwijderProject(Project p);
 	public void aanpassenProject(Project p);
 	public int getAantalKlanten();
@@ -39,11 +40,11 @@ public interface ProjectToevoegenService {
 	public Prototype voegPrototypeToe(int sessieId, int OnderzoekerId, String formule);
 	public Prototype zoekPrototypeMetId(int id);
 	public List<Aanvraag> geefAlleAanvragenTerug();
-	public Aanvraag voegAanvraagToe
-	            (int id, int AanvraagId, Klant klant, String type, String aanvraag);
+	public Aanvraag voegAanvraagToe (int id, int AanvraagId, Klant klant, String type, String aanvraag);
 	public Aanvraag voegAanvraagToe( int AanvraagId, Klant klant, String type, String aanvraag);
 	    public Aanvraag zoekAanvraagMetId(int id);
-	    public boolean verwijderAanvraag(Aanvraag aanvraag);
+	    public void verwijderAanvraag(Aanvraag aanvraag);
+	    public void updateAanvraag(Aanvraag aanvraag);
 	    public void toonSessieResultaten(Sessie sessie);
 	}
 	

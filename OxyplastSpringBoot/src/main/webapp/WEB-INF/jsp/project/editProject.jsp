@@ -23,7 +23,7 @@ pageEncoding="ISO-8859-1"%>
 </head>
 
 <body style="padding-top: 50px;">
-<<<<<<< HEAD
+
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -86,6 +86,18 @@ pageEncoding="ISO-8859-1"%>
                     <label for="teamId" class="col-sm-2 control-label">TeamId</label>
                     <div class="col-sm-10">
                         <form:input type="teamId" class="form-control" id="teamId" path="teamId" placeholder="Team ID" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="startdate" class="col-sm-2 control-label">Start Datum</label>
+                    <div class="col-sm-10">
+                        <form:input type="date" class="form-control" id="startdate" path="startdate" placeholder="startdate" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="enddate" class="col-sm-2 control-label">Eind Datum</label>
+                    <div class="col-sm-10">
+                        <form:input type="date" class="form-control" id="enddate" path="enddate" placeholder="enddate" />
                     </div>
                 </div>
                 <div class="form-group">

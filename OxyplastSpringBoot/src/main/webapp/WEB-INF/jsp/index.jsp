@@ -58,7 +58,7 @@
            <li>
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projecten <span class="caret"></span></a>
            <ul class="dropdown-menu">
-            <li><a href="<c:url value="/project/projectenLijst" />">Overzicht Projecten</a></li>
+            <li><a href="<c:url value="/project/projectenLijst.html" />">Overzicht Projecten</a></li>
             <li><a href="<c:url value="/aanvraag/aanvraagLijst.html" />">Overzicht Aanvragen</a></li>
             <li><a href="<c:url value="/prototype/prototypeLijst.html" />">Overzicht Prototypes</a></li>
             <li><a href="<c:url value="leverancier/leverancierOverzicht.html" />">Overzicht Leveranciers</a></li>
@@ -174,9 +174,6 @@
         </div>
     </div>
    <script src="/resources/js/myscript.js"></script>
-
-
-
 </body>
 
 </html>

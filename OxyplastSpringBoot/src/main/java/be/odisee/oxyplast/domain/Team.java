@@ -25,7 +25,7 @@ public class Team {
 	@Column(name="naam")
 	public String naam;
 	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="team")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="team")
     private Set<Onderzoeker> m_Onderzoekers= new HashSet<Onderzoeker>();
 	
 	

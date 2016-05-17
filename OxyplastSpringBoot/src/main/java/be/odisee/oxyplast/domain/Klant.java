@@ -3,6 +3,8 @@ package be.odisee.oxyplast.domain;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -22,20 +24,17 @@ import be.odisee.oxyplast.domain.Sessie;
 import be.odisee.oxyplast.domain.Rol;
 
 @Entity
-@Table(name="klanten")
 @DiscriminatorValue("Klant")
 public class Klant extends Rol {
 
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="klantid")
+	private int klantId;
 	
-
-	@Id
-	@Column(name="id")
-	private int id;
-	
-	@Column(name="voornaam")
+	@Column(name="klantvoornaam")
 	private String voornaam;
 	
-	@Column(name="naam")
+	@Column(name="klantnaam")
 	private String naam;
 	
 	@OneToOne(mappedBy="klant")
@@ -57,12 +56,12 @@ public class Klant extends Rol {
 	    	
 	        return "Klant";
 	    }
-	    public int getId() {
-			return id;
+		public int getKlantId() {
+			return klantId;
 		}
 
-		public void setId(int id) {
-			this.id = id;
+		public void setKlantId(int klantId) {
+			this.klantId = klantId;
 		}
 
 		public String getVoornaam() {

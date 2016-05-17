@@ -1,5 +1,6 @@
 package be.odisee.oxyplast.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -13,9 +14,9 @@ import be.odisee.oxyplast.domain.Project;
 public class ProjectHibernateDao extends HibernateDao implements ProjectDao {
 
 	//@Override
-	public Project saveProject(int id, int teamId , String status, String naam) {
+	public Project saveProject(int id, int teamId , String status, String naam, Date startdate, Date enddate) {
 		// TODO Auto-generated method stub
-		Project project = new Project(id , teamId , status, naam);
+		Project project = new Project(id , teamId , status, naam, startdate, enddate);
 		sessionSaveObject(project);
 		return project;
 	}

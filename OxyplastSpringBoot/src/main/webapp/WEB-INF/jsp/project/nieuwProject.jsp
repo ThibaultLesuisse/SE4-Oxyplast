@@ -79,6 +79,18 @@
                         <form:input type="teamId" class="form-control" id="teamId" path="teamId" placeholder="Team ID" />
                     </div>
                 </div>
+                  <div class="form-group">
+                    <label for="startdate" class="col-sm-2 control-label">Start Datum</label>
+                    <div class="col-sm-10">
+                        <form:input type="date" class="form-control" id="startdate" path="startdate" placeholder="startdate" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="enddate" class="col-sm-2 control-label">Eind Datum</label>
+                    <div class="col-sm-10">
+                        <form:input type="date" class="form-control" id="enddate" path="enddate" placeholder="enddate" />
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" value="save" name="submit" class="btn btn-default">Submit</button>

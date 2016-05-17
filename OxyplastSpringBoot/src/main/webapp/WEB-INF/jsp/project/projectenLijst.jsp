@@ -14,6 +14,8 @@
     <script src="${jq}"></script>
     <link href="${bootstrapcss}" rel="stylesheet">
     <link href="${bootstraptheme}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    
     <script src="${bootstrapjs}"></script>
 </head>
 <body style="font-family:Lato;">
@@ -83,7 +85,7 @@
                             </td>
 
                             <td>
-                                <c:url var="editProject" value="project/editProject.html">
+                                <c:url var="editProject" value="/project/editProject.html">
                                     <c:param name="id" value="${project.id}" />
                                 </c:url>
                                 <a href='<c:out value="${editProject}"/>'>Project Aanpassen</a>

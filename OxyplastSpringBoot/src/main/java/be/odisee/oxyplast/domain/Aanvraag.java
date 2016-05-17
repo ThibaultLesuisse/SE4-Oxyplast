@@ -19,27 +19,13 @@ public class Aanvraag {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
 	private int id;
-	
-	
-	@Column(name="klantid")
-	private int klantid;
-	
-	public int getKlantid() {
-		return klantid;
-	}
-
-
-	public void setKlantid(int klantid) {
-		this.klantid = klantid;
-	}
-
 
 	public void setKlant(Klant klant) {
 		this.klant = klant;
 	}
 
-
-	@JoinColumn(name="id")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="klantid")
 	private Klant klant;
 	
 	@Column

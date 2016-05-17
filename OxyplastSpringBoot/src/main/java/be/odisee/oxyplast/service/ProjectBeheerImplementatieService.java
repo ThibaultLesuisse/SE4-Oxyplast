@@ -1,6 +1,7 @@
 package be.odisee.oxyplast.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import be.odisee.oxyplast.dao.SessieDao;
@@ -99,8 +100,8 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	 * @param Naam
 	 */
 	@Transactional(propagation= Propagation.REQUIRED,readOnly=false)
-	public Project StartProject(int id, int teamId, String status, String naam){
-		return this.projectDao.saveProject(id, teamId, status, naam);
+	public Project StartProject(int id, int teamId, String status, String naam, Date startdate, Date enddate){
+		return this.projectDao.saveProject(id, teamId, status, naam, startdate, enddate);
 	}
 
 	
@@ -218,24 +219,24 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 
 	public Aanvraag voegAanvraagToe(int id, int AanvraagId, Klant klant, String type, String aanvraag) {
 		// TODO Auto-generated method stub
-		return null;
+		return null; 
 	}
 
 	public Aanvraag voegAanvraagToe(int AanvraagId, int klantId, Klant klant, String aanvraag) {
 		// TODO Auto-generated method stub
-		return null;
+		 return aanvraagDao.saveAanvraag(AanvraagId, klant, aanvraag);
 	}
 
 	@Override
 	public Aanvraag zoekAanvraagMetId(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return aanvraagDao.getAanvraagById(id);
 	}
 
 	@Override
-	public boolean verwijderAanvraag(Aanvraag aanvraag) {
+	public void verwijderAanvraag(Aanvraag aanvraag) {
 		// TODO Auto-generated method stub
-		return false;
+		aanvraagDao.deleteAanvraag(aanvraag);
 	}
 
 	@Override
@@ -263,6 +264,18 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 	public List<Aanvraag> geefAlleAanvragenTerug() {
 		// TODO Auto-generated method stub
 		return aanvraagDao.getAllAanvragen();
+	}
+
+	
+	public Aanvraag voegAanvraagToe(int AanvraagId, Klant klant, String type, String aanvraag) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public void updateAanvraag(Aanvraag aanvraag) {
+
+		 aanvraagDao.updateAanvraag(aanvraag);
 	}
 	
 

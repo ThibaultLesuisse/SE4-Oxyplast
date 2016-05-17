@@ -40,38 +40,46 @@ public class Project implements Serializable{
 	@JsonProperty("title")
 	@Column
 	//@Index(name="IProject_naam",columnNames="Naam")
+	
 	private String naam;
 	@JsonProperty("start")
-	@Column
-	private Date startdatum;
-	
-	public Date getStartdatum() {
-		return startdatum;
-	}
+	@Column(name="startdatum")
+	private Date startdate;
 
-
-
-
-	public void setStartdatum(Date startdatum) {
-		this.startdatum = startdatum;
-	}
-
-
-
-
-	public Date getEinddatum() {
-		return einddatum;
-	}
-
-	public void setEinddatum(Date einddatum) {
-		this.einddatum = einddatum;
-	}
 
 	@JsonProperty("end")
-	@Column
-	private Date einddatum;
+	@Column(name="einddatum")
+	private Date enddate;
 	
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
+    public Date getStartdate() {
+		return startdate;
+	}
+
+
+
+
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
+	}
+
+
+
+
+	public Date getEnddate() {
+		return enddate;
+	}
+
+
+
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
+	}
+
+
+
+
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="project")
     private Set<Prototype> m_Prototype= new HashSet<Prototype>();
     
     @OneToMany(fetch=FetchType.EAGER, mappedBy="project")
@@ -94,11 +102,13 @@ public class Project implements Serializable{
 	 * @param TeamID
 	 * @param Status
 	 */
-	public Project(int id, int teamId, String status, String naam){
+	public Project(int id, int teamId, String status, String naam, Date startdate, Date enddate){
 		this.teamId = teamId;
 		this.status = status;
 		this.naam = naam;
 		this.id = id;
+		this.startdate = startdate;
+		this.enddate = enddate;
 	}
 
 

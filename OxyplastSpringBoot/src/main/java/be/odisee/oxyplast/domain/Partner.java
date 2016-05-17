@@ -15,10 +15,10 @@ public class Partner extends Rol{
 	@Column(name="partnerid")
 	private int id;
 	
-	@Column
+	@Column(name="klantnaam")
 	private String naam;
 	
-	@Column
+	@Column(name="klantvoornaam")
 	private String voornaam;
 	
 	public Partner() {
