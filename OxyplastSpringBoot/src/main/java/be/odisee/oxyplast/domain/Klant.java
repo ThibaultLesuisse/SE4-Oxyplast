@@ -46,6 +46,11 @@ public class Klant extends Rol {
 	    public Klant(int id, String status, String usernaam, Sessie sessie, Persoon persoon){
 	        super(id,status,usernaam,sessie,persoon);
 	    }
+	    
+	    public Klant(int id, String voornaam){
+	    	this.id = id;
+	    	this.voornaam = naam;
+	    }
 
 	    @Override
 	    public String getType() {

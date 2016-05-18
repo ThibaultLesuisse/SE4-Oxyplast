@@ -34,6 +34,7 @@ public class Aanvraag {
 		this.klant = klant;
 		this.aanvraag = aanvraag;
 	}
+	
 	public int getId() {
 		return id;
 	}
