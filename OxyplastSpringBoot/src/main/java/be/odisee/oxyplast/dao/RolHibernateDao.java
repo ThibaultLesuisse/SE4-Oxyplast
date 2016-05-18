@@ -1,6 +1,5 @@
 package be.odisee.oxyplast.dao;
 
-import org.hibernate.*;
 import org.springframework.stereotype.Repository;
 
 import be.odisee.oxyplast.domain.Rol;
@@ -21,9 +20,9 @@ public class RolHibernateDao extends HibernateDao implements RolDao {
 
         String qstr = "from Rol where usernaam = :userid";
         String parameter = "userid";
-        String value=userid;
+        String value = userid;
 
-        return (Rol) sessionGetObjectBy1StringParameterNamedQuery(qstr,parameter,userid);
+        return (Rol) sessionGetObjectBy1StringParameterNamedQuery(qstr,parameter,value);
     }
 
 

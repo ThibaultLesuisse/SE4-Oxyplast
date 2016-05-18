@@ -1,9 +1,5 @@
 package be.odisee.oxyplast.domain;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 
 import be.odisee.oxyplast.domain.User;

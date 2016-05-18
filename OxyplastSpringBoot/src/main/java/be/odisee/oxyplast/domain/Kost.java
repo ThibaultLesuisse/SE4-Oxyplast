@@ -23,4 +23,28 @@ public class Kost {
 		return 0;
 	}
 
+	public double getKosthoeveelheid() {
+		return Kosthoeveelheid;
+	}
+
+	public void setKosthoeveelheid(double kosthoeveelheid) {
+		Kosthoeveelheid = kosthoeveelheid;
+	}
+
+	public Project getM_Project() {
+		return m_Project;
+	}
+
+	public void setM_Project(Project m_Project) {
+		this.m_Project = m_Project;
+	}
+
+	public Accountverantwoordelijke getM_Accountverantwoordelijke() {
+		return m_Accountverantwoordelijke;
+	}
+
+	public void setM_Accountverantwoordelijke(Accountverantwoordelijke m_Accountverantwoordelijke) {
+		this.m_Accountverantwoordelijke = m_Accountverantwoordelijke;
+	}
+
 }

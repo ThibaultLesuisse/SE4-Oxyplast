@@ -3,14 +3,10 @@ package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.*;
 import be.odisee.oxyplast.service.*;
-import groovy.transform.ToString;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
-import javax.tools.JavaFileObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

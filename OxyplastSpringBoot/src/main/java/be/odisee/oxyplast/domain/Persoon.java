@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import org.hibernate.annotations.Index;
-
+@SuppressWarnings("serial")
 @Entity
 @Table(name="personen")
 public class Persoon implements Serializable {

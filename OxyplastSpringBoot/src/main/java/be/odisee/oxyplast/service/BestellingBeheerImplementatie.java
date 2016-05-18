@@ -1,10 +1,8 @@
 package be.odisee.oxyplast.service;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import be.odisee.oxyplast.dao.BestellingDao;
-import be.odisee.oxyplast.dao.PersoonDao;
 import be.odisee.oxyplast.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

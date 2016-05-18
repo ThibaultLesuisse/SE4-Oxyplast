@@ -9,6 +9,7 @@ package utilities;
  *
  * @author hans
  */
+@SuppressWarnings("serial")
 public class RolNotFoundException extends Exception {
 
     /**

@@ -11,6 +11,7 @@ import be.odisee.oxyplast.domain.Rol;;
  * @version 1.0
  * @created 24-Feb-2016 13:44:35
  */
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue("Accountverantwoordelijke")
 public class Accountverantwoordelijke extends Rol {

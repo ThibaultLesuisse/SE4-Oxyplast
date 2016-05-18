@@ -1,11 +1,6 @@
 package be.odisee.oxyplast.domain;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
-import org.hibernate.annotations.Index;
 /**
  * @author Lesuisse
  * @version 1.0

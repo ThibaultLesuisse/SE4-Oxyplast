@@ -8,9 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import be.odisee.oxyplast.dao.FeedbackDao;
-import be.odisee.oxyplast.dao.PrototypeDao;
 import be.odisee.oxyplast.domain.Feedback;
-import be.odisee.oxyplast.domain.Prototype;
 
 @Service("FeedbackBeheerService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly=true)

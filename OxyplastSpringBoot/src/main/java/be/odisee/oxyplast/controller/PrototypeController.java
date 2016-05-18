@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import be.odisee.oxyplast.domain.Prototype;
-import be.odisee.oxyplast.domain.Project;
-import be.odisee.oxyplast.service.PrototypeBeheerImplementatie;
 import be.odisee.oxyplast.service.PrototypeBeheerService;
 import be.odisee.oxyplast.service.ProjectToevoegenService;
 

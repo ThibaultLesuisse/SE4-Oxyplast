@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import be.odisee.oxyplast.domain.Team;
-import be.odisee.oxyplast.domain.Project;
-import be.odisee.oxyplast.domain.Prototype;
 
 
 @Repository("TeamDao")

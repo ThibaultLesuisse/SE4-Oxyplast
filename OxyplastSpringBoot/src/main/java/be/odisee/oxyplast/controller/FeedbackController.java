@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import be.odisee.oxyplast.domain.Feedback;
-import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.service.FeedbackBeheerService;
 
 @Controller

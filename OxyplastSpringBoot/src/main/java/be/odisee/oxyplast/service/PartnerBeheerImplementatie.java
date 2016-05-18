@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import be.odisee.oxyplast.dao.FeedbackDao;
 import be.odisee.oxyplast.dao.PartnerDao;
 import be.odisee.oxyplast.domain.Partner;
 

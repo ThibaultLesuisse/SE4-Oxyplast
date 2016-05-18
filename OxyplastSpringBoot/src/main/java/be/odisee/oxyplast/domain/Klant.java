@@ -5,12 +5,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Lesuisse
@@ -18,11 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @created 31-Dec-2015 11:35:14
  */
 
-import org.springframework.stereotype.Component;
 import be.odisee.oxyplast.domain.Persoon;
 import be.odisee.oxyplast.domain.Sessie;
 import be.odisee.oxyplast.domain.Rol;
 
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue("Klant")
 public class Klant extends Rol {

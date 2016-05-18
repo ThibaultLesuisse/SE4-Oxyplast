@@ -2,7 +2,6 @@ package be.odisee.oxyplast.dao;
 
 import java.util.List;
 
-import org.hibernate.*;
 import org.springframework.stereotype.Repository;
 
 import be.odisee.oxyplast.domain.Persoon;

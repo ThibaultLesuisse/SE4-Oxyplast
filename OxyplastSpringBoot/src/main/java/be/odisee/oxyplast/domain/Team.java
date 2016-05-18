@@ -1,5 +1,4 @@
 package be.odisee.oxyplast.domain;
-import java.lang.reflect.Array;
 import java.util.HashSet;
 import java.util.Set;
 

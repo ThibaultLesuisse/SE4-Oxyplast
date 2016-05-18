@@ -1,8 +1,6 @@
 package be.odisee.oxyplast.controller;
 
 import be.odisee.oxyplast.domain.Persoon;
-import be.odisee.oxyplast.domain.Rol;
-import be.odisee.oxyplast.service.ProjectToevoegenService;
 import be.odisee.oxyplast.service.ProjectBeheerImplementatieService;
 
 import java.util.List;

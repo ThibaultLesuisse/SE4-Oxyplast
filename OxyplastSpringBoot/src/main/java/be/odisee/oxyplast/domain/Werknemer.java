@@ -19,6 +19,22 @@ public class Werknemer implements IPersoon{
 
 	}
 
+	public int getBadgeNummer() {
+		return BadgeNummer;
+	}
+
+	public void setBadgeNummer(int badgeNummer) {
+		BadgeNummer = badgeNummer;
+	}
+
+	public int getWerknemerID() {
+		return WerknemerID;
+	}
+
+	public void setWerknemerID(int werknemerID) {
+		WerknemerID = werknemerID;
+	}
+
 	public void Degradeer(){
 
 	}

@@ -1,6 +1,5 @@
 package be.odisee.oxyplast.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import be.odisee.oxyplast.dao.OnderzoekerDao;
 import be.odisee.oxyplast.domain.*;

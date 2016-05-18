@@ -14,6 +14,22 @@ public class Opbrengst {
 
 	}
 
+	public double getOpbrengenstenHoeveelheid() {
+		return OpbrengenstenHoeveelheid;
+	}
+
+	public void setOpbrengenstenHoeveelheid(double opbrengenstenHoeveelheid) {
+		OpbrengenstenHoeveelheid = opbrengenstenHoeveelheid;
+	}
+
+	public Project getM_Project() {
+		return m_Project;
+	}
+
+	public void setM_Project(Project m_Project) {
+		this.m_Project = m_Project;
+	}
+
 	public void finalize() throws Throwable {
 
 	}

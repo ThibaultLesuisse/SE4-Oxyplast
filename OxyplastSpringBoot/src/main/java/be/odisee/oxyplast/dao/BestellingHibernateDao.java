@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import be.odisee.oxyplast.domain.Aanvraag;
 import be.odisee.oxyplast.domain.Bestelling;
 import be.odisee.oxyplast.domain.Leverancier;
 import be.odisee.oxyplast.domain.Project;

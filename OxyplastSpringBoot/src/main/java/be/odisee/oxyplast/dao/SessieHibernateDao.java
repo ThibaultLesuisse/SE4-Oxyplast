@@ -1,6 +1,5 @@
 package be.odisee.oxyplast.dao;
 
-import org.hibernate.*;
 import org.springframework.stereotype.Repository;
 
 import be.odisee.oxyplast.domain.Sessie;

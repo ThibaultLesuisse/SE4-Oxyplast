@@ -16,6 +16,38 @@ public class Grondstof {
 
 	}
 
+	public int getGrondstofID() {
+		return GrondstofID;
+	}
+
+	public void setGrondstofID(int grondstofID) {
+		GrondstofID = grondstofID;
+	}
+
+	public String getGrondstofnaam() {
+		return Grondstofnaam;
+	}
+
+	public void setGrondstofnaam(String grondstofnaam) {
+		Grondstofnaam = grondstofnaam;
+	}
+
+	public double getHoeveelheid() {
+		return Hoeveelheid;
+	}
+
+	public void setHoeveelheid(double hoeveelheid) {
+		Hoeveelheid = hoeveelheid;
+	}
+
+	public Leverancier getM_Leverancier() {
+		return m_Leverancier;
+	}
+
+	public void setM_Leverancier(Leverancier m_Leverancier) {
+		this.m_Leverancier = m_Leverancier;
+	}
+
 	public void finalize() throws Throwable {
 
 	}

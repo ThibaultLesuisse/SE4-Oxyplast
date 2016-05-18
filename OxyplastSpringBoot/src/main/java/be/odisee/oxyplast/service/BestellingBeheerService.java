@@ -3,7 +3,6 @@ package be.odisee.oxyplast.service;
 import java.util.List;
 
 import be.odisee.oxyplast.domain.Bestelling;
-import be.odisee.oxyplast.domain.Leverancier;
 
 
 

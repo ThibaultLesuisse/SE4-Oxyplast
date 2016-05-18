@@ -7,6 +7,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.DiscriminatorOptions;
 import org.hibernate.annotations.Index;
 
+@SuppressWarnings({ "deprecation", "serial" })
 @DiscriminatorOptions(force=true)
 @Entity
 @Table(name="rollen")

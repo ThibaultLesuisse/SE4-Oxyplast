@@ -1,6 +1,5 @@
 package be.odisee.oxyplast.controller;
 
-import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Onderzoeker;
 import be.odisee.oxyplast.domain.Team;
 import be.odisee.oxyplast.service.OnderzoekerBeheerService;
