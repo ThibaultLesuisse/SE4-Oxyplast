@@ -23,7 +23,6 @@ public class AanvraagHibernateDao extends HibernateDao implements AanvraagDao {
 
 	@Override
 	public Aanvraag getAanvraagById(int id) {
-		// TODO Auto-generated method stub
 		return (Aanvraag) sessionGetObjectById("Aanvraag", id);
 	}
 

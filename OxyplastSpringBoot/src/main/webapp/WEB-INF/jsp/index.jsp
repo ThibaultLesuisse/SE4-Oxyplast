@@ -91,8 +91,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
+                        <a href="<c:url value="/project/projectenLijst.html" />">
+                            <div class="panel-footer" >
                                 <span class="pull-left">Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<c:url value="/prototype/prototypeLijst.html" />">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<c:url value="/aanvraag/aanvraagLijst.html" />">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
