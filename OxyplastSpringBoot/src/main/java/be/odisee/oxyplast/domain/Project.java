@@ -89,6 +89,11 @@ public class Project implements Serializable{
 	public Project(){
 
 	}
+	
+	public Project(String naam){
+		this.naam = naam;
+		this.status = "gestart";
+	}
 
 
 

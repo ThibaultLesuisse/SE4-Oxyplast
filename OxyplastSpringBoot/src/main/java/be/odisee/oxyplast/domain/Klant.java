@@ -50,6 +50,11 @@ public class Klant {
 	    public Klant(int id, String status, String usernaam, Sessie sessie, Persoon persoon){
 	    
 	    }
+	    
+	    public Klant(int id, String voornaam){
+	    	this.klantid = id;
+	    	this.voornaam = naam;
+	    }
 
 	    
 		public int getKlantId() {
