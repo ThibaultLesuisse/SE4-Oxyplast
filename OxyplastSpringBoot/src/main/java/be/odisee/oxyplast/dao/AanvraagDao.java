@@ -11,6 +11,7 @@ public interface AanvraagDao {
 	    public List<Aanvraag> getAllAanvragen();
 	    public void updateAanvraag(Aanvraag Aanvraag);    
 	    public void deleteAanvraag(Aanvraag Aanvraag);
+		public List<Aanvraag> getAlleAanvaardeAanvragen();
 
 	    
 	    

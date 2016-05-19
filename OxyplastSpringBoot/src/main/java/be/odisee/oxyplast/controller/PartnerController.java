@@ -47,9 +47,9 @@ public class PartnerController {
 	// nieuwe partner maken(submit)
 	@RequestMapping(value={"/nieuwPartner.html"},method=RequestMethod.POST)
     public String partnerToevoegen(@ModelAttribute("departner") Partner partner, ModelMap model){
-		Partner nieuwePartner = pts.CreatePartner(partner.getId(), partner.getNaam(), partner.getVoornaam());
+		Partner nieuwePartner = pts.CreatePartner(partner.getPartnerid(), partner.getNaam(), partner.getVoornaam());
         System.out.println("DEBUG Partnergegevens partner: " + partner.getNaam() + partner.getVoornaam());
-        return "redirect:partners/partner.html?id="+nieuwePartner.getId();
+        return "redirect:partners/partner.html?id="+nieuwePartner.getVoornaam();
     }
 	
 	// partner verwijderen
@@ -78,6 +78,6 @@ public class PartnerController {
     public String partnerAanpassen(@ModelAttribute("partnerAanpassen") Partner partner, ModelMap model){
     	pts.updatePartner(partner);
         System.out.println("DEBUG Partnergegevens updated: " + partner.getNaam() + partner.getVoornaam());
-        return "redirect:partners/partner.html?id=" + partner.getId();
+        return "redirect:partners/partner.html?id=" + partner.getUsernaam();
     }
 }

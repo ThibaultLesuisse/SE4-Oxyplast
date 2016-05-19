@@ -26,7 +26,7 @@ public class OnderzoekerBeheerImplementatie implements OnderzoekerBeheerService 
 		if (o.isEmpty()){
 			System.out.println("lijst is leeg");
 		} else {
-			System.out.println(o.get(0).getId());
+			System.out.println(o.get(0).getOnderzoekerid());
 		}
 		return o;
 	}
@@ -36,7 +36,7 @@ public class OnderzoekerBeheerImplementatie implements OnderzoekerBeheerService 
 			
 			System.out.println("lijst is leeg");
 		} else {
-			System.out.println(o.get(0).getId());
+			System.out.println(o.get(0).getOnderzoekerid());
 			
 		}
 		return o;

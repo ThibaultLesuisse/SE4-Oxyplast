@@ -5,8 +5,10 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 /**
  * @author Lesuisse
@@ -20,44 +22,42 @@ import be.odisee.oxyplast.domain.Rol;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name="klanten")
 @DiscriminatorValue("Klant")
-public class Klant extends Rol {
+public class Klant {
 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+	@Id
 	@Column(name="klantid")
-	private int klantId;
+	public int klantid;
 	
 	@Column(name="klantvoornaam")
-	private String voornaam;
+	public String voornaam;
 	
 	@Column(name="klantnaam")
-	private String naam;
+	public String naam;
 	
 	@OneToOne(mappedBy="klant")
-	private Aanvraag aanvraag;
+	public Aanvraag aanvraag;
 	
 	
 	 public Klant(){}
 
 	    public Klant(String status, String usernaam, Sessie sessie, Persoon persoon){
-	        super(status,usernaam,sessie,persoon);
+	      
 	    }
 
 	    public Klant(int id, String status, String usernaam, Sessie sessie, Persoon persoon){
-	        super(id,status,usernaam,sessie,persoon);
+	    
 	    }
 
-	    @Override
-	    public String getType() {
-	    	
-	        return "Klant";
-	    }
+	    
 		public int getKlantId() {
-			return klantId;
+			return klantid;
 		}
 
 		public void setKlantId(int klantId) {
-			this.klantId = klantId;
+			this.klantid = klantId;
 		}
 
 		public String getVoornaam() {

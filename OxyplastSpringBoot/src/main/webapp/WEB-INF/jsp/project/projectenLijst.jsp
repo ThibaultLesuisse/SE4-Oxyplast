@@ -66,7 +66,7 @@
                     <h1>Lijst van de projecten</h1>
 
                     <c:forEach items="${project}" var="project">
-                        <c:url var="projectUrl" value="project/project.html">
+                        <c:url var="projectUrl" value="/project/project.html">
                             <c:param name="id" value="${project.id}" />
                         </c:url>
                         <tr>
@@ -92,7 +92,7 @@
                             </td>
 
                             <td>
-                                <c:url var="deleteProject" value="project/deleteProject.html">
+                                <c:url var="deleteProject" value="/project/deleteProject.html">
                                     <c:param name="id" value="${project.id}" />
                                 </c:url>
                                 <a href='<c:out value="${deleteProject}"/>'>Project Verwijderen</a>

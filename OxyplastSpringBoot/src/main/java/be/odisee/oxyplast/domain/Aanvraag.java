@@ -19,12 +19,24 @@ public class Aanvraag {
 		this.klant = klant;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="klantid")
 	private Klant klant;
 	
 	@Column
 	private String aanvraag;
+	
+	@Column 
+	private Boolean aanvraagaanvaard;
+	
+	public Boolean getAanvraagaanvaard() {
+		return aanvraagaanvaard;
+	}
+
+	public void setAanvraagaanvaard(Boolean aanvraagaanvaard) {
+		this.aanvraagaanvaard = aanvraagaanvaard;
+	}
+
 	public Aanvraag(){
 
 	}

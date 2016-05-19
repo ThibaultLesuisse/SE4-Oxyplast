@@ -277,6 +277,20 @@ public class ProjectBeheerImplementatieService implements ProjectToevoegenServic
 
 		 aanvraagDao.updateAanvraag(aanvraag);
 	}
+
+	@Override
+	public void aanvaardAanvraag(Integer id) {
+	Aanvraag aanvraag = aanvraagDao.getAanvraagById(id);
+	aanvraag.setAanvraagaanvaard(true);
+	aanvraagDao.updateAanvraag(aanvraag);
+	
+	}
+
+	@Override
+	public List<Aanvraag> geefAlleAanvragenTerugNietAanvaard() {
+		// TODO Auto-generated method stub
+		return aanvraagDao.getAlleAanvaardeAanvragen();
+	}
 	
 
 	}

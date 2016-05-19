@@ -55,9 +55,9 @@ public class MenuController {
     public String indexVoorRol(@RequestParam("id") Integer id, ModelMap model){
         Rol deRol = PJS.zoekRolMetId(id);
         model.addAttribute("rol",deRol);
-        if (deRol.getType().equals("Administrator")) return "redirect:/admin/index.html?rolid="+deRol.getId();
-        if (deRol.getType().equals("Organisator")) return "redirect:/organisator/index.html?rolid="+deRol.getId();
-        return "redirect:/brainstorm/index.html?rolid="+deRol.getId(); // voor de andere rollen
+        if (deRol.getType().equals("Administrator")) return "redirect:/admin/index.html?rolid="+deRol.getRolid();
+        if (deRol.getType().equals("Organisator")) return "redirect:/organisator/index.html?rolid="+deRol.getRolid();
+        return "redirect:/brainstorm/index.html?rolid="+deRol.getRolid(); // voor de andere rollen
     }
     // je zal gaan naar de pagina conform uw rol
     

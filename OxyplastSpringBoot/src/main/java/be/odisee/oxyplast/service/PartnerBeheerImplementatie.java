@@ -39,7 +39,7 @@ public class PartnerBeheerImplementatie implements PartnerBeheerService {
 		if (Partnerlist.isEmpty()){
 			System.out.println("lijst is leeg");
 		} else {
-			System.out.println(Partnerlist.get(0).getId());
+			System.out.println(Partnerlist.get(0).getNaam());
 		}
 		return Partnerlist;
 	}
@@ -55,5 +55,8 @@ public class PartnerBeheerImplementatie implements PartnerBeheerService {
 		System.out.println("DEBUG FBS (delete): " + p.getNaam() + p.getVoornaam());
 		this.partnerDao.deletePartner(p);
 	}
+	
 
+	
+	
 }

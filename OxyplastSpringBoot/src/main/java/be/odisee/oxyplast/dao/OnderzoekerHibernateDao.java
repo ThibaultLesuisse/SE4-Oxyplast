@@ -26,7 +26,7 @@ public class OnderzoekerHibernateDao extends HibernateDao implements Onderzoeker
 
 	@SuppressWarnings("unchecked")
 	public List<Onderzoeker> getAllOnderzoekers(int id) {
-		return (List<Onderzoeker>) sessionGetAllObjectsById("Onderzoeker", "teamid", id);
+		return (List<Onderzoeker>) sessionGetAllObjectsById("Onderzoeker", "onderzoekerteamid", id);
 	}
 
 	@Override

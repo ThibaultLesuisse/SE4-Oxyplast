@@ -7,19 +7,18 @@ import javax.persistence.*;
 import org.hibernate.annotations.DiscriminatorOptions;
 import org.hibernate.annotations.Index;
 
-@SuppressWarnings({ "deprecation", "serial" })
-@DiscriminatorOptions(force=true)
+
 @Entity
 @Table(name="rollen")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorColumn(name="type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Rol")
 public abstract class Rol implements Serializable {
 
     @Id
-    @Column(name="id")
+    @Column(name="rolid")
     @GeneratedValue(strategy=GenerationType.AUTO)
-    protected int id;
+    protected int rolid;
 
     // we willen dit even aan de db overlaten
     // specifieke noden FitLibrary zullen we met een functie oplossen
@@ -50,18 +49,36 @@ public abstract class Rol implements Serializable {
     }
 
     public Rol(int id, String status, String usernaam, Sessie sessie, Persoon persoon) {
-        this.id = id;
+        this.rolid = id;
         this.status = status;
         this.usernaam = usernaam;
         this.sessie = sessie;
         this.persoon = persoon;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public Sessie getSessie(){
+
+    public int getRolid() {
+		return rolid;
+	}
+
+	public void setRolid(int rolid) {
+		this.rolid = rolid;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void setUsernaam(String usernaam) {
+		this.usernaam = usernaam;
+	}
+
+	public Sessie getSessie(){
         return sessie;
     }
 

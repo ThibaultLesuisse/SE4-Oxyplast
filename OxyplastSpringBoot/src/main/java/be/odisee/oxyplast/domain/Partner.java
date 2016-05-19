@@ -1,24 +1,27 @@
 package be.odisee.oxyplast.domain;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="partners")
+@DiscriminatorValue(value = "Partner")
 public class Partner extends Rol{
 	
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	@Column(name="partnerid")
-	private int id;
+	private int partnerid;
 	
-	@Column(name="klantnaam")
+	@Column(name="partnernaam")
 	private String naam;
 	
-	@Column(name="klantvoornaam")
+	@Column(name="partnervoornaam")
 	private String voornaam;
 	
 	public Partner() {
@@ -26,7 +29,7 @@ public class Partner extends Rol{
 	}
 	
 	public Partner(int id, String naam, String voornaam) {
-		this.id = id;
+		this.partnerid = id;
 		this.naam = naam;
 		this.voornaam = voornaam;
 	}
@@ -35,12 +38,14 @@ public class Partner extends Rol{
 		 super(status,usernaam,sessie,persoon);
 	}
 
-	public int getId() {
-		return id;
+
+
+	public int getPartnerid() {
+		return partnerid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPartnerid(int partnerid) {
+		this.partnerid = partnerid;
 	}
 
 	public String getNaam() {

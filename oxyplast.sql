@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 17 mei 2016 om 17:25
+-- Gegenereerd op: 19 mei 2016 om 22:52
 -- Serverversie: 5.6.26
 -- PHP-versie: 5.6.12
 
@@ -29,16 +29,18 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `aanvraag` (
   `id` int(11) NOT NULL,
   `klantid` int(11) NOT NULL,
-  `aanvraag` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `aanvraag` varchar(500) NOT NULL,
+  `aanvraagaanvaard` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `aanvraag`
 --
 
-INSERT INTO `aanvraag` (`id`, `klantid`, `aanvraag`) VALUES
-(1, 1, 'Een nieuwe soort verf voor buitengebruik in zeer koude landen'),
-(2, 2, 'Een nieuwe soort verf voor buitengebruik in zeer warme landen');
+INSERT INTO `aanvraag` (`id`, `klantid`, `aanvraag`, `aanvraagaanvaard`) VALUES
+(1, 1, 'Een nieuwe soort verf voor buitengebruik in zeer koude landen', b'1'),
+(2, 2, 'Een nieuwe soort verf voor buitengebruik in zeer warme landen', b'1'),
+(3, 3, 'Nieuwe stadionverf', b'1');
 
 -- --------------------------------------------------------
 
@@ -94,6 +96,16 @@ CREATE TABLE IF NOT EXISTS `klanten` (
   `klantnaam` varchar(255) DEFAULT NULL,
   `klantvoornaam` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `klanten`
+--
+
+INSERT INTO `klanten` (`klantid`, `klantnaam`, `klantvoornaam`) VALUES
+(0, 'Bram', 'de Bram'),
+(1, 'Van Rossum', 'Fiona'),
+(2, 'Geoffrey', 'Mohammed Jadoul'),
+(3, 'Bram', 'de Bram');
 
 -- --------------------------------------------------------
 
@@ -227,21 +239,24 @@ INSERT INTO `prototype` (`id`, `projectid`, `formule`) VALUES
 
 CREATE TABLE IF NOT EXISTS `rollen` (
   `type` varchar(31) NOT NULL,
-  `id` int(11) NOT NULL,
+  `rolid` int(11) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `usernaam` varchar(255) DEFAULT NULL,
   `sessie_id` int(11) DEFAULT NULL,
   `persoon_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `rollen`
 --
 
-INSERT INTO `rollen` (`type`, `id`, `status`, `usernaam`, `sessie_id`, `persoon_id`) VALUES
+INSERT INTO `rollen` (`type`, `rolid`, `status`, `usernaam`, `sessie_id`, `persoon_id`) VALUES
 ('Administrator', 1, 'aktief', 'thibault', NULL, 1),
 ('Accountverantwoordelijke', 2, 'aktief', 'thibaultLesuisse', NULL, 1),
-('Onderzoeker', 3, 'Aktief', 'DenieuweOnderozker', NULL, 1);
+('Onderzoeker', 3, 'Aktief', 'DenieuweOnderozker', NULL, 1),
+('Klant', 4, 'Aanvaard', NULL, NULL, 1),
+('Klant', 5, 'Aanvaard', NULL, NULL, 1),
+('Partner', 6, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +313,6 @@ ALTER TABLE `bestelling`
 -- Indexen voor tabel `klanten`
 --
 ALTER TABLE `klanten`
-  ADD PRIMARY KEY (`klantid`),
   ADD UNIQUE KEY `klantid` (`klantid`);
 
 --
@@ -339,7 +353,7 @@ ALTER TABLE `prototype`
 -- Indexen voor tabel `rollen`
 --
 ALTER TABLE `rollen`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`rolid`),
   ADD UNIQUE KEY `usernaam` (`usernaam`),
   ADD KEY `IRol_usernaam` (`usernaam`),
   ADD KEY `FKC8D761E6E431D823` (`sessie_id`),
@@ -365,7 +379,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT voor een tabel `aanvraag`
 --
 ALTER TABLE `aanvraag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT voor een tabel `bestelling`
 --
@@ -395,7 +409,7 @@ ALTER TABLE `prototype`
 -- AUTO_INCREMENT voor een tabel `rollen`
 --
 ALTER TABLE `rollen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `rolid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT voor een tabel `sessies`
 --

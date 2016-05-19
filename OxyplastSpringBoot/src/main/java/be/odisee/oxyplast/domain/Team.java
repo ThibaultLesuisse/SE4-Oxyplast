@@ -15,7 +15,7 @@ public class Team {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="teamid")
 	public int id;
 	
 	//@OneToOne
@@ -24,7 +24,7 @@ public class Team {
 	@Column(name="naam")
 	public String naam;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="team")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="team")
     private Set<Onderzoeker> m_Onderzoekers= new HashSet<Onderzoeker>();
 	
 	

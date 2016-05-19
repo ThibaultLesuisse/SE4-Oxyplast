@@ -17,37 +17,37 @@
 		<link href="${bootstraptheme}" rel="stylesheet">
 		<script src="${bootstrapjs}"></script>
 </head>
-<body style="padding-top: 50px;">
-       <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Oxplast</a>
-        </div>
+<body style="font-family:Lato;">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+                <a class="navbar-brand" href="#">Oxplast</a>
+            </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<c:url value="/" />">Home</a></li>
            <li>
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projecten <span class="caret"></span></a>
            <ul class="dropdown-menu">
-            <li><a href="<c:url value="/" />">Overzicht Projecten</a></li>
-            <li><a href="<c:url value="/aanvraagOverzicht" />">Overzicht Aanvragen</a></li>
-            <li><a href="<c:url value="/prototypeOverzicht" />"">Overzicht Prototypes</a></li>
-            <li><a href="<c:url value="/leverancierOverzicht" />"">Overzicht Leveranciers</a></li>
-            <li><a href="<c:url value="/teamoverzicht" />"">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/project/projectenLijst.html" />">Overzicht Projecten</a></li>
+            <li><a href="<c:url value="/aanvraag/aanvraagLijst.html" />">Overzicht Aanvragen</a></li>
+            <li><a href="<c:url value="/prototype/prototypeLijst.html" />">Overzicht Prototypes</a></li>
+            <li><a href="<c:url value="leverancier/leverancierOverzicht.html" />">Overzicht Leveranciers</a></li>
+            <li><a href="<c:url value="/team/teamoverzicht" />">Overzicht Teams</a></li>
+            <li><a href="<c:url value="/feedback/feedbackLijst" />">Overzicht Feedback</a></li>
+            <li><a href="<c:url value="/partners/partnersLijst" />">Overzicht Partners</a></li>
           </ul>    
+
            </li>
-            <li><a href="<c:url value="/profiel" />">Profiel</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="<c:url value="/profiel" />"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>

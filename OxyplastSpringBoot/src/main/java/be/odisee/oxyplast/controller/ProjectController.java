@@ -35,7 +35,7 @@ public class ProjectController {
     public String index(ModelMap model){
         List<Project> deLijst = pjs.geefAlleProjectenTerug();
         List<Prototype> dePrototypeLijst = phs.geefAllePrototypesTerugZonderId();
-        List<Aanvraag> deAanvragenLijst = pjs.geefAlleAanvragenTerug();
+        List<Aanvraag> deAanvragenLijst = pjs.geefAlleAanvragenTerugNietAanvaard();
         List<Bestelling> deBestellingenLijst = bhs.geefAlleBestllingenTerug();
         
         model.addAttribute("aantalProjecten", deLijst.size());
@@ -71,6 +71,7 @@ public class ProjectController {
     public String projectFormulier(ModelMap model){
         Project project = new Project();
         model.addAttribute("hetproject", project);
+        
         return "project/nieuwProject";
     }
     // je zal naar nieuwePersoon.jsp gaan
@@ -112,8 +113,8 @@ public class ProjectController {
     @RequestMapping(value={"/aanvraag/aanvraagLijst.html"},method=RequestMethod.GET)
     public String geefLijstVanAanvragen(ModelMap model){
         List<Aanvraag> deLijst = pjs.geefAlleAanvragenTerug();
-        model.addAttribute("aannvraag", deLijst);
-        return "/aanvraagLijst";
+        model.addAttribute("aanvraagItems", deLijst);
+        return "aanvraag/aanvraagLijst";
     }
     
     @RequestMapping(value={"aanvraag/aanvraag.html"},method=RequestMethod.GET)
@@ -146,6 +147,17 @@ public class ProjectController {
      
         return "redirect:aanvraag/aanvraag.html?id="+aanvraag.getId();
     }
+    
+    // ------------------------- Aanvaarden 
+    
+    @RequestMapping(value={"aanvraag/aanvaardAanvraag.html"},method=RequestMethod.GET)
+    public String aanvaardAanvraag(@RequestParam("id") Integer id, ModelMap model){
+    	 Project project = new Project();
+    	 pjs.aanvaardAanvraag(id);
+         model.addAttribute("hetproject", project);
+         return "project/nieuwProject";
+    }
+    
 
     @CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value={"/rest/projectenLijst"}, method = RequestMethod.GET)

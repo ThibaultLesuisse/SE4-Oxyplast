@@ -5,6 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,10 +17,10 @@ import be.odisee.oxyplast.domain.Rol;;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="onderzoeker")
-@DiscriminatorValue(value = "Onderzoeker")
-public class Onderzoeker extends Rol {
+
+public class Onderzoeker  {
 	
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
 	@Column(name="onderzoekerid")
 	public int onderzoekerid;
 	
@@ -70,12 +71,8 @@ public class Onderzoeker extends Rol {
 			
 		}
 		 public Onderzoeker(String status, String usernaam, Sessie sessie, Persoon persoon){
-		        super(status,usernaam,sessie,persoon);
+		    
 
 		    }
-		@Override
-		public String getType() {
-			return "Onderzoeker";
-		}
 
 }

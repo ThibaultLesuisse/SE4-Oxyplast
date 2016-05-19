@@ -44,4 +44,11 @@ public class AanvraagHibernateDao extends HibernateDao implements AanvraagDao {
 		sessionDeleteObject(Aanvraag);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Aanvraag> getAlleAanvaardeAanvragen() {
+		// TODO Auto-generated method stub
+		return sessionGetAllObjectsById("Aanvraag", "aanvraagaanvaard", 0);
+	}
+
 }

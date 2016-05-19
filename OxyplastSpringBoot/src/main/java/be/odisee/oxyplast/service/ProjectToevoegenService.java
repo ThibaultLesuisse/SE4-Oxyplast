@@ -45,6 +45,8 @@ public interface ProjectToevoegenService {
 	    public void verwijderAanvraag(Aanvraag aanvraag);
 	    public void updateAanvraag(Aanvraag aanvraag);
 	    public void toonSessieResultaten(Sessie sessie);
+		public void aanvaardAanvraag(Integer id);
+		public List<Aanvraag> geefAlleAanvragenTerugNietAanvaard();
 	}
 	
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import be.odisee.oxyplast.domain.Project;
 import be.odisee.oxyplast.domain.Prototype;
 import be.odisee.oxyplast.service.PrototypeBeheerService;
 import be.odisee.oxyplast.service.ProjectToevoegenService;
@@ -30,6 +31,7 @@ public class PrototypeController {
 	public String prototypeLijst(ModelMap model){
 		List<Prototype> pLijst = pbs.geefAllePrototypesTerugZonderId();
 		model.addAttribute("prototypeItems", pLijst);
+		
 		return "prototype/prototypeLijst";
 	}
 	
@@ -46,12 +48,13 @@ public class PrototypeController {
 	public String prototypeFormulier(ModelMap model){
 		Prototype prototype = new Prototype();
 		model.addAttribute("hetprototype", prototype);
+		model.addAttribute("projectDropdown", pts.geefAlleProjectenTerug());
 		return "prototype/nieuwPrototype";
 	}
 	
 	@RequestMapping(value={"prototype/nieuwPrototype.html"},method=RequestMethod.POST)
-    public String prototypeToevoegen(@ModelAttribute("hetprototype") Prototype prototype, ModelMap model){
-		Prototype nieuwPrototype = pbs.voegPrototypeToe(prototype.getId(), prototype.getProject(), prototype.getFormule());
+    public String prototypeToevoegen(@ModelAttribute("hetprototype") Prototype prototype, Project project, ModelMap model){
+		Prototype nieuwPrototype = pbs.voegPrototypeToe(prototype.getId(), project, prototype.getFormule());
         return "redirect:prototype/prototype.html?id="+nieuwPrototype.getId();
     }	
 	// partner verwijderen
